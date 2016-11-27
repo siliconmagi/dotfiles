@@ -3,15 +3,17 @@ screenfetch
 
 # Keybindings: switch tab with esc
 /usr/bin/setxkbmap -option "caps:swapescape"
+au=/home/oak/git/aul/local
+ns=/home/oak/git/night/local
 
 # Alias
-export NVIM='/home/oak/.config/nvim/init.vim'
-export ZSHRC='/home/oak/.zshrc'
-
 alias 'v=nvim'
-alias 'vn=v $NVIM'
-alias 'vz=v $ZSHRC'
+alias 'vn=v /home/oak/note'
+alias 'vneo=v /home/oak/.config/nvim/init.vim'
+alias 'vz=v /home/oak/.zshrc'
+alias 'vv=v /home/oak/vim'
 alias 'vzs= source /home/oak/.zshrc'
+alias 'vl=cd $ns; livereload -p 8080'
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH

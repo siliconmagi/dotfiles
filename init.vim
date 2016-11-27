@@ -206,7 +206,7 @@ noremap L g_
 noremap J 5j
 noremap K 5k
 " swap ; for :
-nnoremap ; :
+" nnoremap ; :
 " Copy to kubuntu clipboard
 vnoremap <C-c> "+y<CR>
 vnoremap y myy`y
