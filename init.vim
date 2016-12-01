@@ -14,6 +14,21 @@ call dein#add('neovim/node-host', {'build': 'npm install'})
 call dein#add('haya14busa/dein-command.vim')
 
 " syntax
+" clojure syntax
+call dein#add('tpope/vim-fireplace')
+" call dein#add('tpope/vim-classpath')
+call dein#add('guns/vim-clojure-static')
+" call dein#add('vim-scripts/paredit.vim')
+" call dein#add('guns/vim-clojure-highlight')
+" call dein#add('kien/rainbow_parentheses.vim')
+" call dein#add('tpope/vim-sexp-mappings-for-regular-people')
+" call dein#add('guns/vim-sexp')
+" call dein#add('tpope/vim-dispatch')
+" call dein#add('tpope/vim-projectionist')
+" call dein#add('tpope/vim-salve')
+" call dein#add('vim-scripts/VimClojure')
+call dein#add('luochen1990/rainbow')
+
 call dein#add('othree/yajs.vim', {'on_ft': 'javascript'})
 call dein#add('othree/es.next.syntax.vim', {'on_ft': 'javascript'})
 call dein#add('othree/jsdoc-syntax.vim', {'on_ft':['javascript', 'typescript']})
@@ -83,7 +98,6 @@ call dein#add('Konfekt/FastFold')
 call dein#add('Shougo/neosnippet.vim')
 call dein#add('Shougo/neosnippet-snippets')
 call dein#add('honza/vim-snippets')
-call dein#add('matthewsimo/angular-vim-snippets')
 
 call dein#add('mhinz/vim-sayonara')
 call dein#add('mattn/webapi-vim')
@@ -95,8 +109,8 @@ call dein#add('tyru/open-browser.vim')
 call dein#add('ryanoasis/vim-devicons')
 call dein#add('tiagofumo/vim-nerdtree-syntax-highlight')
 
-call dein#add('jordwalke/flatlandia')
-call dein#add('trevordmiller/nova-vim')
+" call dein#add('jordwalke/flatlandia')
+" call dein#add('trevordmiller/nova-vim')
 
 call dein#add('junegunn/vim-easy-align')
 if dein#check_install()
@@ -109,6 +123,34 @@ filetype plugin indent on
 " }}}
 
 " System Settings  ----------------------------------------------------------{{{
+
+" Evaluate Clojure buffers on load
+autocmd BufRead *.clj try | silent! Require | catch /^Fireplace/ | endtry
+
+" rainbow parens
+let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
+let g:rainbow_conf = {
+    \   'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
+    \   'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],
+    \   'operators': '_,_',
+    \   'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
+    \   'separately': {
+    \       '*': {},
+    \       'tex': {
+    \           'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/'],
+    \       },
+    \       'lisp': {
+    \           'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick', 'darkorchid3'],
+    \       },
+    \       'vim': {
+    \           'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/ fold', 'start=/(/ end=/)/ containedin=vimFuncBody', 'start=/\[/ end=/\]/ containedin=vimFuncBody', 'start=/{/ end=/}/ fold containedin=vimFuncBody'],
+    \       },
+    \       'html': {
+    \           'parentheses': ['start=/\v\<((area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)[ >])@!\z([-_:a-zA-Z0-9]+)(\s+[-_:a-zA-Z0-9]+(\=("[^"]*"|'."'".'[^'."'".']*'."'".'|[^ '."'".'"><=`]*))?)*\>/ end=#</\z1># fold'],
+    \       },
+    \       'css': 0,
+    \   }
+    \}
 
 " Neovim Settings
 set relativenumber
@@ -260,7 +302,7 @@ autocmd TermOpen * set bufhidden=hide
 " Theme
 syntax on
 " Color schemes @ https://github.com/flazz/vim-colorschemes/tree/master/colors
-colorscheme luna
+" colorscheme luna
 " }}}
 
 " MarkDown ------------------------------------------------------------------{{{
