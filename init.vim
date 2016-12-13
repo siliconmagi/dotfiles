@@ -16,8 +16,9 @@ call dein#add('haya14busa/dein-command.vim')
 " syntax
 " clojure syntax
 call dein#add('tpope/vim-fireplace')
-" call dein#add('tpope/vim-classpath')
+call dein#add('tpope/vim-classpath')
 call dein#add('guns/vim-clojure-static')
+call dein#add('stephpy/vim-yaml')
 " call dein#add('vim-scripts/paredit.vim')
 " call dein#add('guns/vim-clojure-highlight')
 " call dein#add('kien/rainbow_parentheses.vim')
@@ -59,7 +60,7 @@ call dein#add('valloric/MatchTagAlways', {'on_ft': 'html'})
 
 call dein#add('tpope/vim-fugitive')
 call dein#add('jreybert/vimagit')
-call dein#add('airblade/vim-gitgutter')
+" call dein#add('airblade/vim-gitgutter')
 call dein#add('scrooloose/nerdtree')
 
 call dein#add('Xuyuanp/nerdtree-git-plugin')

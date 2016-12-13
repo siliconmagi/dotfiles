@@ -3,19 +3,40 @@ screenfetch
 
 # Keybindings: switch tab with esc
 /usr/bin/setxkbmap -option "caps:swapescape"
-al=/home/oak/git/aul/local
-nl=/home/oak/git/night/local
-ln=/home/oak/git/night
+ns=/home/oak/git/night
+dz=/home/oak/git/zerg
+dh=/home/oak/git/hydra
+dm=/home/oak/git/mazda
+ms=/home/oak/git/mazda/resources/public/css/style.scss
+mw=/home/oak/git/mazda/resources/public/css/
+vd=/home/oak/vim
 
 # Alias
 alias 'v=nvim'
 alias 'vn=v /home/oak/note'
 alias 'vneo=v /home/oak/.config/nvim/init.vim'
 alias 'vz=v /home/oak/.zshrc'
-alias 'vv=v /home/oak/vim'
+alias 'vv=cd $vd;v .'
 alias 'vzs= source /home/oak/.zshrc'
-alias 'vl=cd $nl; livereload -p 8080'
-alias 'vln=cd $ln'
+alias 'zn=cd $dz;v .'
+alias 'hn=cd $dh;v .'
+alias 'nn=cd $ns;v .'
+alias 'ndh=cd $ns; serverless deploy function -f home'
+alias 'ndc=s3cmd put /home/oak/git/mazda/resources/public/css/style.css s3://night-dev-zergs3-9hxv27xdysnv -m text/css'
+alias 'ndm=s3cmd put /home/oak/git/mazda/resources/public/css/style.css.map s3://night-dev-zergs3-9hxv27xdysnv -m text/css'
+alias 'mdj=aws s3 cp /home/oak/git/mazda/resources/public/js/compiled/app.js s3://night-dev-zergs3-9hxv27xdysnv'
+alias 'zdj=aws s3 cp /home/oak/git/zerg/resources/public/js/compiled/zerg.js s3://night-dev-zergs3-9hxv27xdysnv'
+alias 'zb=cd $dz;lein do clean, cljsbuild once min'
+alias 'lf=lein clean; lein figwheel dev'
+alias 'mb=cd $dm; lein clean; lein cljsbuild once min'
+alias 'ml=cd $dm; lf'
+alias 'mn=cd $dm; v .'
+alias 'ms=v $ms'
+alias 'mw=sass --watch $mw'
+alias 'yd=youtube-dl'
+alias 'yx=youtube-dl -x'
+alias 'yn=youtube-dl --no-playlist'
+
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
