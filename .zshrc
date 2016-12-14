@@ -13,6 +13,7 @@ vd=/home/oak/vim
 
 # Alias
 alias 'v=nvim'
+alias 't=tmux'
 alias 'vn=v /home/oak/note'
 alias 'vneo=v /home/oak/.config/nvim/init.vim'
 alias 'vz=v /home/oak/.zshrc'

@@ -1,129 +1,99 @@
 "silicon magi neovim init.vim"
-" Setup dein  ---------------------------------------------------------------{{{
-if (!isdirectory(expand("$HOME/.config/nvim/repos/github.com/Shougo/dein.vim")))
+
+" Setup vim-plug  ---------------------------------------------------------------{{{
+
+if (!isdirectory(expand("$HOME/.config/nvim/repos/github.com/junegunn/vim-plug")))
   call system(expand("mkdir -p $HOME/.config/nvim/repos/github.com"))
-  call system(expand("git clone https://github.com/Shougo/dein.vim $HOME/.config/nvim/repos/github.com/Shougo/dein.vim"))
+  call system(expand("git clone https://github.com/junegunn/vim-plug $HOME/.config/nvim/repos/github.com/junegunn/vim-plug"))
 endif
 
-set runtimepath+=~/.config/nvim/repos/github.com/Shougo/dein.vim/
-call dein#begin(expand('~/.config/nvim'))
-call dein#add('Shougo/dein.vim')
-call dein#add('junegunn/fzf.vim')
-call dein#add('Shougo/neomru.vim')
-call dein#add('neovim/node-host', {'build': 'npm install'})
-call dein#add('haya14busa/dein-command.vim')
-
+call plug#begin('~/.local/share/nvim/plugged')
+Plug 'junegunn/fzf.vim'
+Plug 'itchyny/lightline.vim'
+Plug 'Shougo/neomru.vim'
+Plug 'neovim/node-host', {'do': 'npm install'}
 " syntax
 " clojure syntax
-call dein#add('tpope/vim-fireplace')
-call dein#add('tpope/vim-classpath')
-call dein#add('guns/vim-clojure-static')
-call dein#add('stephpy/vim-yaml')
-" call dein#add('vim-scripts/paredit.vim')
-" call dein#add('guns/vim-clojure-highlight')
-" call dein#add('kien/rainbow_parentheses.vim')
-" call dein#add('tpope/vim-sexp-mappings-for-regular-people')
-" call dein#add('guns/vim-sexp')
-" call dein#add('tpope/vim-dispatch')
-" call dein#add('tpope/vim-projectionist')
-" call dein#add('tpope/vim-salve')
-" call dein#add('vim-scripts/VimClojure')
-call dein#add('luochen1990/rainbow')
+Plug 'tpope/vim-fireplace', {'for': 'clojure'}
+Plug 'tpope/vim-classpath', {'for': 'clojure'}
+Plug 'guns/vim-clojure-static', {'for': 'clojure'}
+Plug 'stephpy/vim-yaml', {'for': 'yaml'}
+Plug 'luochen1990/rainbow'
+Plug 'elzr/vim-json', {'for': 'json'}
+Plug 'hail2u/vim-css3-syntax', {'for':['css','scss']}
+Plug 'ap/vim-css-color', {'for': ['css', 'scss', 'yaml']}
 
-call dein#add('othree/yajs.vim', {'on_ft': 'javascript'})
-call dein#add('othree/es.next.syntax.vim', {'on_ft': 'javascript'})
-call dein#add('othree/jsdoc-syntax.vim', {'on_ft':['javascript', 'typescript']})
-call dein#add('heavenshell/vim-jsdoc', {'on_ft':['javascript', 'typescript']})
-call dein#add('moll/vim-node', {'on_ft':['javascript', 'typescript']})
-call dein#add('elzr/vim-json', {'on_ft': 'json'})
-" call dein#add('pangloss/vim-javascript', {'on_ft': 'javascript'})
-call dein#add('mxw/vim-jsx', {'on_ft': 'javascript'})
+Plug 'tpope/vim-markdown', {'for': 'markdown'}
+Plug 'dhruvasagar/vim-table-mode'
+Plug 'vimlab/mdown.vim', {'do': 'npm install'}
+Plug 'nelstrom/vim-markdown-folding'
+Plug 'tyru/markdown-codehl-onthefly.vim'
 
-call dein#add('hail2u/vim-css3-syntax', {'on_ft':['css','scss']})
-call dein#add('ap/vim-css-color', {'on_ft': ['css', 'scss', 'yaml']})
+Plug 'tmhedberg/SimpylFold', {'for': 'python'}
+Plug 'tmux-plugins/vim-tmux'
 
-call dein#add('tpope/vim-markdown', {'on_ft': 'markdown'})
-" call dein#add('jtratner/vim-flavored-markdown', {'on_ft': 'markdown'})
-call dein#add('dhruvasagar/vim-table-mode')
-" call dein#add('suan/vim-instant-markdown')
-call dein#add('vimlab/mdown.vim', {'build': 'npm install'})
-call dein#add('nelstrom/vim-markdown-folding')
-call dein#add('tyru/markdown-codehl-onthefly.vim')
+Plug 'Yggdroot/indentLine'
+Plug 'itmammoth/doorboy.vim'
+Plug 'valloric/MatchTagAlways', {'for': 'html'}
 
-call dein#add('tmhedberg/SimpylFold', {'on_ft': 'python'})
-call dein#add('HerringtonDarkholme/yats.vim', {'on_ft': ['typescript']})
-call dein#add('tmux-plugins/vim-tmux')
+Plug 'tpope/vim-fugitive'
+Plug 'jreybert/vimagit'
+" Plug 'airblade/vim-gitgutter'
+Plug 'scrooloose/nerdtree'
 
-call dein#add('Yggdroot/indentLine')
-call dein#add('itmammoth/doorboy.vim')
-call dein#add('valloric/MatchTagAlways', {'on_ft': 'html'})
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'tpope/vim-repeat'
 
-call dein#add('tpope/vim-fugitive')
-call dein#add('jreybert/vimagit')
-" call dein#add('airblade/vim-gitgutter')
-call dein#add('scrooloose/nerdtree')
+Plug 'neomake/neomake'
 
-call dein#add('Xuyuanp/nerdtree-git-plugin')
-call dein#add('tpope/vim-repeat')
-
-call dein#add('neomake/neomake')
-
-call dein#add('majutsushi/tagbar')
-call dein#add('editorconfig/editorconfig-vim')
-call dein#add('AndrewRadev/switch.vim')
-call dein#add('christoomey/vim-tmux-navigator')
-call dein#add('vim-airline/vim-airline')
-call dein#add('vim-airline/vim-airline-themes')
-call dein#add('tpope/vim-surround')
-" call dein#add('tomtom/tcomment_vim')
-call dein#add('scrooloose/nerdcommenter')
-call dein#add('mattn/emmet-vim')
-call dein#add('Chiel92/vim-autoformat')
-call dein#add('Shougo/vimfiler')
-call dein#add('flazz/vim-colorschemes')
-call dein#add('hecal3/vim-leader-guide')
+Plug 'majutsushi/tagbar'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'AndrewRadev/switch.vim'
+Plug 'christoomey/vim-tmux-navigator'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
+Plug 'tpope/vim-surround'
+Plug 'scrooloose/nerdcommenter'
+Plug 'mattn/emmet-vim'
+Plug 'Chiel92/vim-autoformat'
+Plug 'hecal3/vim-leader-guide'
 
 " deoplete stuff
-call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
-call dein#add('Quramy/tsuquyomi')
-call dein#add('Shougo/deoplete.nvim')
-call dein#add('ternjs/tern_for_vim', {'build': 'npm install'})
-call dein#add('carlitux/deoplete-ternjs')
-call dein#add('Shougo/neco-vim', {'on_ft': 'vim'})
-call dein#add('Shougo/neoinclude.vim')
-call dein#add('ujihisa/neco-look', {'on_ft': ['markdown','text','html']})
-call dein#add('zchee/deoplete-jedi', {'on_ft': 'python'})
-call dein#add('davidhalter/jedi-vim', {'on_ft': 'python'})
-call dein#add('Konfekt/FastFold')
+Plug 'Shougo/vimproc.vim', {'do' : 'make'}
+Plug 'Quramy/tsuquyomi'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'ternjs/tern_for_vim', {'do': 'npm install'}
+Plug 'carlitux/deoplete-ternjs'
+Plug 'Shougo/neco-vim', {'for': 'vim'}
+Plug 'Shougo/neoinclude.vim'
+Plug 'ujihisa/neco-look', {'for': ['markdown','text','html']}
+Plug 'zchee/deoplete-jedi', {'for': 'python'}
+Plug 'davidhalter/jedi-vim', {'for': 'python'}
+Plug 'Konfekt/FastFold'
 
-call dein#add('Shougo/neosnippet.vim')
-call dein#add('Shougo/neosnippet-snippets')
-call dein#add('honza/vim-snippets')
+Plug 'Shougo/neosnippet.vim'
+Plug 'Shougo/neosnippet-snippets'
+Plug 'honza/vim-snippets'
 
-call dein#add('mhinz/vim-sayonara')
-call dein#add('mattn/webapi-vim')
-call dein#add('mattn/gist-vim')
-call dein#add('terryma/vim-multiple-cursors')
-call dein#add('vim-scripts/SyntaxRange')
+Plug 'mhinz/vim-sayonara'
+Plug 'mattn/webapi-vim'
+Plug 'mattn/gist-vim'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'vim-scripts/SyntaxRange'
 
-call dein#add('tyru/open-browser.vim')
-call dein#add('ryanoasis/vim-devicons')
-call dein#add('tiagofumo/vim-nerdtree-syntax-highlight')
+Plug 'tyru/open-browser.vim'
+Plug 'ryanoasis/vim-devicons'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'junegunn/vim-easy-align'
 
-" call dein#add('jordwalke/flatlandia')
-" call dein#add('trevordmiller/nova-vim')
+call plug#end()
 
-call dein#add('junegunn/vim-easy-align')
-if dein#check_install()
-  call dein#install()
-  let pluginsExist=1
-endif
 
-call dein#end()
-filetype plugin indent on
 " }}}
 
 " System Settings  ----------------------------------------------------------{{{
+
+filetype plugin indent on
 
 " Evaluate Clojure buffers on load
 autocmd BufRead *.clj try | silent! Require | catch /^Fireplace/ | endtry
@@ -131,27 +101,27 @@ autocmd BufRead *.clj try | silent! Require | catch /^Fireplace/ | endtry
 " rainbow parens
 let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
 let g:rainbow_conf = {
-    \   'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
-    \   'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],
-    \   'operators': '_,_',
-    \   'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
-    \   'separately': {
-    \       '*': {},
-    \       'tex': {
-    \           'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/'],
-    \       },
-    \       'lisp': {
-    \           'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick', 'darkorchid3'],
-    \       },
-    \       'vim': {
-    \           'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/ fold', 'start=/(/ end=/)/ containedin=vimFuncBody', 'start=/\[/ end=/\]/ containedin=vimFuncBody', 'start=/{/ end=/}/ fold containedin=vimFuncBody'],
-    \       },
-    \       'html': {
-    \           'parentheses': ['start=/\v\<((area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)[ >])@!\z([-_:a-zA-Z0-9]+)(\s+[-_:a-zA-Z0-9]+(\=("[^"]*"|'."'".'[^'."'".']*'."'".'|[^ '."'".'"><=`]*))?)*\>/ end=#</\z1># fold'],
-    \       },
-    \       'css': 0,
-    \   }
-    \}
+      \   'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
+      \   'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],
+      \   'operators': '_,_',
+      \   'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
+      \   'separately': {
+      \       '*': {},
+      \       'tex': {
+      \           'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/'],
+      \       },
+      \       'lisp': {
+      \           'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick', 'darkorchid3'],
+      \       },
+      \       'vim': {
+      \           'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/ fold', 'start=/(/ end=/)/ containedin=vimFuncBody', 'start=/\[/ end=/\]/ containedin=vimFuncBody', 'start=/{/ end=/}/ fold containedin=vimFuncBody'],
+      \       },
+      \       'html': {
+      \           'parentheses': ['start=/\v\<((area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)[ >])@!\z([-_:a-zA-Z0-9]+)(\s+[-_:a-zA-Z0-9]+(\=("[^"]*"|'."'".'[^'."'".']*'."'".'|[^ '."'".'"><=`]*))?)*\>/ end=#</\z1># fold'],
+      \       },
+      \       'css': 0,
+      \   }
+      \}
 
 " Neovim Settings
 set relativenumber
@@ -294,7 +264,6 @@ command! -nargs=1 PlaceholderImgTag call s:PlaceholderImgTag(<f-args>)
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
-" noremap <silent> - :VimFiler<cr>
 " Keep my termo window open when I navigate away
 autocmd TermOpen * set bufhidden=hide
 "}}}"
@@ -389,39 +358,7 @@ autocmd FileType javascript,typescript,json setl foldmethod=syntax
 
 let NERDTreeMapJumpFirstChild = ''
 map <silent> <F3> :NERDTreeToggle<CR>
-map <silent> <F2> :VimFiler<CR>
-let g:vimfiler_tree_leaf_icon = ' '
-let g:vimfiler_tree_opened_icon = '▾'
-let g:vimfiler_tree_closed_icon = '▸'
-let g:vimfiler_file_icon = '-'
-let g:vimfiler_marked_file_icon = '*'
-call vimfiler#custom#profile('default', 'context', {
-      \ 'explorer' : 1,
-      \ 'winwidth' : 35,
-      \ 'winminwidth' : 35,
-      \ 'toggle' : 1,
-      \ 'auto_expand': 1,
-      \ 'parent': 0,
-      \ 'explorer_columns' : 'devicons',
-      \ 'status' : 1,
-      \ 'safe' : 0,
-      \ 'split' : 1,
-      \ 'hidden': 0,
-      \ 'no_quit' : 1,
-      \ 'force_hide' : 0,
-      \ })
-augroup vfinit
-  autocmd FileType vimfiler call s:vimfilerinit()
-augroup END
-function! s:vimfilerinit()
-  noremap K 5k
-  set nonumber
-  set norelativenumber
-endf
 
-" let g:vimfiler_ignore_pattern = '^\%(\.git\|\.DS_Store\)$'
-let g:webdevicons_enable_vimfiler = 0
-" map <silent> - :VimFiler<CR>
 " let g:WebDevIconsOS = 'Darwin'
 autocmd StdinReadPre * let s:std_in=1
 " autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
@@ -476,12 +413,7 @@ imap <c-x><c-l> <plug>(fzf-complete-line)
 
 " Deoplete ------------------------------------------------------------------{{{
 " enable deoplete
-let g:deoplete#enable_at_startup = 1
-" call deoplete#custom#set('typescript', 'debug_enabled', 1)
-" call deoplete#custom#set('npm', 'debug_enabled', 1)
-" call deoplete#custom#set('htmlTag', 'debug_enabled', 1)
-" call deoplete#enable_logging('DEBUG', 'tss.log')
-" let g:deoplete#sources#tss#javascript_support = 1
+let g:deoplete#enable_at_startup = 0
 let g:vim_json_syntax_conceal = 0
 set splitbelow
 set completeopt+=noselect
@@ -493,11 +425,6 @@ endfunction
 function! Multiple_cursors_after()
   let b:deoplete_disable_auto_complete=0
 endfunction
-call deoplete#custom#set('buffer', 'mark', 'buffer')
-call deoplete#custom#set('ternjs', 'mark', '')
-call deoplete#custom#set('typescript', 'mark', '')
-call deoplete#custom#set('omni', 'mark', 'omni')
-call deoplete#custom#set('file', 'mark', 'file')
 let g:deoplete#omni_patterns = {}
 let g:deoplete#omni_patterns.html = ''
 function! Preview_func()
@@ -556,40 +483,116 @@ tmap <C-;> <C-\><C-n>:TmuxNavigatePrevious<cr>
 "}}}
 
 " vim-airline ---------------------------------------------------------------{{{
-let g:airline#extensions#tabline#enabled = 1
-" let g:airline_skip_empty_sections = 1
-set hidden
-let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline#extensions#tabline#show_tab_nr = 1
-let g:airline_powerline_fonts = 1
-let g:airline_theme='luna'
-" let g:airline_theme='molokai'
-cnoreabbrev <expr> x getcmdtype() == ":" && getcmdline() == 'x' ? 'Sayonara' : 'x'
-tmap <leader>x <c-\><c-n>:bp! <BAR> bd! #<CR>
-nmap <leader>x :bd<CR>
-nmap <leader>t :term<cr>
-nmap <leader>, :bnext<CR>
-tmap <leader>, <C-\><C-n>:bnext<cr>
-nmap <leader>. :bprevious<CR>
-tmap <leader>. <C-\><C-n>:bprevious<CR>
-let g:airline#extensions#tabline#buffer_idx_mode = 1
-tmap <leader>1  <C-\><C-n><Plug>AirlineSelectTab1
-tmap <leader>2  <C-\><C-n><Plug>AirlineSelectTab2
-tmap <leader>3  <C-\><C-n><Plug>AirlineSelectTab3
-tmap <leader>4  <C-\><C-n><Plug>AirlineSelectTab4
-tmap <leader>5  <C-\><C-n><Plug>AirlineSelectTab5
-tmap <leader>6  <C-\><C-n><Plug>AirlineSelectTab6
-tmap <leader>7  <C-\><C-n><Plug>AirlineSelectTab7
-tmap <leader>8  <C-\><C-n><Plug>AirlineSelectTab8
-tmap <leader>9  <C-\><C-n><Plug>AirlineSelectTab9
-nmap <leader>1 <Plug>AirlineSelectTab1
-nmap <leader>2 <Plug>AirlineSelectTab2
-nmap <leader>3 <Plug>AirlineSelectTab3
-nmap <leader>4 <Plug>AirlineSelectTab4
-nmap <leader>5 <Plug>AirlineSelectTab5
-nmap <leader>6 <Plug>AirlineSelectTab6
-nmap <leader>7 <Plug>AirlineSelectTab7
-nmap <leader>8 <Plug>AirlineSelectTab8
-nmap <leader>9 <Plug>AirlineSelectTab9
+" let g:airline#extensions#tabline#enabled = 1
+" " let g:airline_skip_empty_sections = 1
+" set hidden
+" let g:airline#extensions#tabline#fnamemod = ':t'
+" let g:airline#extensions#tabline#show_tab_nr = 1
+" let g:airline_powerline_fonts = 1
+" let g:airline_theme='luna'
+" " let g:airline_theme='molokai'
+" cnoreabbrev <expr> x getcmdtype() == ":" && getcmdline() == 'x' ? 'Sayonara' : 'x'
+" tmap <leader>x <c-\><c-n>:bp! <BAR> bd! #<CR>
+" nmap <leader>x :bd<CR>
+" nmap <leader>t :term<cr>
+" nmap <leader>, :bnext<CR>
+" tmap <leader>, <C-\><C-n>:bnext<cr>
+" nmap <leader>. :bprevious<CR>
+" tmap <leader>. <C-\><C-n>:bprevious<CR>
+" let g:airline#extensions#tabline#buffer_idx_mode = 1
+" tmap <leader>1  <C-\><C-n><Plug>AirlineSelectTab1
+" tmap <leader>2  <C-\><C-n><Plug>AirlineSelectTab2
+" tmap <leader>3  <C-\><C-n><Plug>AirlineSelectTab3
+" tmap <leader>4  <C-\><C-n><Plug>AirlineSelectTab4
+" tmap <leader>5  <C-\><C-n><Plug>AirlineSelectTab5
+" tmap <leader>6  <C-\><C-n><Plug>AirlineSelectTab6
+" tmap <leader>7  <C-\><C-n><Plug>AirlineSelectTab7
+" tmap <leader>8  <C-\><C-n><Plug>AirlineSelectTab8
+" tmap <leader>9  <C-\><C-n><Plug>AirlineSelectTab9
+" nmap <leader>1 <Plug>AirlineSelectTab1
+" nmap <leader>2 <Plug>AirlineSelectTab2
+" nmap <leader>3 <Plug>AirlineSelectTab3
+" nmap <leader>4 <Plug>AirlineSelectTab4
+" nmap <leader>5 <Plug>AirlineSelectTab5
+" nmap <leader>6 <Plug>AirlineSelectTab6
+" nmap <leader>7 <Plug>AirlineSelectTab7
+" nmap <leader>8 <Plug>AirlineSelectTab8
+" nmap <leader>9 <Plug>AirlineSelectTab9
+"}}}
+
+" lightline ---------------------------------------------------------------{{{
+set encoding=utf-8
+scriptencoding utf-8
+set noshowmode
+
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'fugitive', 'filename' ] ]
+      \ },
+      \ 'component_function': {
+      \   'fugitive': 'LightlineFugitive',
+      \   'readonly': 'LightlineReadonly',
+      \   'modified': 'LightlineModified',
+      \   'filename': 'LightlineFilename'
+      \ },
+      \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
+      \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }
+      \ }
+
+function! LightlineModified()
+  if &filetype == "help"
+    return ""
+  elseif &modified
+    return "+"
+  elseif &modifiable
+    return ""
+  else
+    return ""
+  endif
+endfunction
+
+function! LightlineReadonly()
+  if &filetype == "help"
+    return ""
+  elseif &readonly
+    return "\ue0a2"
+  else
+    return ""
+  endif
+endfunction
+
+function! LightlineFugitive()
+  if exists("*fugitive#head")
+    let branch = fugitive#head()
+    return branch !=# '' ? "\ue0a0" .branch : ''
+  endif
+  return ''
+endfunction
+
+function! LightlineFilename()
+  return ('' != LightlineReadonly() ? LightlineReadonly() . ' ' : '') .
+        \ ('' != expand('%:t') ? expand('%:t') : '[No Name]') .
+        \ ('' != LightlineModified() ? ' ' . LightlineModified() : '')
+endfunction
+
+"}}}
+
+
+" vim-tabs ---------------------------------------------------------------{{{
+
+" Go to tab by number
+noremap <leader>1 1gt
+noremap <leader>2 2gt
+noremap <leader>3 3gt
+noremap <leader>4 4gt
+noremap <leader>5 5gt
+noremap <leader>6 6gt
+noremap <leader>7 7gt
+noremap <leader>8 8gt
+noremap <leader>9 9gt
+noremap <leader>0 :tablast<cr>
+
 "}}}
 
