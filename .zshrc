@@ -3,13 +3,10 @@ screenfetch
 
 # Keybindings: switch tab with esc
 /usr/bin/setxkbmap -option "caps:swapescape"
-ns=/home/oak/git/night
-dz=/home/oak/git/zerg
-dh=/home/oak/git/hydra
-dm=/home/oak/git/mazda
-ms=/home/oak/git/mazda/resources/public/css/style.scss
-mw=/home/oak/git/mazda/resources/public/css/
-vd=/home/oak/vim
+DN=/home/oak/git/night
+DM=/home/oak/git/mazda
+MW=/home/oak/git/mazda/resources/public
+VD=/home/oak/vim
 
 # Alias
 alias 'v=nvim'
@@ -17,23 +14,21 @@ alias 't=tmux'
 alias 'vn=v /home/oak/note'
 alias 'vneo=v /home/oak/.config/nvim/init.vim'
 alias 'vz=v /home/oak/.zshrc'
-alias 'vv=cd $vd;v .'
+alias 'vv=cd $VD;v .'
 alias 'vzs= source /home/oak/.zshrc'
-alias 'zn=cd $dz;v .'
-alias 'hn=cd $dh;v .'
-alias 'nn=cd $ns;v .'
-alias 'ndh=cd $ns; serverless deploy function -f home'
-alias 'ndc=s3cmd put /home/oak/git/mazda/resources/public/css/style.css s3://night-dev-zergs3-9hxv27xdysnv -m text/css'
-alias 'ndm=s3cmd put /home/oak/git/mazda/resources/public/css/style.css.map s3://night-dev-zergs3-9hxv27xdysnv -m text/css'
-alias 'mdj=aws s3 cp /home/oak/git/mazda/resources/public/js/compiled/app.js s3://night-dev-zergs3-9hxv27xdysnv'
-alias 'zdj=aws s3 cp /home/oak/git/zerg/resources/public/js/compiled/zerg.js s3://night-dev-zergs3-9hxv27xdysnv'
-alias 'zb=cd $dz;lein do clean, cljsbuild once min'
+
+alias 'nn=cd $DN;v .'
+alias 'ndh=cd $DN; serverless deploy function -f home'
+
+alias 'mbc=cleancss -o $MW/css/style-min.css $MW/css/style.css && echo clean && gzip -9 -n $MW/css/style-min.css && echo gzip && mv $MW/css/style-min.css.gz $MW/css/style-min.css && echo mv'
+alias 'mdc=s3cmd put $MW/css/style-min.css s3://night-dev-mazdas3-v2bpo388b5qy -m text/css'
+alias 'mdj=aws s3 cp $MW/js/compiled/app.js s3://night-dev-mazdas3-v2bpo388b5qy'
 alias 'lf=lein clean; lein figwheel dev'
-alias 'mb=cd $dm; lein clean; lein cljsbuild once min'
-alias 'ml=cd $dm; lf'
-alias 'mn=cd $dm; v .'
-alias 'ms=v $ms'
-alias 'mw=sass --watch $mw'
+alias 'mbj=cd $DM; lein clean; lein cljsbuild once min'
+alias 'ml=cd $DM; lf'
+alias 'mn=cd $DM; v .'
+alias 'mw=sass --watch $mw/css'
+
 alias 'yd=youtube-dl'
 alias 'yx=youtube-dl -x'
 alias 'yn=youtube-dl --no-playlist'
