@@ -16,23 +16,31 @@ alias 'vneo=v /home/oak/.config/nvim/init.vim'
 alias 'vz=v /home/oak/.zshrc'
 alias 'vv=cd $VD;v .'
 alias 'vzs= source /home/oak/.zshrc'
+alias 'jr=java -cp /home/oak/Downloads/clojure-1.8.0/clojure-1.8.0.jar clojure.main'
+alias 'wg=wget -L -r -nc -nd -k -p -np'
 
 alias 'nn=cd $DN;v .'
+alias 'nh=cd $DN;v home.js'
+alias 'ns=v $DN/src/entry.js'
 alias 'ndh=cd $DN; serverless deploy function -f home'
 
+alias 'mb=v $MW/src/entry.js'
+
 alias 'mbc=cleancss -o $MW/css/style-min.css $MW/css/style.css && echo clean && gzip -9 -n $MW/css/style-min.css && echo gzip && mv $MW/css/style-min.css.gz $MW/css/style-min.css && echo mv'
-alias 'mdc=s3cmd put $MW/css/style-min.css s3://night-dev-mazdas3-v2bpo388b5qy -m text/css'
+alias 'mdc=aws s3 cp $MW/css/style-min.css s3://night-dev-mazdas3-v2bpo388b5qy --content-encoding "gzip" --content-type "text/css"'
 alias 'mdj=aws s3 cp $MW/js/compiled/app.js s3://night-dev-mazdas3-v2bpo388b5qy'
 alias 'lf=lein clean; lein figwheel dev'
 alias 'mbj=cd $DM; lein clean; lein cljsbuild once min'
 alias 'ml=cd $DM; lf'
 alias 'mn=cd $DM; v .'
-alias 'mw=sass --watch $mw/css'
+alias 'mw=sass --watch $MW/css'
 
 alias 'yd=youtube-dl'
 alias 'yx=youtube-dl -x'
 alias 'yn=youtube-dl --no-playlist'
 
+# yarn path
+export PATH="$PATH:`yarn global bin`"
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH

@@ -9,16 +9,20 @@ endif
 
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'junegunn/fzf.vim'
-Plug 'itchyny/lightline.vim'
+" Plug 'itchyny/lightline.vim'
 Plug 'Shougo/neomru.vim'
 Plug 'neovim/node-host', {'do': 'npm install'}
 " syntax
-" clojure syntax
 Plug 'tpope/vim-fireplace', {'for': 'clojure'}
 Plug 'tpope/vim-classpath', {'for': 'clojure'}
 Plug 'guns/vim-clojure-static', {'for': 'clojure'}
 Plug 'stephpy/vim-yaml', {'for': 'yaml'}
 Plug 'luochen1990/rainbow'
+Plug 'othree/yajs.vim', {'for': 'javascript'}
+Plug 'othree/es.next.syntax.vim', {'for': 'javascript'}
+Plug 'othree/jsdoc-syntax.vim', {'for': 'javascript'}
+Plug 'heavenshell/vim-jsdoc', {'for': 'javascript'}
+Plug 'moll/vim-node', {'for': 'javascript'}
 Plug 'elzr/vim-json', {'for': 'json'}
 Plug 'hail2u/vim-css3-syntax', {'for':['css','scss']}
 Plug 'ap/vim-css-color', {'for': ['css', 'scss', 'yaml']}
@@ -50,8 +54,8 @@ Plug 'majutsushi/tagbar'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'AndrewRadev/switch.vim'
 Plug 'christoomey/vim-tmux-navigator'
-" Plug 'vim-airline/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdcommenter'
 Plug 'mattn/emmet-vim'
@@ -292,6 +296,7 @@ let g:jsdoc_allow_input_prompt = 1
 let g:jsdoc_input_description = 1
 let g:jsx_ext_required = 0
 " eslint
+autocmd! BufWritePost * Neomake
 let g:neomake_javascript_enabled_makers = ['eslint']
 " neomake
 nmap <Leader><Space>o :lopen<CR>      " open location window
@@ -299,7 +304,7 @@ nmap <Leader><Space>c :lclose<CR>     " close location window
 nmap <Leader><Space>, :ll<CR>         " go to current error/warning
 nmap <Leader><Space>n :lnext<CR>      " next error/warning
 nmap <Leader><Space>p :lprev<CR>      " previous error/warning
-autocmd FileType typescript nmap <buffer> <Leader>T : <C-u>echo tsuquyomi#hint()<CR>
+" autocmd FileType typescript nmap <buffer> <Leader>T : <C-u>echo tsuquyomi#hint()<CR>
 " }}}
 
 " Python --------------------------------------------------------------------{{{
@@ -413,7 +418,7 @@ imap <c-x><c-l> <plug>(fzf-complete-line)
 
 " Deoplete ------------------------------------------------------------------{{{
 " enable deoplete
-let g:deoplete#enable_at_startup = 0
+let g:deoplete#enable_at_startup = 1
 let g:vim_json_syntax_conceal = 0
 set splitbelow
 set completeopt+=noselect
@@ -483,99 +488,99 @@ tmap <C-;> <C-\><C-n>:TmuxNavigatePrevious<cr>
 "}}}
 
 " vim-airline ---------------------------------------------------------------{{{
-" let g:airline#extensions#tabline#enabled = 1
-" " let g:airline_skip_empty_sections = 1
-" set hidden
-" let g:airline#extensions#tabline#fnamemod = ':t'
-" let g:airline#extensions#tabline#show_tab_nr = 1
-" let g:airline_powerline_fonts = 1
-" let g:airline_theme='luna'
-" " let g:airline_theme='molokai'
-" cnoreabbrev <expr> x getcmdtype() == ":" && getcmdline() == 'x' ? 'Sayonara' : 'x'
-" tmap <leader>x <c-\><c-n>:bp! <BAR> bd! #<CR>
-" nmap <leader>x :bd<CR>
-" nmap <leader>t :term<cr>
-" nmap <leader>, :bnext<CR>
-" tmap <leader>, <C-\><C-n>:bnext<cr>
-" nmap <leader>. :bprevious<CR>
-" tmap <leader>. <C-\><C-n>:bprevious<CR>
-" let g:airline#extensions#tabline#buffer_idx_mode = 1
-" tmap <leader>1  <C-\><C-n><Plug>AirlineSelectTab1
-" tmap <leader>2  <C-\><C-n><Plug>AirlineSelectTab2
-" tmap <leader>3  <C-\><C-n><Plug>AirlineSelectTab3
-" tmap <leader>4  <C-\><C-n><Plug>AirlineSelectTab4
-" tmap <leader>5  <C-\><C-n><Plug>AirlineSelectTab5
-" tmap <leader>6  <C-\><C-n><Plug>AirlineSelectTab6
-" tmap <leader>7  <C-\><C-n><Plug>AirlineSelectTab7
-" tmap <leader>8  <C-\><C-n><Plug>AirlineSelectTab8
-" tmap <leader>9  <C-\><C-n><Plug>AirlineSelectTab9
-" nmap <leader>1 <Plug>AirlineSelectTab1
-" nmap <leader>2 <Plug>AirlineSelectTab2
-" nmap <leader>3 <Plug>AirlineSelectTab3
-" nmap <leader>4 <Plug>AirlineSelectTab4
-" nmap <leader>5 <Plug>AirlineSelectTab5
-" nmap <leader>6 <Plug>AirlineSelectTab6
-" nmap <leader>7 <Plug>AirlineSelectTab7
-" nmap <leader>8 <Plug>AirlineSelectTab8
-" nmap <leader>9 <Plug>AirlineSelectTab9
+let g:airline#extensions#tabline#enabled = 1
+" let g:airline_skip_empty_sections = 1
+set hidden
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#tabline#show_tab_nr = 1
+let g:airline_powerline_fonts = 1
+let g:airline_theme='luna'
+" let g:airline_theme='molokai'
+cnoreabbrev <expr> x getcmdtype() == ":" && getcmdline() == 'x' ? 'Sayonara' : 'x'
+tmap <leader>x <c-\><c-n>:bp! <BAR> bd! #<CR>
+nmap <leader>x :bd<CR>
+nmap <leader>t :term<cr>
+nmap <leader>, :bnext<CR>
+tmap <leader>, <C-\><C-n>:bnext<cr>
+nmap <leader>. :bprevious<CR>
+tmap <leader>. <C-\><C-n>:bprevious<CR>
+let g:airline#extensions#tabline#buffer_idx_mode = 1
+tmap <leader>1  <C-\><C-n><Plug>AirlineSelectTab1
+tmap <leader>2  <C-\><C-n><Plug>AirlineSelectTab2
+tmap <leader>3  <C-\><C-n><Plug>AirlineSelectTab3
+tmap <leader>4  <C-\><C-n><Plug>AirlineSelectTab4
+tmap <leader>5  <C-\><C-n><Plug>AirlineSelectTab5
+tmap <leader>6  <C-\><C-n><Plug>AirlineSelectTab6
+tmap <leader>7  <C-\><C-n><Plug>AirlineSelectTab7
+tmap <leader>8  <C-\><C-n><Plug>AirlineSelectTab8
+tmap <leader>9  <C-\><C-n><Plug>AirlineSelectTab9
+nmap <leader>1 <Plug>AirlineSelectTab1
+nmap <leader>2 <Plug>AirlineSelectTab2
+nmap <leader>3 <Plug>AirlineSelectTab3
+nmap <leader>4 <Plug>AirlineSelectTab4
+nmap <leader>5 <Plug>AirlineSelectTab5
+nmap <leader>6 <Plug>AirlineSelectTab6
+nmap <leader>7 <Plug>AirlineSelectTab7
+nmap <leader>8 <Plug>AirlineSelectTab8
+nmap <leader>9 <Plug>AirlineSelectTab9
 "}}}
 
 " lightline ---------------------------------------------------------------{{{
-set encoding=utf-8
-scriptencoding utf-8
-set noshowmode
+" set encoding=utf-8
+" scriptencoding utf-8
+" set noshowmode
 
-let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'fugitive', 'filename' ] ]
-      \ },
-      \ 'component_function': {
-      \   'fugitive': 'LightlineFugitive',
-      \   'readonly': 'LightlineReadonly',
-      \   'modified': 'LightlineModified',
-      \   'filename': 'LightlineFilename'
-      \ },
-      \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
-      \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }
-      \ }
+" let g:lightline = {
+      " \ 'colorscheme': 'wombat',
+      " \ 'active': {
+      " \   'left': [ [ 'mode', 'paste' ],
+      " \             [ 'fugitive', 'filename' ] ]
+      " \ },
+      " \ 'component_function': {
+      " \   'fugitive': 'LightlineFugitive',
+      " \   'readonly': 'LightlineReadonly',
+      " \   'modified': 'LightlineModified',
+      " \   'filename': 'LightlineFilename'
+      " \ },
+      " \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
+      " \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }
+      " \ }
 
-function! LightlineModified()
-  if &filetype == "help"
-    return ""
-  elseif &modified
-    return "+"
-  elseif &modifiable
-    return ""
-  else
-    return ""
-  endif
-endfunction
+" function! LightlineModified()
+  " if &filetype == "help"
+    " return ""
+  " elseif &modified
+    " return "+"
+  " elseif &modifiable
+    " return ""
+  " else
+    " return ""
+  " endif
+" endfunction
 
-function! LightlineReadonly()
-  if &filetype == "help"
-    return ""
-  elseif &readonly
-    return "\ue0a2"
-  else
-    return ""
-  endif
-endfunction
+" function! LightlineReadonly()
+  " if &filetype == "help"
+    " return ""
+  " elseif &readonly
+    " return "\ue0a2"
+  " else
+    " return ""
+  " endif
+" endfunction
 
-function! LightlineFugitive()
-  if exists("*fugitive#head")
-    let branch = fugitive#head()
-    return branch !=# '' ? "\ue0a0" .branch : ''
-  endif
-  return ''
-endfunction
+" function! LightlineFugitive()
+  " if exists("*fugitive#head")
+    " let branch = fugitive#head()
+    " return branch !=# '' ? "\ue0a0" .branch : ''
+  " endif
+  " return ''
+" endfunction
 
-function! LightlineFilename()
-  return ('' != LightlineReadonly() ? LightlineReadonly() . ' ' : '') .
-        \ ('' != expand('%:t') ? expand('%:t') : '[No Name]') .
-        \ ('' != LightlineModified() ? ' ' . LightlineModified() : '')
-endfunction
+" function! LightlineFilename()
+  " return ('' != LightlineReadonly() ? LightlineReadonly() . ' ' : '') .
+        " \ ('' != expand('%:t') ? expand('%:t') : '[No Name]') .
+        " \ ('' != LightlineModified() ? ' ' . LightlineModified() : '')
+" endfunction
 
 "}}}
 
