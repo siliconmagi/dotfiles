@@ -7,6 +7,12 @@ DN=/home/oak/git/night
 DM=/home/oak/git/mazda
 MW=/home/oak/git/mazda/resources/public
 VD=/home/oak/vim
+DT=/home/oak/git/terra
+TW=/home/oak/git/terra/resources/public
+WW=/home/oak/git/webred/src/client/assets
+DW=/home/oak/git/webred
+DA=/home/oak/git/alnasl
+B=s3://night-dev-mazdas3-v2bpo388b5qy
 
 # Alias
 alias 'v=nvim'
@@ -30,14 +36,30 @@ alias 'mbc=cleancss -o $MW/css/style-min.css $MW/css/style.css && echo clean && 
 alias 'mdc=aws s3 cp $MW/css/style-min.css s3://night-dev-mazdas3-v2bpo388b5qy --content-encoding "gzip" --content-type "text/css"'
 alias 'mdj=aws s3 cp $MW/js/compiled/app.js s3://night-dev-mazdas3-v2bpo388b5qy'
 alias 'lf=lein clean; lein figwheel dev'
+alias 'lg=lein garden auto'
 alias 'mbj=cd $DM; lein clean; lein cljsbuild once min'
 alias 'ml=cd $DM; lf'
 alias 'mn=cd $DM; v .'
 alias 'mw=sass --watch $MW/css'
+alias 'pl=livereload -p 8080'
+
+alias 'tn=cd $DT && v .'
+alias 'tl=cd $DT && lf'
+alias 'wn=cd $WW && v .'
+alias 'wl=cd $DW && npm start'
+alias 'wb=cd $DW && npm run build:serve'
+alias 'an=cd $DA && v .'
 
 alias 'yd=youtube-dl'
 alias 'yx=youtube-dl -x'
 alias 'yn=youtube-dl --no-playlist'
+
+alias 'ga=git add -A'
+alias 'gs=git status'
+alias 'gl=git clone'
+alias 'gc=git commit -m'
+alias 'gp=git push'
+
 
 # yarn path
 export PATH="$PATH:`yarn global bin`"

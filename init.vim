@@ -9,13 +9,14 @@ endif
 
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'junegunn/fzf.vim'
-" Plug 'itchyny/lightline.vim'
 Plug 'Shougo/neomru.vim'
 Plug 'neovim/node-host', {'do': 'npm install'}
 " syntax
 Plug 'tpope/vim-fireplace', {'for': 'clojure'}
 Plug 'tpope/vim-classpath', {'for': 'clojure'}
 Plug 'guns/vim-clojure-static', {'for': 'clojure'}
+Plug 'guns/vim-sexp', {'for': 'clojure'}
+Plug 'tpope/vim-sexp-mappings-for-regular-people', {'for': 'clojure'}
 Plug 'stephpy/vim-yaml', {'for': 'yaml'}
 Plug 'luochen1990/rainbow'
 Plug 'othree/yajs.vim', {'for': 'javascript'}
