@@ -9,9 +9,9 @@ MW=/home/oak/git/mazda/resources/public
 VD=/home/oak/vim
 DT=/home/oak/git/terra
 TW=/home/oak/git/terra/resources/public
-WW=/home/oak/git/webred/src/client/assets
-DW=/home/oak/git/webred
+BD=/home/oak/git/react-boilerplate
 DA=/home/oak/git/alnasl
+DR=/home/oak/git/rubedo
 B=s3://night-dev-mazdas3-v2bpo388b5qy
 
 # Alias
@@ -49,17 +49,18 @@ alias 'wn=cd $WW && v .'
 alias 'wl=cd $DW && npm start'
 alias 'wb=cd $DW && npm run build:serve'
 alias 'an=cd $DA && v .'
+alias 'al=cd $DA && npm start'
+alias 'ad=cd $DA'
+alias 'bd=cd $BD'
+alias 'bn=cd $BD && v .'
+alias 'rn=cd $DR; v .'
+alias 'rl=cd $DR; yarn dev'
+alias 'rb=cd $DR; yarn build'
 
 alias 'yd=youtube-dl'
 alias 'yx=youtube-dl -x'
 alias 'yn=youtube-dl --no-playlist'
-
-alias 'ga=git add -A'
-alias 'gs=git status'
-alias 'gl=git clone'
-alias 'gc=git commit -m'
-alias 'gp=git push'
-
+alias 'red=redshift -O 1700'
 
 # yarn path
 export PATH="$PATH:`yarn global bin`"
