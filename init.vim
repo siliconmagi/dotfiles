@@ -3,8 +3,8 @@
 " Setup vim-plug  ---------------------------------------------------------------{{{
 
 if (!isdirectory(expand("$HOME/.config/nvim/repos/github.com/junegunn/vim-plug")))
-	call system(expand("mkdir -p $HOME/.config/nvim/repos/github.com"))
-	call system(expand("git clone https://github.com/junegunn/vim-plug $HOME/.config/nvim/repos/github.com/junegunn/vim-plug"))
+  call system(expand("mkdir -p $HOME/.config/nvim/repos/github.com"))
+  call system(expand("git clone https://github.com/junegunn/vim-plug $HOME/.config/nvim/repos/github.com/junegunn/vim-plug"))
 endif
 
 call plug#begin('~/.local/share/nvim/plugged')
@@ -22,17 +22,22 @@ Plug 'guns/vim-sexp', {'for': 'clojure'}
 Plug 'tpope/vim-sexp-mappings-for-regular-people', {'for': 'clojure'}
 Plug 'stephpy/vim-yaml', {'for': 'yaml'}
 Plug 'luochen1990/rainbow'
+Plug 'othree/html5.vim'
+
 
 "javascript
-Plug 'pangloss/vim-javascript', {'for': 'javascript'}
+" Plug 'jelera/vim-javascript-syntax', {'for': 'javascript'}
 Plug 'mxw/vim-jsx', {'for': 'javascript'}
+Plug 'othree/yajs.vim', {'for': 'javascript'}
 Plug 'othree/es.next.syntax.vim', {'for': 'javascript'}
 Plug 'othree/jsdoc-syntax.vim', {'for': ['javascript', 'typescript']}
 Plug 'heavenshell/vim-jsdoc', {'for': ['javascript', 'typescript']}
 Plug 'moll/vim-node', {'for': ['javascript', 'typescript']}
 Plug 'elzr/vim-json', {'for': 'json'}
+
+"css
 Plug 'hail2u/vim-css3-syntax', {'for':['css','scss']}
-Plug 'ap/vim-css-color', {'for': ['css', 'scss', 'yaml']}
+Plug 'ap/vim-css-color'
 
 
 Plug 'tpope/vim-markdown', {'for': 'markdown'}
@@ -125,27 +130,27 @@ autocmd BufRead *.clj try | silent! Require | catch /^Fireplace/ | endtry
 " rainbow parens
 let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
 let g:rainbow_conf = {
-			\   'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
-			\   'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],
-			\   'operators': '_,_',
-			\   'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
-			\   'separately': {
-			\       '*': {},
-			\       'tex': {
-			\           'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/'],
-			\       },
-			\       'lisp': {
-			\           'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick', 'darkorchid3'],
-			\       },
-			\       'vim': {
-			\           'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/ fold', 'start=/(/ end=/)/ containedin=vimFuncBody', 'start=/\[/ end=/\]/ containedin=vimFuncBody', 'start=/{/ end=/}/ fold containedin=vimFuncBody'],
-			\       },
-			\       'html': {
-			\           'parentheses': ['start=/\v\<((area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)[ >])@!\z([-_:a-zA-Z0-9]+)(\s+[-_:a-zA-Z0-9]+(\=("[^"]*"|'."'".'[^'."'".']*'."'".'|[^ '."'".'"><=`]*))?)*\>/ end=#</\z1># fold'],
-			\       },
-			\       'css': 0,
-			\   }
-			\}
+      \   'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
+      \   'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],
+      \   'operators': '_,_',
+      \   'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
+      \   'separately': {
+      \       '*': {},
+      \       'tex': {
+      \           'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/'],
+      \       },
+      \       'lisp': {
+      \           'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick', 'darkorchid3'],
+      \       },
+      \       'vim': {
+      \           'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/ fold', 'start=/(/ end=/)/ containedin=vimFuncBody', 'start=/\[/ end=/\]/ containedin=vimFuncBody', 'start=/{/ end=/}/ fold containedin=vimFuncBody'],
+      \       },
+      \       'html': {
+      \           'parentheses': ['start=/\v\<((area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)[ >])@!\z([-_:a-zA-Z0-9]+)(\s+[-_:a-zA-Z0-9]+(\=("[^"]*"|'."'".'[^'."'".']*'."'".'|[^ '."'".'"><=`]*))?)*\>/ end=#</\z1># fold'],
+      \       },
+      \       'css': 0,
+      \   }
+      \}
 
 " Neovim Settings
 set relativenumber
@@ -176,9 +181,9 @@ set undodir="$HOME/.VIM_UNDO_FILES"
 
 " Remember cursor position between vim sessions
 autocmd BufReadPost *
-			\ if line("'\"") > 0 && line ("'\"") <= line("$") |
-			\   exe "normal! g'\"" |
-			\ endif
+      \ if line("'\"") > 0 && line ("'\"") <= line("$") |
+      \   exe "normal! g'\"" |
+      \ endif
 " center buffer around cursor when opening files
 autocmd BufRead * normal zz
 set complete=.,w,b,u,t,k
@@ -195,6 +200,12 @@ set formatoptions+=t
 " System mappings  ----------------------------------------------------------{{{
 " Define prefix dictionary
 let g:lmap =  {}
+
+" ctrl + s to save
+nnoremap <silent> <C-F> :w<CR>
+
+" ctrl + q to quit all buffers
+nnoremap <silent> <C-Q> :qa<CR>
 
 " nerd comment
 " leader c space fast
@@ -268,16 +279,16 @@ map <esc> :noh<cr>
 nnoremap <leader>e :call <SID>SynStack()<CR>
 let g:lmap.e = { 'name' : 'Get syntax group' }
 function! <SID>SynStack()
-	if !exists("*synstack")
-		return
-	endif
-	echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
 
 function! s:PlaceholderImgTag(size)
-	let url = 'http://dummyimage.com/' . a:size . '/000000/555555'
-	let [width,height] = split(a:size, 'x')
-	execute "normal a<img src=\"".url."\" width=\"".width."\" height=\"".height."\" />"
+  let url = 'http://dummyimage.com/' . a:size . '/000000/555555'
+  let [width,height] = split(a:size, 'x')
+  execute "normal a<img src=\"".url."\" width=\"".width."\" height=\"".height."\" />"
 endfunction
 command! -nargs=1 PlaceholderImgTag call s:PlaceholderImgTag(<f-args>)
 
@@ -285,7 +296,7 @@ command! -nargs=1 PlaceholderImgTag call s:PlaceholderImgTag(<f-args>)
 " If you prefer the Omni-Completion tip window to close when a selection is
 " made, these lines close it on movement in insert mode or when leaving
 " insert mode
-autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+" autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 " Keep my termo window open when I navigate away
@@ -349,19 +360,19 @@ let g:jedi#documentation_command = "<leader>k"
 " Fold, gets it's own section  ----------------------------------------------{{{
 
 function! MyFoldText() " {{{
-	let line = getline(v:foldstart)
+  let line = getline(v:foldstart)
 
-	let nucolwidth = &fdc + &number * &numberwidth
-	let windowwidth = winwidth(0) - nucolwidth - 3
-	let foldedlinecount = v:foldend - v:foldstart
+  let nucolwidth = &fdc + &number * &numberwidth
+  let windowwidth = winwidth(0) - nucolwidth - 3
+  let foldedlinecount = v:foldend - v:foldstart
 
-	" expand tabs into spaces
-	let onetab = strpart('          ', 0, &tabstop)
-	let line = substitute(line, '\t', onetab, 'g')
+  " expand tabs into spaces
+  let onetab = strpart('          ', 0, &tabstop)
+  let line = substitute(line, '\t', onetab, 'g')
 
-	let line = strpart(line, 0, windowwidth - 2 -len(foldedlinecount))
-	let fillcharcount = windowwidth - len(line) - len(foldedlinecount)
-	return line . '…' . repeat(" ",fillcharcount) . foldedlinecount . '…' . ' '
+  let line = strpart(line, 0, windowwidth - 2 -len(foldedlinecount))
+  let fillcharcount = windowwidth - len(line) - len(foldedlinecount)
+  return line . '…' . repeat(" ",fillcharcount) . foldedlinecount . '…' . ' '
 endfunction " }}}
 
 set foldtext=MyFoldText()
@@ -388,8 +399,6 @@ autocmd FileType html setl foldmethod=expr
 autocmd FileType html setl foldexpr=HTMLFolds()
 
 autocmd FileType javascript,typescript,json setl foldmethod=syntax
-" autocmd FileType javascript,typescript,json setlocal foldmethod=marker
-" autocmd FileType javascript,typescript,json setlocal foldmarker={,}
 " }}}
 
 " NERDTree ------------------------------------------------------------------{{{
@@ -422,11 +431,11 @@ let g:neosnippet#snippets_directory='~/.config/repos/github.com/Shougo/neosnippe
 
 " SuperTab like snippets behavior.
 imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-			\ "\<Plug>(neosnippet_expand_or_jump)"
-			\: pumvisible() ? "\<C-n>" : "\<TAB>"
+      \ "\<Plug>(neosnippet_expand_or_jump)"
+      \: pumvisible() ? "\<C-n>" : "\<TAB>"
 smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-			\ "\<Plug>(neosnippet_expand_or_jump)"
-			\: "\<TAB>"
+      \ "\<Plug>(neosnippet_expand_or_jump)"
+      \: "\<TAB>"
 
 "}}}
 
@@ -458,10 +467,10 @@ set completeopt+=noselect
 autocmd FileType vmailMessageList let b:deoplete_disable_auto_complete=1
 let g:tsuquyomi_disable_quickfix = 1
 function! Multiple_cursors_before()
-	let b:deoplete_disable_auto_complete=2
+  let b:deoplete_disable_auto_complete=2
 endfunction
 function! Multiple_cursors_after()
-	let b:deoplete_disable_auto_complete=0
+  let b:deoplete_disable_auto_complete=0
 endfunction
 call deoplete#custom#set('buffer', 'mark', 'buffer')
 call deoplete#custom#set('ternjs', 'mark', '')
@@ -471,9 +480,9 @@ call deoplete#custom#set('file', 'mark', 'file')
 " let g:deoplete#omni_patterns = {}
 " let g:deoplete#omni_patterns.html = ''
 function! Preview_func()
-	if &pvw
-		setlocal nonumber norelativenumber
-	endif
+  if &pvw
+    setlocal nonumber norelativenumber
+  endif
 endfunction
 autocmd WinEnter * call Preview_func()
 "}}}
@@ -482,21 +491,21 @@ autocmd WinEnter * call Preview_func()
 " Enable Emmet in all modes
 " Remapping <C-y>, just doesn't cut it.
 function! s:expand_html_tab()
-	" try to determine if we're within quotes or tags.
-	" if so, assume we're in an emmet fill area.
-	let line = getline('.')
-	if col('.') < len(line)
-		let line = matchstr(line, '[">][^<"]*\%'.col('.').'c[^>"]*[<"]')
-		if len(line) >= 2
-			return "\<C-n>"
-		endif
-	endif
-	" expand anything emmet thinks is expandable.
-	if emmet#isExpandable()
-		return "\<C-y>,"
-	endif
-	" return a regular tab character
-	return "\<tab>"
+  " try to determine if we're within quotes or tags.
+  " if so, assume we're in an emmet fill area.
+  let line = getline('.')
+  if col('.') < len(line)
+    let line = matchstr(line, '[">][^<"]*\%'.col('.').'c[^>"]*[<"]')
+    if len(line) >= 2
+      return "\<C-n>"
+    endif
+  endif
+  " expand anything emmet thinks is expandable.
+  if emmet#isExpandable()
+    return "\<C-y>,"
+  endif
+  " return a regular tab character
+  return "\<tab>"
 endfunction
 
 autocmd FileType html,markdown imap <buffer><expr><tab> <sid>expand_html_tab()
@@ -527,6 +536,8 @@ set hidden
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#tabline#show_tab_nr = 1
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#neomake#error_symbol='✖ :'
+let g:airline#extensions#neomake#warning_symbol='⚠ :'
 let g:airline_theme='luna'
 " let g:airline_theme='molokai'
 cnoreabbrev <expr> x getcmdtype() == ":" && getcmdline() == 'x' ? 'Sayonara' : 'x'
@@ -560,39 +571,39 @@ nmap <leader>9 <Plug>AirlineSelectTab9
 
 " Linting -------------------------------------------------------------------{{{
 let g:neomake_warning_sign = {'text': '⚠', 'texthl': 'NeomakeWarningSign'}
-  let g:ale_sign_error = '✖'
-  let g:ale_sign_warning = '⚠ '
-  hi ALEErrorSign guifg=#ec5f67 ctermfg=203 guibg=#343d46 ctermbg=237
-  hi ALEWarningSign guifg=#fac863 ctermfg=221 guibg=#343d46 ctermbg=237
-  let g:neomake_typescript_tsc_maker = {
-            \ 'args': ['--project', getcwd() . '/tsconfig.json', '--noEmit'],
-            \ 'append_file': 0,
-            \ 'errorformat':
-            \   '%E%f %#(%l\,%c): error %m,' .
-            \   '%E%f %#(%l\,%c): %m,' .
-            \   '%Eerror %m,' .
-            \   '%C%\s%\+%m'
-          \ }
-  let g:neomake_markdown_alex_maker = {
-                \ 'errorformat': '%P%f,' .
-                \ '%-Q,' .
-                \ '%*[ ]%l:%c-%*\d:%n%*[ ]%tarning%*[ ]%m,' .
-                \ '%-G%.%#'
-                \}
-  let g:neomake_ft_maker_remove_invalid_entries = 0
-  hi NeomakeError gui=undercurl
-  " let g:neomake_typescript_enabled_makers = ['tsc', 'tslint']
-  let g:neomake_markdown_enabled_makers = ['alex']
-  let g:neomake_html_enabled_makers = []
-  let g:neomake_javascript_enabled_makers = ['eslint']
-  autocmd! BufWritePost * Neomake
-  function! TsLintFix()
-      let l:winview = winsaveview()
-      let l:config = getcwd() . '/tslint.json'
-      let l:command = 'tslint --config '. l:config . '--x'
-      %
-      call winrestview(l:winview)
-  endfunction
+let g:ale_sign_error = '✖'
+let g:ale_sign_warning = '⚠ '
+hi ALEErrorSign guifg=#ec5f67 ctermfg=203 guibg=#343d46 ctermbg=237
+hi ALEWarningSign guifg=#fac863 ctermfg=221 guibg=#343d46 ctermbg=237
+let g:neomake_typescript_tsc_maker = {
+      \ 'args': ['--project', getcwd() . '/tsconfig.json', '--noEmit'],
+      \ 'append_file': 0,
+      \ 'errorformat':
+      \   '%E%f %#(%l\,%c): error %m,' .
+      \   '%E%f %#(%l\,%c): %m,' .
+      \   '%Eerror %m,' .
+      \   '%C%\s%\+%m'
+      \ }
+let g:neomake_markdown_alex_maker = {
+      \ 'errorformat': '%P%f,' .
+      \ '%-Q,' .
+      \ '%*[ ]%l:%c-%*\d:%n%*[ ]%tarning%*[ ]%m,' .
+      \ '%-G%.%#'
+      \}
+let g:neomake_ft_maker_remove_invalid_entries = 0
+hi NeomakeError gui=undercurl
+" let g:neomake_typescript_enabled_makers = ['tsc', 'tslint']
+let g:neomake_markdown_enabled_makers = ['alex']
+let g:neomake_html_enabled_makers = []
+let g:neomake_javascript_enabled_makers = ['eslint']
+autocmd! BufWritePost * Neomake
+function! TsLintFix()
+  let l:winview = winsaveview()
+  let l:config = getcwd() . '/tslint.json'
+  let l:command = 'tslint --config '. l:config . '--x'
+  %
+  call winrestview(l:winview)
+endfunction
 command TsLintFix :call TsLintFix()
 "}}}
 
