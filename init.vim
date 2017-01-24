@@ -119,6 +119,9 @@ call plug#end()
 " auto reload changes
 :set autoread
 
+" fix font neovim update
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 0
+
 " editorconfig fugitive
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
