@@ -1,4 +1,5 @@
 "silicon magi neovim init.vim"
+"
 
 " Setup vim-plug  ---------------------------------------------------------------{{{
 
@@ -13,6 +14,10 @@ Plug 'Shougo/neomru.vim'
 Plug 'neovim/node-host', {'do': 'npm install'}
 
 " syntax
+" typescript
+Plug 'mhartington/nvim-typescript', {'for': 'javascript'}
+Plug 'HerringtonDarkholme/yats.vim', {'for': 'javascript'}
+Plug 'fleischie/vim-styled-components'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'posva/vim-vue', {'for': 'vue'}
 Plug 'tpope/vim-fireplace', {'for': 'clojure'}
@@ -24,10 +29,13 @@ Plug 'stephpy/vim-yaml', {'for': 'yaml'}
 Plug 'luochen1990/rainbow'
 Plug 'othree/html5.vim'
 
+" syntax elm
+Plug 'w0rp/ale'
+Plug 'elmcast/elm-vim'
 
 "javascript
 " Plug 'jelera/vim-javascript-syntax', {'for': 'javascript'}
-Plug 'mxw/vim-jsx', {'for': 'javascript'}
+Plug 'mxw/vim-jsx', {'for': ['javascript', 'typescript']}
 Plug 'othree/yajs.vim', {'for': 'javascript'}
 Plug 'othree/es.next.syntax.vim', {'for': 'javascript'}
 Plug 'othree/jsdoc-syntax.vim', {'for': ['javascript', 'typescript']}
@@ -86,8 +94,8 @@ Plug 'carlitux/deoplete-ternjs', { 'for': 'javascript' }
 
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'ervandew/supertab'
 Plug 'ternjs/tern_for_vim', {'do': 'npm install'}
-Plug 'carlitux/deoplete-ternjs'
 Plug 'Shougo/neco-vim', {'for': 'vim'}
 Plug 'Shougo/neoinclude.vim'
 Plug 'ujihisa/neco-look', {'for': ['markdown','text','html']}
@@ -118,6 +126,18 @@ call plug#end()
 " System Settings  ----------------------------------------------------------{{{
 " auto reload changes
 :set autoread
+
+" elm settings
+let g:elm_format_autosave = 1
+let g:elm_jump_to_error = 0
+let g:elm_make_output_file = "elm.js"
+let g:elm_make_show_warnings = 0
+let g:elm_syntastic_show_warnings = 0
+let g:elm_browser_command = ""
+let g:elm_detailed_complete = 0
+let g:elm_format_autosave = 0
+let g:elm_format_fail_silently = 0
+let g:elm_setup_keybindings = 1
 
 " fix font neovim update
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 0
@@ -205,10 +225,10 @@ set formatoptions+=t
 let g:lmap =  {}
 
 " ctrl + s to save
-nnoremap <silent> <C-F> :w<CR>
+nnoremap <silent> <C-o> :w<CR>
 
 " ctrl + q to quit all buffers
-nnoremap <silent> <C-Q> :qa<CR>
+nnoremap <silent> <C-p> :qa<CR>
 
 " nerd comment
 " leader c space fast
@@ -256,6 +276,12 @@ noremap H ^
 noremap L g_
 noremap J 5j
 noremap K 5k
+
+noremap <C-k> 10k
+noremap <C-j> 10j
+noremap K 5k
+
+
 " swap ; for :
 " nnoremap ; :
 " Copy to kubuntu clipboard
@@ -300,7 +326,7 @@ command! -nargs=1 PlaceholderImgTag call s:PlaceholderImgTag(<f-args>)
 " made, these lines close it on movement in insert mode or when leaving
 " insert mode
 " autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+" autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 " Keep my termo window open when I navigate away
 autocmd TermOpen * set bufhidden=hide
@@ -344,8 +370,8 @@ map <silent> <leader>D :TSDoc <cr>
 let g:tern#command = ['tern']
 let g:tern#arguments = ['--persistent']
 " eslint
-autocmd! BufWritePost * Neomake
-let g:neomake_javascript_enabled_makers = ['eslint']
+" autocmd! BufWritePost * Neomake
+" let g:neomake_javascript_enabled_makers = ['eslint']
 " neomake
 nmap <Leader><Space>o :lopen<CR>      " open location window
 nmap <Leader><Space>c :lclose<CR>     " close location window
@@ -424,21 +450,21 @@ let g:DevIconsEnableFoldersOpenClose = 1
 " Snippets -----------------------------------------------------------------{{{
 
 " Enable snipMate compatibility feature.
-let g:neosnippet#enable_snipmate_compatibility = 1
-let g:neosnippet#expand_word_boundary = 1
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
-" Tell Neosnippet about the other snippets
-let g:neosnippet#snippets_directory='~/.config/repos/github.com/Shougo/neosnippet-snippets/neosnippets, ~/Github/ionic-snippets, ~/.config/repos/github.com/matthewsimo/angular-vim-snippets/snippets'
+" let g:neosnippet#enable_snipmate_compatibility = 1
+" let g:neosnippet#expand_word_boundary = 1
+" imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+" smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+" xmap <C-k>     <Plug>(neosnippet_expand_target)
+" " Tell Neosnippet about the other snippets
+" let g:neosnippet#snippets_directory='~/.config/repos/github.com/Shougo/neosnippet-snippets/neosnippets, ~/Github/ionic-snippets, ~/.config/repos/github.com/matthewsimo/angular-vim-snippets/snippets'
 
-" SuperTab like snippets behavior.
-imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-      \ "\<Plug>(neosnippet_expand_or_jump)"
-      \: pumvisible() ? "\<C-n>" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-      \ "\<Plug>(neosnippet_expand_or_jump)"
-      \: "\<TAB>"
+" " SuperTab like snippets behavior.
+" imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+      " \ "\<Plug>(neosnippet_expand_or_jump)"
+      " \: pumvisible() ? "\<C-n>" : "\<TAB>"
+" smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+      " \ "\<Plug>(neosnippet_expand_or_jump)"
+      " \: "\<TAB>"
 
 "}}}
 
@@ -446,48 +472,69 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 set rtp+=~/.fzf
 
 " Search files really fast
-nnoremap <silent> <A-s> :Ag<CR><Paste>
+nnoremap <silent> <A-s> :Ag<CR>
 
 " search open buffers
-nnoremap <silent> <A-i> :History:<CR>
+nnoremap <silent> <A-h> :History:<CR>
 nnoremap <silent> <A-f> :Files ~<CR>
-nnoremap <silent> <A-e> :Buffers<CR>
-
+nnoremap <silent> <A-b> :Buffers<CR>
 " " Insert mode completion
-imap <c-x><c-k> <plug>(fzf-complete-word)
-imap <c-x><c-f> <plug>(fzf-complete-path)
-imap <c-x><c-j> <plug>(fzf-complete-file-ag)
-imap <c-x><c-l> <plug>(fzf-complete-line)
+imap <leader><c-k> <plug>(fzf-complete-word)
+imap <leader><c-f> <plug>(fzf-complete-path)
+imap <leader><c-j> <plug>(fzf-complete-file-ag)
+imap <leader><c-l> <plug>(fzf-complete-line)
 
 "}}}
 
 " Deoplete ------------------------------------------------------------------{{{
+  let g:deoplete#enable_at_startup = 1
+
+  let g:deoplete#omni_patterns = {}
+
+  " autocomplete on just about any character
+  let g:deoplete#omni_patterns.go = '[a-zA-Z_\.]{3,}'
+
+  " autocomplete only on attributes; doesn't seem to complete local vars
+  let g:deoplete#omni_patterns.elm = '\.'
+
+  " tab for cycling through options
+  inoremap <expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+
+  " enter closes options if present and inserts linebreak
+  " apparently this has to be that complicated
+  inoremap <silent> <CR> <C-r>=<SID>close_and_linebreak()<CR>
+  function! s:close_and_linebreak()
+    return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
+  endfunction
 " enable deoplete
-let g:deoplete#enable_at_startup = 1
-let g:vim_json_syntax_conceal = 0
-set splitbelow
-set completeopt+=noselect
-autocmd FileType vmailMessageList let b:deoplete_disable_auto_complete=1
-let g:tsuquyomi_disable_quickfix = 1
-function! Multiple_cursors_before()
-  let b:deoplete_disable_auto_complete=2
-endfunction
-function! Multiple_cursors_after()
-  let b:deoplete_disable_auto_complete=0
-endfunction
-call deoplete#custom#set('buffer', 'mark', 'buffer')
-call deoplete#custom#set('ternjs', 'mark', '')
-call deoplete#custom#set('typescript', 'mark', '')
-call deoplete#custom#set('omni', 'mark', 'omni')
-call deoplete#custom#set('file', 'mark', 'file')
-" let g:deoplete#omni_patterns = {}
-" let g:deoplete#omni_patterns.html = ''
-function! Preview_func()
-  if &pvw
-    setlocal nonumber norelativenumber
-  endif
-endfunction
-autocmd WinEnter * call Preview_func()
+" let g:deoplete#enable_at_startup = 1
+
+" tab complete
+" inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+" let g:vim_json_syntax_conceal = 0
+" set splitbelow
+" set completeopt+=noselect
+" autocmd FileType vmailMessageList let b:deoplete_disable_auto_complete=1
+" let g:tsuquyomi_disable_quickfix = 1
+" function! Multiple_cursors_before()
+  " let b:deoplete_disable_auto_complete=2
+" endfunction
+" function! Multiple_cursors_after()
+  " let b:deoplete_disable_auto_complete=0
+" endfunction
+" call deoplete#custom#set('buffer', 'mark', 'buffer')
+" call deoplete#custom#set('ternjs', 'mark', '')
+" call deoplete#custom#set('typescript', 'mark', '')
+" call deoplete#custom#set('omni', 'mark', 'omni')
+" call deoplete#custom#set('file', 'mark', 'file')
+" " " let g:deoplete#omni_patterns = {}
+" " " let g:deoplete#omni_patterns.html = ''
+" function! Preview_func()
+  " if &pvw
+    " setlocal nonumber norelativenumber
+  " endif
+" endfunction
+" autocmd WinEnter * call Preview_func()
 "}}}
 
 " Emmet customization -------------------------------------------------------{{{
@@ -519,17 +566,17 @@ autocmd FileType html,css EmmetInstall
 "}}}
 
 " Navigate between vim buffers and tmux panels ------------------------------{{{
-let g:tmux_navigator_no_mappings = 1
-nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
-nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
-nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
-nnoremap <silent> <C-h> :TmuxNavigateLeft<CR>
-nnoremap <silent> <C-;> :TmuxNavigatePrevious<cr>
-tmap <C-j> <C-\><C-n>:TmuxNavigateDown<cr>
-tmap <C-k> <C-\><C-n>:TmuxNavigateUp<cr>
-tmap <C-l> <C-\><C-n>:TmuxNavigateRight<cr>
-tmap <C-h> <C-\><C-n>:TmuxNavigateLeft<CR>
-tmap <C-;> <C-\><C-n>:TmuxNavigatePrevious<cr>
+" let g:tmux_navigator_no_mappings = 1
+" nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
+" nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
+" nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
+" nnoremap <silent> <C-h> :TmuxNavigateLeft<CR>
+" nnoremap <silent> <C-;> :TmuxNavigatePrevious<cr>
+" tmap <C-j> <C-\><C-n>:TmuxNavigateDown<cr>
+" tmap <C-k> <C-\><C-n>:TmuxNavigateUp<cr>
+" tmap <C-l> <C-\><C-n>:TmuxNavigateRight<cr>
+" tmap <C-h> <C-\><C-n>:TmuxNavigateLeft<CR>
+" tmap <C-;> <C-\><C-n>:TmuxNavigatePrevious<cr>
 "}}}
 
 " vim-airline ---------------------------------------------------------------{{{
@@ -587,18 +634,18 @@ let g:neomake_typescript_tsc_maker = {
       \   '%Eerror %m,' .
       \   '%C%\s%\+%m'
       \ }
-let g:neomake_markdown_alex_maker = {
-      \ 'errorformat': '%P%f,' .
-      \ '%-Q,' .
-      \ '%*[ ]%l:%c-%*\d:%n%*[ ]%tarning%*[ ]%m,' .
-      \ '%-G%.%#'
-      \}
-let g:neomake_ft_maker_remove_invalid_entries = 0
+" let g:neomake_markdown_alex_maker = {
+      " \ 'errorformat': '%P%f,' .
+      " \ '%-Q,' .
+      " \ '%*[ ]%l:%c-%*\d:%n%*[ ]%tarning%*[ ]%m,' .
+      " \ '%-G%.%#'
+      " \}
+" let g:neomake_ft_maker_remove_invalid_entries = 0
 hi NeomakeError gui=undercurl
 " let g:neomake_typescript_enabled_makers = ['tsc', 'tslint']
-let g:neomake_markdown_enabled_makers = ['alex']
-let g:neomake_html_enabled_makers = []
-let g:neomake_javascript_enabled_makers = ['eslint']
+" let g:neomake_markdown_enabled_makers = ['alex']
+" let g:neomake_html_enabled_makers = []
+" let g:neomake_javascript_enabled_makers = ['eslint']
 autocmd! BufWritePost * Neomake
 function! TsLintFix()
   let l:winview = winsaveview()
