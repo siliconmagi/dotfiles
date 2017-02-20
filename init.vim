@@ -15,7 +15,7 @@ Plug 'neovim/node-host', {'do': 'npm install'}
 
 " syntax
 " typescript
-Plug 'mhartington/nvim-typescript', {'for': 'javascript'}
+" Plug 'mhartington/nvim-typescript', {'for': 'javascript'}
 Plug 'HerringtonDarkholme/yats.vim', {'for': 'javascript'}
 Plug 'fleischie/vim-styled-components'
 Plug 'editorconfig/editorconfig-vim'
@@ -460,11 +460,11 @@ let g:DevIconsEnableFoldersOpenClose = 1
 
 " " SuperTab like snippets behavior.
 " imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-      " \ "\<Plug>(neosnippet_expand_or_jump)"
-      " \: pumvisible() ? "\<C-n>" : "\<TAB>"
+" \ "\<Plug>(neosnippet_expand_or_jump)"
+" \: pumvisible() ? "\<C-n>" : "\<TAB>"
 " smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-      " \ "\<Plug>(neosnippet_expand_or_jump)"
-      " \: "\<TAB>"
+" \ "\<Plug>(neosnippet_expand_or_jump)"
+" \: "\<TAB>"
 
 "}}}
 
@@ -487,54 +487,54 @@ imap <leader><c-l> <plug>(fzf-complete-line)
 "}}}
 
 " Deoplete ------------------------------------------------------------------{{{
-  let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_at_startup = 1
 
-  let g:deoplete#omni_patterns = {}
+let g:deoplete#omni_patterns = {}
 
-  " autocomplete on just about any character
-  let g:deoplete#omni_patterns.go = '[a-zA-Z_\.]{3,}'
+" autocomplete on just about any character
+let g:deoplete#omni_patterns.go = '[a-zA-Z_\.]{3,}'
 
-  " autocomplete only on attributes; doesn't seem to complete local vars
-  let g:deoplete#omni_patterns.elm = '\.'
+" autocomplete only on attributes; doesn't seem to complete local vars
+let g:deoplete#omni_patterns.elm = '\.'
 
-  " tab for cycling through options
-  inoremap <expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+" tab for cycling through options
+inoremap <expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 
-  " enter closes options if present and inserts linebreak
-  " apparently this has to be that complicated
-  inoremap <silent> <CR> <C-r>=<SID>close_and_linebreak()<CR>
-  function! s:close_and_linebreak()
-    return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
-  endfunction
+" enter closes options if present and inserts linebreak
+" apparently this has to be that complicated
+inoremap <silent> <CR> <C-r>=<SID>close_and_linebreak()<CR>
+function! s:close_and_linebreak()
+  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
+endfunction
 " enable deoplete
 " let g:deoplete#enable_at_startup = 1
 
 " tab complete
-" inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-" let g:vim_json_syntax_conceal = 0
-" set splitbelow
-" set completeopt+=noselect
-" autocmd FileType vmailMessageList let b:deoplete_disable_auto_complete=1
-" let g:tsuquyomi_disable_quickfix = 1
-" function! Multiple_cursors_before()
-  " let b:deoplete_disable_auto_complete=2
-" endfunction
-" function! Multiple_cursors_after()
-  " let b:deoplete_disable_auto_complete=0
-" endfunction
-" call deoplete#custom#set('buffer', 'mark', 'buffer')
-" call deoplete#custom#set('ternjs', 'mark', '')
-" call deoplete#custom#set('typescript', 'mark', '')
-" call deoplete#custom#set('omni', 'mark', 'omni')
-" call deoplete#custom#set('file', 'mark', 'file')
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+let g:vim_json_syntax_conceal = 0
+set splitbelow
+set completeopt+=noselect
+autocmd FileType vmailMessageList let b:deoplete_disable_auto_complete=1
+let g:tsuquyomi_disable_quickfix = 1
+function! Multiple_cursors_before()
+  let b:deoplete_disable_auto_complete=2
+endfunction
+function! Multiple_cursors_after()
+  let b:deoplete_disable_auto_complete=0
+endfunction
+call deoplete#custom#set('buffer', 'mark', 'buffer')
+call deoplete#custom#set('ternjs', 'mark', '')
+call deoplete#custom#set('typescript', 'mark', '')
+call deoplete#custom#set('omni', 'mark', 'omni')
+call deoplete#custom#set('file', 'mark', 'file')
 " " " let g:deoplete#omni_patterns = {}
 " " " let g:deoplete#omni_patterns.html = ''
-" function! Preview_func()
-  " if &pvw
-    " setlocal nonumber norelativenumber
-  " endif
-" endfunction
-" autocmd WinEnter * call Preview_func()
+function! Preview_func()
+  if &pvw
+    setlocal nonumber norelativenumber
+  endif
+endfunction
+autocmd WinEnter * call Preview_func()
 "}}}
 
 " Emmet customization -------------------------------------------------------{{{
@@ -635,11 +635,11 @@ let g:neomake_typescript_tsc_maker = {
       \   '%C%\s%\+%m'
       \ }
 " let g:neomake_markdown_alex_maker = {
-      " \ 'errorformat': '%P%f,' .
-      " \ '%-Q,' .
-      " \ '%*[ ]%l:%c-%*\d:%n%*[ ]%tarning%*[ ]%m,' .
-      " \ '%-G%.%#'
-      " \}
+" \ 'errorformat': '%P%f,' .
+" \ '%-Q,' .
+" \ '%*[ ]%l:%c-%*\d:%n%*[ ]%tarning%*[ ]%m,' .
+" \ '%-G%.%#'
+" \}
 " let g:neomake_ft_maker_remove_invalid_entries = 0
 hi NeomakeError gui=undercurl
 " let g:neomake_typescript_enabled_makers = ['tsc', 'tslint']
@@ -715,7 +715,6 @@ command TsLintFix :call TsLintFix()
 " endfunction
 
 "}}}
-
 
 " vim-tabs ---------------------------------------------------------------{{{
 
