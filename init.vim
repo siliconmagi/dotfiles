@@ -29,7 +29,12 @@ Plug 'stephpy/vim-yaml', {'for': 'yaml'}
 Plug 'luochen1990/rainbow'
 Plug 'othree/html5.vim'
 
-" syntax elm
+" syntax ocaml
+Plug 'let-def/ocp-indent-vim'
+Plug 'reasonml/vim-reason-loader'
+Plug 'MartinLafreniere/vim-PairTools'
+
+" elm
 Plug 'w0rp/ale'
 Plug 'elmcast/elm-vim'
 
@@ -47,7 +52,7 @@ Plug 'elzr/vim-json', {'for': 'json'}
 Plug 'hail2u/vim-css3-syntax', {'for':['css','scss']}
 Plug 'ap/vim-css-color'
 
-
+" markdown
 Plug 'tpope/vim-markdown', {'for': 'markdown'}
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'vimlab/mdown.vim', {'do': 'npm install'}
@@ -56,7 +61,6 @@ Plug 'tyru/markdown-codehl-onthefly.vim'
 
 Plug 'tmhedberg/SimpylFold', {'for': 'python'}
 Plug 'tmux-plugins/vim-tmux'
-
 Plug 'Yggdroot/indentLine'
 Plug 'itmammoth/doorboy.vim'
 Plug 'valloric/MatchTagAlways', {'for': 'html'}
@@ -126,6 +130,32 @@ call plug#end()
 " System Settings  ----------------------------------------------------------{{{
 " auto reload changes
 :set autoread
+
+" vuejs settings
+au BufRead,BufNewFile *.vue set filetype=html
+
+" ocaml settings
+set rtp+=~/my-clone-of/ocp-indent-vim
+let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
+execute "set rtp+=" . g:opamshare . "/merlin/vim"
+let g:vimreason_extra_args_expr_reason = '"--print-width " . ' .  "winwidth('.')"
+autocmd FileType reason map <buffer> <leader>p :ReasonPrettyPrint<CR>
+autocmd FileType reason let g:pairtools_reason_pairclamp = 1
+autocmd FileType reason let g:pairtools_reason_tagwrench = 0
+autocmd FileType reason let g:pairtools_reason_jigsaw    = 1
+autocmd FileType reason let g:pairtools_reason_autoclose  = 1
+autocmd FileType reason let g:pairtools_reason_forcepairs = 0
+autocmd FileType reason let g:pairtools_reason_closepairs = "(:),[:],{:}" . ',":"'
+autocmd FileType reason let g:pairtools_reason_smartclose = 1
+autocmd FileType reason let g:pairtools_reason_smartcloserules = '\w,(,&,\*'
+autocmd FileType reason let g:pairtools_reason_antimagic  = 1
+autocmd FileType reason let g:pairtools_reason_antimagicfield  = "Comment,String,Special"
+autocmd FileType reason let g:pairtools_reason_pcexpander = 1
+autocmd FileType reason let g:pairtools_reason_pceraser   = 1
+autocmd FileType reason let g:pairtools_reason_tagwrenchhook = 'tagwrench#BuiltinNoHook'
+autocmd FileType reason let g:pairtools_reason_twexpander = 0
+autocmd FileType reason let g:pairtools_reason_tweraser   = 0
+autocmd FileType reason let g:pairtools_reason_apostrophe = 0
 
 " elm settings
 let g:elm_format_autosave = 1
@@ -372,7 +402,7 @@ let g:tern#arguments = ['--persistent']
 " eslint
 " autocmd! BufWritePost * Neomake
 " let g:neomake_javascript_enabled_makers = ['eslint']
-" neomake
+" neomake keybindings for linting window
 nmap <Leader><Space>o :lopen<CR>      " open location window
 nmap <Leader><Space>c :lclose<CR>     " close location window
 nmap <Leader><Space>, :ll<CR>         " go to current error/warning
@@ -645,7 +675,8 @@ hi NeomakeError gui=undercurl
 " let g:neomake_typescript_enabled_makers = ['tsc', 'tslint']
 " let g:neomake_markdown_enabled_makers = ['alex']
 " let g:neomake_html_enabled_makers = []
-" let g:neomake_javascript_enabled_makers = ['eslint']
+" Required for eslint to work with neomake
+let g:neomake_javascript_enabled_makers = ['eslint']
 autocmd! BufWritePost * Neomake
 function! TsLintFix()
   let l:winview = winsaveview()
