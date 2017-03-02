@@ -15,7 +15,6 @@ Plug 'neovim/node-host', {'do': 'npm install'}
 
 " syntax
 " typescript
-" Plug 'mhartington/nvim-typescript', {'for': 'javascript'}
 Plug 'HerringtonDarkholme/yats.vim', {'for': 'javascript'}
 Plug 'fleischie/vim-styled-components'
 Plug 'editorconfig/editorconfig-vim'
@@ -26,7 +25,6 @@ Plug 'guns/vim-clojure-static', {'for': 'clojure'}
 Plug 'guns/vim-sexp', {'for': 'clojure'}
 Plug 'tpope/vim-sexp-mappings-for-regular-people', {'for': 'clojure'}
 Plug 'stephpy/vim-yaml', {'for': 'yaml'}
-Plug 'luochen1990/rainbow'
 Plug 'othree/html5.vim'
 
 " syntax ocaml
@@ -67,7 +65,6 @@ Plug 'valloric/MatchTagAlways', {'for': 'html'}
 
 Plug 'tpope/vim-fugitive'
 Plug 'jreybert/vimagit'
-" Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdtree'
 
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -98,7 +95,6 @@ Plug 'carlitux/deoplete-ternjs', { 'for': 'javascript' }
 
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" Plug 'ervandew/supertab'
 Plug 'ternjs/tern_for_vim', {'do': 'npm install'}
 Plug 'Shougo/neco-vim', {'for': 'vim'}
 Plug 'Shougo/neoinclude.vim'
@@ -132,7 +128,7 @@ call plug#end()
 :set autoread
 
 " vuejs settings
-au BufRead,BufNewFile *.vue set filetype=html
+" au BufRead,BufNewFile *.vue set filetype=html
 
 " ocaml settings
 set rtp+=~/my-clone-of/ocp-indent-vim
@@ -179,31 +175,6 @@ filetype plugin indent on
 
 " Evaluate Clojure buffers on load
 autocmd BufRead *.clj try | silent! Require | catch /^Fireplace/ | endtry
-
-" rainbow parens
-let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
-let g:rainbow_conf = {
-      \   'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
-      \   'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],
-      \   'operators': '_,_',
-      \   'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
-      \   'separately': {
-      \       '*': {},
-      \       'tex': {
-      \           'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/'],
-      \       },
-      \       'lisp': {
-      \           'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick', 'darkorchid3'],
-      \       },
-      \       'vim': {
-      \           'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/ fold', 'start=/(/ end=/)/ containedin=vimFuncBody', 'start=/\[/ end=/\]/ containedin=vimFuncBody', 'start=/{/ end=/}/ fold containedin=vimFuncBody'],
-      \       },
-      \       'html': {
-      \           'parentheses': ['start=/\v\<((area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)[ >])@!\z([-_:a-zA-Z0-9]+)(\s+[-_:a-zA-Z0-9]+(\=("[^"]*"|'."'".'[^'."'".']*'."'".'|[^ '."'".'"><=`]*))?)*\>/ end=#</\z1># fold'],
-      \       },
-      \       'css': 0,
-      \   }
-      \}
 
 " Neovim Settings
 set relativenumber
@@ -677,6 +648,8 @@ hi NeomakeError gui=undercurl
 " let g:neomake_html_enabled_makers = []
 " Required for eslint to work with neomake
 let g:neomake_javascript_enabled_makers = ['eslint']
+" use local version of eslint
+let g:neomake_javascript_eslint_exe = $PWD .'/node_modules/.bin/eslint'
 autocmd! BufWritePost * Neomake
 function! TsLintFix()
   let l:winview = winsaveview()
