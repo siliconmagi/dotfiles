@@ -41,7 +41,14 @@ abbr -a td ~/p/vue/taurus
 alias tn="cd ~/p/vue/taurus;nvim ."
 alias tl="cd ~/p/vue/taurus;and yarn dev"
 alias tg="cd ~/p/vue/taurus;and yarn generate"
-alias tp="cd ~/p/vue/taurus;and netlify deploy car-park-attendant-jack-43088"
+alias tp="cd ~/p/vue/taurus/dist;and netlify deploy -s car-park-attendant-jack-43088"
+
+# aries
+abbr -a ad ~/p/vue/aries
+alias an="cd ~/p/vue/aries;nvim ."
+alias al="cd ~/p/vue/aries;and yarn dev"
+alias ag="cd ~/p/vue/aries;and yarn generate"
+alias ap="cd ~/p/vue/aries/dist;and netlify deploy -s car-park-attendant-jack-43088"
 
 # docs
 alias dnor="cd ~/p/vue/nuxtjs.org;and nvim ."
