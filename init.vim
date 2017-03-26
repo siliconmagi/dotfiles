@@ -33,7 +33,7 @@ Plug 'reasonml/vim-reason-loader'
 Plug 'MartinLafreniere/vim-PairTools'
 
 " elm
-Plug 'w0rp/ale'
+" Plug 'w0rp/ale'
 Plug 'elmcast/elm-vim'
 
 "javascript
@@ -131,27 +131,27 @@ call plug#end()
 " au BufRead,BufNewFile *.vue set filetype=html
 
 " ocaml settings
-set rtp+=~/my-clone-of/ocp-indent-vim
-let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
-execute "set rtp+=" . g:opamshare . "/merlin/vim"
-let g:vimreason_extra_args_expr_reason = '"--print-width " . ' .  "winwidth('.')"
-autocmd FileType reason map <buffer> <leader>p :ReasonPrettyPrint<CR>
-autocmd FileType reason let g:pairtools_reason_pairclamp = 1
-autocmd FileType reason let g:pairtools_reason_tagwrench = 0
-autocmd FileType reason let g:pairtools_reason_jigsaw    = 1
-autocmd FileType reason let g:pairtools_reason_autoclose  = 1
-autocmd FileType reason let g:pairtools_reason_forcepairs = 0
-autocmd FileType reason let g:pairtools_reason_closepairs = "(:),[:],{:}" . ',":"'
-autocmd FileType reason let g:pairtools_reason_smartclose = 1
-autocmd FileType reason let g:pairtools_reason_smartcloserules = '\w,(,&,\*'
-autocmd FileType reason let g:pairtools_reason_antimagic  = 1
-autocmd FileType reason let g:pairtools_reason_antimagicfield  = "Comment,String,Special"
-autocmd FileType reason let g:pairtools_reason_pcexpander = 1
-autocmd FileType reason let g:pairtools_reason_pceraser   = 1
-autocmd FileType reason let g:pairtools_reason_tagwrenchhook = 'tagwrench#BuiltinNoHook'
-autocmd FileType reason let g:pairtools_reason_twexpander = 0
-autocmd FileType reason let g:pairtools_reason_tweraser   = 0
-autocmd FileType reason let g:pairtools_reason_apostrophe = 0
+" set rtp+=~/my-clone-of/ocp-indent-vim
+" let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
+" execute "set rtp+=" . g:opamshare . "/merlin/vim"
+" let g:vimreason_extra_args_expr_reason = '"--print-width " . ' .  "winwidth('.')"
+" autocmd FileType reason map <buffer> <leader>p :ReasonPrettyPrint<CR>
+" autocmd FileType reason let g:pairtools_reason_pairclamp = 1
+" autocmd FileType reason let g:pairtools_reason_tagwrench = 0
+" autocmd FileType reason let g:pairtools_reason_jigsaw    = 1
+" autocmd FileType reason let g:pairtools_reason_autoclose  = 1
+" autocmd FileType reason let g:pairtools_reason_forcepairs = 0
+" autocmd FileType reason let g:pairtools_reason_closepairs = "(:),[:],{:}" . ',":"'
+" autocmd FileType reason let g:pairtools_reason_smartclose = 1
+" autocmd FileType reason let g:pairtools_reason_smartcloserules = '\w,(,&,\*'
+" autocmd FileType reason let g:pairtools_reason_antimagic  = 1
+" autocmd FileType reason let g:pairtools_reason_antimagicfield  = "Comment,String,Special"
+" autocmd FileType reason let g:pairtools_reason_pcexpander = 1
+" autocmd FileType reason let g:pairtools_reason_pceraser   = 1
+" autocmd FileType reason let g:pairtools_reason_tagwrenchhook = 'tagwrench#BuiltinNoHook'
+" autocmd FileType reason let g:pairtools_reason_twexpander = 0
+" autocmd FileType reason let g:pairtools_reason_tweraser   = 0
+" autocmd FileType reason let g:pairtools_reason_apostrophe = 0
 
 " elm settings
 let g:elm_format_autosave = 1
@@ -622,10 +622,10 @@ nmap <leader>9 <Plug>AirlineSelectTab9
 
 " Linting -------------------------------------------------------------------{{{
 let g:neomake_warning_sign = {'text': '⚠', 'texthl': 'NeomakeWarningSign'}
-let g:ale_sign_error = '✖'
-let g:ale_sign_warning = '⚠ '
-hi ALEErrorSign guifg=#ec5f67 ctermfg=203 guibg=#343d46 ctermbg=237
-hi ALEWarningSign guifg=#fac863 ctermfg=221 guibg=#343d46 ctermbg=237
+" let g:ale_sign_error = '✖'
+" let g:ale_sign_warning = '⚠ '
+" hi ALEErrorSign guifg=#ec5f67 ctermfg=203 guibg=#343d46 ctermbg=237
+" hi ALEWarningSign guifg=#fac863 ctermfg=221 guibg=#343d46 ctermbg=237
 let g:neomake_typescript_tsc_maker = {
       \ 'args': ['--project', getcwd() . '/tsconfig.json', '--noEmit'],
       \ 'append_file': 0,

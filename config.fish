@@ -1,3 +1,5 @@
+# run screenfetch
+screenfetch
 # swap escape with capslock
 setxkbmap -option caps:swapescape
 
@@ -7,6 +9,7 @@ abbr -a nn nvim ~/vim
 abbr -a fs source ~/.config/fish/config.fish
 abbr -a fn nvim ~/.config/fish/config.fish
 abbr -a red redshift -O 1700K
+abbr -a ast /usr/local/bin/android-studio/bin/studio.sh
 
 abbr -a yp yarn prod
 abbr -a yd yarn dev
@@ -25,6 +28,13 @@ abbr -a ga git add -A
 abbr -a gc git commit -m ''
 abbr -a gp git push 
 abbr -a tf tslint --fix 
+abbr -a ef eslint --fix 
+
+# aws
+alias s3="aws s3 sync . s3://nightshell-dev-s3-8n7y3sducxly --content-encoding 'gzip'"
+abbr -a gz gzip -9 -n
+
+# https://d2j3o9k0z9e36f.cloudfront.net/
 
 # castle
 abbr -a dc ~/p/vue/cloves
@@ -47,8 +57,13 @@ alias tp="cd ~/p/vue/taurus/dist;and netlify deploy -s car-park-attendant-jack-4
 abbr -a ad ~/p/vue/aries
 alias an="cd ~/p/vue/aries;nvim ."
 alias al="cd ~/p/vue/aries;and yarn dev"
-alias ag="cd ~/p/vue/aries;and yarn generate"
+alias agen="cd ~/p/vue/aries;and yarn generate"
 alias ap="cd ~/p/vue/aries/dist;and netlify deploy -s car-park-attendant-jack-43088"
+
+# lavender
+abbr -a ld ~/p/phone/vue
+alias ln="cd ~/p/phone/vue;nvim ."
+alias ld="cd ~/p/phone/vue;and yarn dev"
 
 # docs
 alias dnor="cd ~/p/vue/nuxtjs.org;and nvim ."
