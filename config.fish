@@ -61,9 +61,9 @@ alias agen="cd ~/p/vue/aries;and yarn generate"
 alias ap="cd ~/p/vue/aries/dist;and netlify deploy -s car-park-attendant-jack-43088"
 
 # lavender
-abbr -a ld ~/p/phone/vue
-alias ln="cd ~/p/phone/vue;nvim ."
-alias ld="cd ~/p/phone/vue;and yarn dev"
+abbr -a ld ~/p/phone/frame
+alias lneo="cd ~/p/phone/frame;nvim ."
+alias ldev="cd ~/p/phone/frame;and yarn dev"
 
 # docs
 alias dnor="cd ~/p/vue/nuxtjs.org;and nvim ."
