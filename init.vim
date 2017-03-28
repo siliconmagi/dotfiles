@@ -11,11 +11,12 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 " syntax
 " vue
-Plug 'dNitro/vim-pug-complete', {'for': 'vue'}
-Plug 'digitaltoad/vim-pug', {'for': 'vue'}
-Plug 'posva/vim-vue', {'for': 'vue'}
+Plug 'dNitro/vim-pug-complete'
+Plug 'digitaltoad/vim-pug'
+Plug 'posva/vim-vue'
 Plug 'othree/html5.vim'
-" au BufRead,BufNewFile *.vue set filetype=pug
+" declare vue as type html to enable autoformat
+au BufRead,BufNewFile *.vue set filetype=html
 
 "javascript
 " Plug 'mxw/vim-jsx', {'for': 'javascript'}
@@ -172,7 +173,7 @@ let g:autoformat_retab = 0
 let g:autoformat_remove_trailing_spaces = 0
 
 " verbose autoformat
-" let g:autoformat_verbosemode=1
+let g:autoformat_verbosemode=1
 
 " highlight code
 noremap H ^
