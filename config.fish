@@ -1,3 +1,8 @@
+# variables
+export NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+export ANDROID_HOME=$HOME/Android/Sdk
+set PATH $PATH /home/oak/Android/Sdk/tools
+
 # run screenfetch
 screenfetch
 # swap escape with capslock
@@ -5,7 +10,11 @@ setxkbmap -option caps:swapescape
 
 # abbreviations
 abbr -a n nvim
+abbr -a v vim
+abbr -a vv vim ~/vim
 abbr -a nn nvim ~/vim
+abbr -a neo nvim ~/.config/nvim/init.vim 
+abbr -a vr vim ~/.vimrc 
 abbr -a fs source ~/.config/fish/config.fish
 abbr -a fn nvim ~/.config/fish/config.fish
 abbr -a red redshift -O 1700K
@@ -22,13 +31,15 @@ abbr -a yn yarn generate
 
 abbr -a yx youtube-dl -x
 abbr -a yv youtube-dl
-abbr -a neo nvim ~/.config/nvim/init.vim 
 abbr -a pl livereload 
 abbr -a ga git add -A
 abbr -a gc git commit -m ''
 abbr -a gp git push 
 abbr -a tf tslint --fix 
 abbr -a ef eslint --fix 
+
+# android emulator
+# alias emulator="$ANDROID_SDK/emulator/emulator -use-system-libs"
 
 # aws
 alias s3="aws s3 sync . s3://nightshell-dev-s3-8n7y3sducxly --content-encoding 'gzip'"
@@ -64,6 +75,10 @@ alias ap="cd ~/p/vue/aries/dist;and netlify deploy -s car-park-attendant-jack-43
 abbr -a ld ~/p/phone/frame
 alias lneo="cd ~/p/phone/frame;nvim ."
 alias ldev="cd ~/p/phone/frame;and yarn dev"
+
+# weex
+abbr -a wd ~/p/weex/
+alias wc="weex;create"
 
 # docs
 alias dnor="cd ~/p/vue/nuxtjs.org;and nvim ."

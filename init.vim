@@ -8,6 +8,7 @@ Plug 'Shougo/neomru.vim'
 Plug 'neovim/node-host', {'do': 'npm install'}
 Plug 'neomake/neomake'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'scrooloose/nerdtree'
 
 " syntax
 " vue
@@ -37,7 +38,7 @@ Plug 'ap/vim-css-color'
 Plug 'tpope/vim-markdown', {'for': 'markdown'}
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'vimlab/mdown.vim', {'do': 'npm install'}
-Plug 'nelstrom/vim-markdown-folding'
+" Plug 'nelstrom/vim-markdown-folding'
 Plug 'tyru/markdown-codehl-onthefly.vim'
 Plug 'stephpy/vim-yaml', {'for': 'yaml'}
 
@@ -72,6 +73,11 @@ call plug#end()
 
 " System Settings  ----------------------------------------------------------{{{
 filetype plugin indent on
+
+" cursor shape
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 0
+set encoding=utf-8
+let TERM = "xterm-256color"
 
 " auto reload changes
 :set autoread
@@ -224,50 +230,6 @@ nmap <Leader><Space>c :lclose<CR>     " close location window
 nmap <Leader><Space>, :ll<CR>         " go to current error/warning
 nmap <Leader><Space>n :lnext<CR>      " next error/warning
 nmap <Leader><Space>p :lprev<CR>      " previous error/warning
-" }}}
-
-" Fold, gets it's own section  ----------------------------------------------{{{
-
-function! MyFoldText() " {{{
-	let line = getline(v:foldstart)
-
-	let nucolwidth = &fdc + &number * &numberwidth
-	let windowwidth = winwidth(0) - nucolwidth - 3
-	let foldedlinecount = v:foldend - v:foldstart
-
-	" expand tabs into spaces
-	let onetab = strpart('          ', 0, &tabstop)
-	let line = substitute(line, '\t', onetab, 'g')
-
-	let line = strpart(line, 0, windowwidth - 2 -len(foldedlinecount))
-	let fillcharcount = windowwidth - len(line) - len(foldedlinecount)
-	return line . '…' . repeat(" ",fillcharcount) . foldedlinecount . '…' . ' '
-endfunction " }}}
-
-set foldtext=MyFoldText()
-
-autocmd InsertEnter * if !exists('w:last_fdm') | let w:last_fdm=&foldmethod | setlocal foldmethod=manual | endif
-autocmd InsertLeave,WinLeave * if exists('w:last_fdm') | let &l:foldmethod=w:last_fdm | unlet w:last_fdm | endif
-
-autocmd FileType vim setlocal fdc=1
-set foldlevel=99
-" Space to toggle folds.
-nnoremap <Space> za
-vnoremap <Space> za
-autocmd FileType vim setlocal foldmethod=marker
-autocmd FileType vim setlocal foldlevel=0
-
-autocmd FileType html setlocal fdl=99
-
-autocmd FileType javascript,html,css,scss,typescript setlocal foldlevel=99
-autocmd FileType css,scss,json setlocal foldmethod=syntax
-" autocmd FileType css,scss,json setlocal foldmarker={,}
-
-autocmd FileType coffee setl foldmethod=indent
-autocmd FileType html setl foldmethod=expr
-autocmd FileType html setl foldexpr=HTMLFolds()
-
-autocmd FileType javascript,typescript,json setl foldmethod=syntax
 " }}}
 
 " NERDTree ------------------------------------------------------------------{{{
