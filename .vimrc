@@ -91,9 +91,11 @@ let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 0
 " fix font neovim update
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 0
 
-" Relative numbering, clipboard
+" Relative numbering
 set relativenumber
-set clipboard+=unnamedplus
+
+" yank copies to global clipboard
+set clipboard=unnamedplus
 
 " nerd comment
 let g:NERDSpaceDelims = 1

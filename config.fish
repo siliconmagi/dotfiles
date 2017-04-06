@@ -16,7 +16,7 @@ abbr -a nn nvim ~/vim
 abbr -a neo nvim ~/.config/nvim/init.vim 
 abbr -a vr vim ~/.vimrc 
 abbr -a fs source ~/.config/fish/config.fish
-abbr -a fn nvim ~/.config/fish/config.fish
+abbr -a fn vim ~/.config/fish/config.fish
 abbr -a red redshift -O 1700K
 abbr -a ast /usr/local/bin/android-studio/bin/studio.sh
 
@@ -78,7 +78,13 @@ alias ldev="cd ~/p/phone/frame;and yarn dev"
 
 # weex
 abbr -a wd ~/p/weex/
-alias wc="weex;create"
+
+# archon
+abbr -a rd ~/p/weex/archon
+alias rv="cd ~/p/weex/archon;vim ."
+alias rb="cd ~/p/weex/archon;yarn build"
+alias rc="cd ~/p/weex/archon;yarn copy:android"
+alias rs="cd ~/p/weex/archon;yarn serve"
 
 # docs
 alias dnor="cd ~/p/vue/nuxtjs.org;and nvim ."
