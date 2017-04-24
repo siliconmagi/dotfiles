@@ -13,6 +13,9 @@ Plug 'Valloric/YouCompleteMe'
 Plug 'scrooloose/nerdtree'
 
 " syntax
+" Rust
+Plug 'racer-rust/vim-racer'
+
 " vue
 Plug 'dNitro/vim-pug-complete'
 Plug 'digitaltoad/vim-pug'
@@ -75,6 +78,11 @@ call plug#end()
 
 " System Settings  ----------------------------------------------------------{{{
 filetype plugin indent on
+
+" Rust
+set hidden
+let g:racer_cmd = "/home/oak/.cargo/bin/racer"
+let g:racer_experimental_completer = 1
 
 " YCM
 let g:ycm_server_python_interpreter = '/usr/bin/python'
@@ -142,11 +150,21 @@ set formatoptions+=t
 " init dictionary
 let g:lmap =  {}
 
-" ctrl + s to save
-nnoremap <silent> <C-o> :w<CR>
+" Save 
+nnoremap <silent> <C-i> :w<CR>
 
-" ctrl + q to quit all buffers
+" Quit single buffer
+nnoremap <silent> <C-o> :q<CR>
+
+" Quit all buffers
 nnoremap <silent> <C-p> :qa<CR>
+
+" Next tab
+nnoremap <silent> <C-Right> :tabn<CR>
+
+" Previous tab
+nnoremap <silent> <C-Left> :tabp<CR>
+
 
 " open empty file in new buffer
 nnoremap <silent> <A-S-n> :vnew<CR>
@@ -282,6 +300,14 @@ let g:airline_theme='luna'
 cnoreabbrev <expr> x getcmdtype() == ":" && getcmdline() == 'x' ? 'Sayonara' : 'x'
 
 "mappings
+
+" Rust
+" vim-racer enables C-x-C-o to search for completions and provides several <Plug> mappings for source code navigation
+au FileType rust nmap gd <Plug>(rust-def)
+au FileType rust nmap gs <Plug>(rust-def-split)
+au FileType rust nmap gx <Plug>(rust-def-vertical)
+au FileType rust nmap <leader>gd <Plug>(rust-doc)
+
 nmap <leader>t :term<cr>
 nmap <leader>, :bnext<CR>
 " tmap <leader>, <C-\><C-n>:bnext<cr>

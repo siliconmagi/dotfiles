@@ -2,6 +2,7 @@
 export NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 export ANDROID_HOME=$HOME/Android/Sdk
 set PATH $PATH /home/oak/Android/Sdk/tools
+export RUST_SRC_PATH=/home/oak/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src
 
 # run screenfetch
 screenfetch
@@ -16,7 +17,7 @@ abbr -a nn nvim ~/vim
 abbr -a neo nvim ~/.config/nvim/init.vim 
 abbr -a vr vim ~/.vimrc 
 abbr -a fs source ~/.config/fish/config.fish
-abbr -a fn vim ~/.config/fish/config.fish
+abbr -a fv vim ~/.config/fish/config.fish
 abbr -a red redshift -O 1700K
 abbr -a ast /usr/local/bin/android-studio/bin/studio.sh
 
@@ -72,16 +73,16 @@ alias agen="cd ~/p/vue/aries;and yarn generate"
 alias ap="cd ~/p/vue/aries/dist;and netlify deploy -s car-park-attendant-jack-43088"
 
 # lavender
-abbr -a ld ~/p/phone/frame
-alias lneo="cd ~/p/phone/frame;nvim ."
-alias ldev="cd ~/p/phone/frame;and yarn dev"
+abbr -a ld ~/p/vue/cloves
+alias lv="cd ~/p/vue/cloves;vim ."
+alias ldev="cd ~/p/vue/cloves;and yarn dev"
 
 # weex
 abbr -a wd ~/p/weex/
 
 # archon
-abbr -a rd ~/p/weex/archon
-alias rv="cd ~/p/weex/archon;vim ."
+abbr -a rd ~/p/weex/archon/src
+alias rv="cd ~/p/weex/archon/src;vim ."
 alias rb="cd ~/p/weex/archon;yarn build"
 alias rc="cd ~/p/weex/archon;yarn copy:android"
 alias rs="cd ~/p/weex/archon;yarn serve"

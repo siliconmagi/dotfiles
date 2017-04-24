@@ -11,6 +11,9 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'scrooloose/nerdtree'
 
 " syntax
+" rust
+Plug 'racer-rust/vim-racer'
+
 " vue
 Plug 'dNitro/vim-pug-complete'
 Plug 'digitaltoad/vim-pug'
