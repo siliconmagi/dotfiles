@@ -191,10 +191,10 @@ nnoremap <silent> <C-q> :q<CR>
 nnoremap <silent> <C-w> :qa<CR>
 
 " Next tab
-nnoremap <silent> <A-Right> :tabn<CR>
+nnoremap <silent> <tab> :tabn<CR>
 
 " Previous tab
-nnoremap <silent> <A-Left> :tabp<CR>
+nnoremap <silent> <s-tab> :tabp<CR>
 
 
 " open empty file in new buffer

@@ -54,6 +54,9 @@ alias cl="cd ~/p/dsel;and cargo run --bin show_posts"
 # rsync dotfiles
 alias rsd="rsync -avz ~/.vimrc /media/zeal/Data/g/dotfiles;rsync -avz ~/.config/nvim/init.vim /media/zeal/Data/g/dotfiles;rsync -avz ~/.config/fish/config.fish /media/zeal/Data/g/dotfiles;rsync -avz ~/.tmux.conf.local /media/zeal/Data/g/dotfiles;cd /media/zeal/Data/g/dotfiles;git add -A"
 
+# rsync vim
+alias rsv="rsync -avz ~/vim /media/zeal/Data/g/vim;cd /media/zeal/Data/g/vim;git add -A"
+
 # android emulator
 # alias emulator="$ANDROID_SDK/emulator/emulator -use-system-libs"
 
