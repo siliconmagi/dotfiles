@@ -1,24 +1,30 @@
 # variables
-export NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-export ANDROID_HOME=$HOME/Android/Sdk
-set PATH $PATH /home/oak/Android/Sdk/tools
-export RUST_SRC_PATH=/home/oak/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src
+# export NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+# export ANDROID_HOME=$HOME/Android/Sdk
+# set PATH $PATH /home/oak/Android/Sdk/tools
+set PATH $PATH /home/zeal/.cargo/bin
+set PATH $PATH /home/zeal/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src
+
+# set colors
+set -lx TERM screen-256color-bce;
 
 # run screenfetch
-screenfetch
+neofetch
 # swap escape with capslock
 setxkbmap -option caps:swapescape
 
 # abbreviations
+abbr -a dd /media/zeal/Data
+abbr -a dm /media/zeal/Data/Music
 abbr -a n nvim
 abbr -a v vim
 abbr -a vv vim ~/vim
 abbr -a nn nvim ~/vim
 abbr -a neo nvim ~/.config/nvim/init.vim 
 abbr -a vr vim ~/.vimrc 
-abbr -a fs source ~/.config/fish/config.fish
-abbr -a fv vim ~/.config/fish/config.fish
-abbr -a red redshift -O 1700K
+abbr -a sf source ~/.config/fish/config.fish
+abbr -a vf vim ~/.config/fish/config.fish
+abbr -a red redshift -O 2700K
 abbr -a ast /usr/local/bin/android-studio/bin/studio.sh
 
 abbr -a yp yarn prod
@@ -38,6 +44,15 @@ abbr -a gc git commit -m ''
 abbr -a gp git push 
 abbr -a tf tslint --fix 
 abbr -a ef eslint --fix 
+abbr -a cr cargo run --bin
+
+# dsel project
+abbr -a ds ~/p/dsel
+alias cn="cd ~/p/dsel;vim ."
+alias cl="cd ~/p/dsel;and cargo run --bin show_posts"
+
+# rsync dotfiles
+alias rsd="rsync -avz ~/.vimrc /media/zeal/Data/g/dotfiles;rsync -avz ~/.config/nvim/init.vim /media/zeal/Data/g/dotfiles;rsync -avz ~/.config/fish/config.fish /media/zeal/Data/g/dotfiles;rsync -avz ~/.tmux.conf.local /media/zeal/Data/g/dotfiles;cd /media/zeal/Data/g/dotfiles;git add -A"
 
 # android emulator
 # alias emulator="$ANDROID_SDK/emulator/emulator -use-system-libs"
@@ -81,11 +96,10 @@ alias ldev="cd ~/p/vue/cloves;and yarn dev"
 abbr -a wd ~/p/weex/
 
 # archon
-abbr -a rd ~/p/weex/archon/src
-alias rv="cd ~/p/weex/archon/src;vim ."
-alias rb="cd ~/p/weex/archon;yarn build"
-alias rc="cd ~/p/weex/archon;yarn copy:android"
-alias rs="cd ~/p/weex/archon;yarn serve"
+# alias rv="cd ~/p/weex/archon/src;vim ."
+# alias rb="cd ~/p/weex/archon;yarn build"
+# alias rc="cd ~/p/weex/archon;yarn copy:android"
+# alias rs="cd ~/p/weex/archon;yarn serve"
 
 # docs
 alias dnor="cd ~/p/vue/nuxtjs.org;and nvim ."
@@ -105,7 +119,7 @@ nvim .
 end
 
 # load direnv
-eval (direnv hook fish)
+# eval (direnv hook fish)
 
 # OPAM configuration
-source /home/oak/.opam/opam-init/init.fish > /dev/null 2> /dev/null or true
+# source /home/oak/.opam/opam-init/init.fish > /dev/null 2> /dev/null or true

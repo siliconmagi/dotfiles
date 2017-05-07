@@ -15,6 +15,10 @@ Plug 'scrooloose/nerdtree'
 " syntax
 " Rust
 Plug 'racer-rust/vim-racer'
+Plug 'rust-lang/rust.vim'
+
+" Postgresql
+Plug 'lifepillar/pgsql.vim'
 
 " vue
 Plug 'dNitro/vim-pug-complete'
@@ -60,12 +64,15 @@ Plug 'valloric/MatchTagAlways', {'for': ['html', 'vue']}
 " Plug 'Xuyuanp/nerdtree-git-plugin'
 " Plug 'ryanoasis/vim-devicons'
 " Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-" Plug 'majutsushi/tagbar'
+Plug 'majutsushi/tagbar'
+Plug 'airblade/vim-gitgutter'
+Plug 'mhinz/vim-signify'
 
 " formatting
 " Plug 'tpope/vim-repeat'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+" Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdcommenter'
 " Plug 'mattn/emmet-vim'
@@ -79,13 +86,37 @@ call plug#end()
 " System Settings  ----------------------------------------------------------{{{
 filetype plugin indent on
 
+" enable colors: preq for airline, lightline
+set t_Co=256
+
+" mouse support
+set mouse=a
+
+" autoreload when files change
+set autoread
+au CursorHold * checktime  
+
 " Rust
 set hidden
 let g:racer_cmd = "/home/oak/.cargo/bin/racer"
 let g:racer_experimental_completer = 1
 
+" Postgresql
+let g:sql_type_default = 'pgsql'
+
 " YCM
 let g:ycm_server_python_interpreter = '/usr/bin/python'
+let g:ycm_rust_src_path = '/home/zeal/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
+let g:ycm_min_num_of_chars_for_completion = 1
+
+" Nerd tree
+" autocmd VimEnter * NERDTree
+" autocmd BufEnter * NERDTreeMirror
+
+" CTRL-t to toggle tree view with CTRL-t
+nmap <silent> <C-e> :NERDTreeToggle<CR>
+""Set F2 to put the cursor to the nerdtree
+nmap <silent> <F2> :NERDTreeFind<CR>
 
 " allow backspace to work in insert mode
 set backspace=indent,eol,start
@@ -112,7 +143,7 @@ let g:NERDSpaceDelims = 1
 set noshowmode
 set noswapfile
 filetype on
-set  number
+set number
 set tabstop=2 shiftwidth=2 expandtab
 set conceallevel=0
 
@@ -151,19 +182,19 @@ set formatoptions+=t
 let g:lmap =  {}
 
 " Save 
-nnoremap <silent> <C-i> :w<CR>
+nnoremap <silent> <C-s> :w<CR>
 
 " Quit single buffer
-nnoremap <silent> <C-o> :q<CR>
+nnoremap <silent> <C-q> :q<CR>
 
 " Quit all buffers
-nnoremap <silent> <C-p> :qa<CR>
+nnoremap <silent> <C-w> :qa<CR>
 
 " Next tab
-nnoremap <silent> <C-Right> :tabn<CR>
+nnoremap <silent> <A-Right> :tabn<CR>
 
 " Previous tab
-nnoremap <silent> <C-Left> :tabp<CR>
+nnoremap <silent> <A-Left> :tabp<CR>
 
 
 " open empty file in new buffer
@@ -198,12 +229,14 @@ noremap <silent> <F4> :let @+=expand("%:p")<CR>
 " ,f to format code, requires formatters: read the docs
 noremap <leader>f :Autoformat<CR>
 let g:lmap.f = { 'name' : 'Format file' }
-let g:autoformat_autoindent = 0
-let g:autoformat_retab = 0
-let g:autoformat_remove_trailing_spaces = 0
+
+" Vim default formatting
+" let g:autoformat_autoindent = 0
+" let g:autoformat_retab = 0
+" let g:autoformat_remove_trailing_spaces = 0
 
 " verbose autoformat
-let g:autoformat_verbosemode=1
+" let g:autoformat_verbosemode=1
 
 " highlight code
 noremap H ^
@@ -249,11 +282,11 @@ let g:jsdoc_input_description = 1
 let g:jsx_ext_required = 0
 let g:vim_json_syntax_conceal = 0
 " neomake keybindings for linting window
-nmap <Leader><Space>o :lopen<CR>      " open location window
-nmap <Leader><Space>c :lclose<CR>     " close location window
-nmap <Leader><Space>, :ll<CR>         " go to current error/warning
-nmap <Leader><Space>n :lnext<CR>      " next error/warning
-nmap <Leader><Space>p :lprev<CR>      " previous error/warning
+" nmap <Leader><Space>o :lopen<CR>      " open location window
+" nmap <Leader><Space>c :lclose<CR>     " close location window
+" nmap <Leader><Space>, :ll<CR>         " go to current error/warning
+" nmap <Leader><Space>n :lnext<CR>      " next error/warning
+" nmap <Leader><Space>p :lprev<CR>      " previous error/warning
 " }}}
 
 " NERDTree ------------------------------------------------------------------{{{
@@ -264,7 +297,7 @@ map <silent> <F3> :NERDTreeToggle<CR>
 " let g:WebDevIconsOS = 'Darwin'
 autocmd StdinReadPre * let s:std_in=1
 let NERDTreeShowHidden=1
-let g:NERDTreeWinSize=35
+let g:NERDTreeWinSize=30
 let g:NERDTreeAutoDeleteBuffer=1
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 let g:DevIconsEnableFoldersOpenClose = 1
@@ -296,7 +329,7 @@ let g:airline#extensions#tabline#show_tab_nr = 1
 let g:airline_powerline_fonts = 1
 " let g:airline#extensions#neomake#error_symbol='✖ :'
 " let g:airline#extensions#neomake#warning_symbol='⚠ :'
-let g:airline_theme='luna'
+let g:airline_theme='wombat'
 cnoreabbrev <expr> x getcmdtype() == ":" && getcmdline() == 'x' ? 'Sayonara' : 'x'
 
 "mappings
@@ -329,7 +362,7 @@ nmap <leader>9 <Plug>AirlineSelectTab9
 " Linting -------------------------------------------------------------------{{{
 " let g:neomake_warning_sign = {'text': '⚠', 'texthl': 'NeomakeWarningSign'}
 
-hi NeomakeError gui=undercurl
+" hi NeomakeError gui=undercurl
 
 " Required for eslint to work with neomake
 " let g:neomake_javascript_enabled_makers = ['eslint']
