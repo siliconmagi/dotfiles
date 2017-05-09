@@ -11,6 +11,9 @@ call plug#begin('~/.vim/plugged')
 " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Valloric/YouCompleteMe'
 Plug 'scrooloose/nerdtree'
+Plug 'sjl/gundo.vim'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'mileszs/ack.vim'
 
 " syntax
 " Rust
@@ -19,6 +22,9 @@ Plug 'rust-lang/rust.vim'
 
 " Postgresql
 Plug 'lifepillar/pgsql.vim'
+
+" Fish Shell
+Plug 'dag/vim-fish'
 
 " vue
 Plug 'dNitro/vim-pug-complete'
@@ -47,11 +53,12 @@ Plug 'ap/vim-css-color'
 Plug 'tpope/vim-markdown', {'for': 'markdown'}
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'vimlab/mdown.vim', {'do': 'npm install'}
-" Plug 'nelstrom/vim-markdown-folding'
 Plug 'tyru/markdown-codehl-onthefly.vim'
 Plug 'stephpy/vim-yaml', {'for': 'yaml'}
 
 " folding and tagging
+Plug 'Konfekt/FastFold'
+Plug 'nelstrom/vim-markdown-folding'
 Plug 'tmhedberg/SimpylFold', {'for': 'python'}
 Plug 'Yggdroot/indentLine'
 Plug 'itmammoth/doorboy.vim'
@@ -84,7 +91,47 @@ call plug#end()
 " }}}
 
 " System Settings  ----------------------------------------------------------{{{
+" Enable filetype functionality
 filetype plugin indent on
+
+set incsearch           " search as characters are entered
+set hlsearch            " highlight matches
+
+" enable fold
+set foldenable
+" space open/closes folds
+nnoremap <space> za
+
+" highlight last inserted text
+nnoremap gV `[v`]
+
+" gundo graphical undo
+" toggle gundo
+nnoremap <leader>u :GundoToggle<CR>
+
+" CtrlP settings
+" let g:ctrlp_match_window = 'bottom,order:ttb'
+" let g:ctrlp_switch_buffer = 0
+" let g:ctrlp_working_path_mode = 0
+" let g:ctrlp_user_command = 'rg'
+
+" CtrlP with ripgrep
+if executable('rg')
+  set grepprg=rg\ --color=never
+  let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
+  let g:ctrlp_use_caching = 0
+endif
+set wildignore+=*/.git/*,*/tmp/*,*.swp
+
+" fish shell syntax options
+" Set up :make to use fish for syntax checking.
+autocmd FileType fish compiler fish
+
+" Set this to have long lines wrap inside comments.
+autocmd FileType fish setlocal textwidth=79
+
+" Enable folding of block structures in fish.
+autocmd FileType fish setlocal foldmethod=expr
 
 " enable colors: preq for airline, lightline
 set t_Co=256
@@ -94,7 +141,7 @@ set mouse=a
 
 " autoreload when files change
 set autoread
-au CursorHold * checktime  
+au CursorHold * checktime
 
 " Rust
 set hidden
@@ -181,7 +228,7 @@ set formatoptions+=t
 " init dictionary
 let g:lmap =  {}
 
-" Save 
+" Save
 nnoremap <silent> <C-s> :w<CR>
 
 " Quit single buffer
@@ -270,6 +317,7 @@ vmap > >gv
 
 " Themes, Commands, etc  ----------------------------------------------------{{{
 " Theme
+" Enable syntax
 syntax on
 " Color schemes @ https://github.com/flazz/vim-colorschemes/tree/master/colors
 " colorscheme luna
@@ -358,6 +406,9 @@ nmap <leader>7 <Plug>AirlineSelectTab7
 nmap <leader>8 <Plug>AirlineSelectTab8
 nmap <leader>9 <Plug>AirlineSelectTab9
 "}}}
+
+"" vim:fdm=expr:fdl=0
+"" vim:fde=getline(v\:lnum)=~'^""'?'>'.(matchend(getline(v\:lnum),'""*')-2)\:'='
 
 " Linting -------------------------------------------------------------------{{{
 " let g:neomake_warning_sign = {'text': '⚠', 'texthl': 'NeomakeWarningSign'}

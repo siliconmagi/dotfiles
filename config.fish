@@ -1,9 +1,16 @@
+# fish vi mode
+fish_vi_key_bindings
+
 # variables
+# set -gx PATH $PATH ~/bin
 # export NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 # export ANDROID_HOME=$HOME/Android/Sdk
 # set PATH $PATH /home/oak/Android/Sdk/tools
 set PATH $PATH /home/zeal/.cargo/bin
 set PATH $PATH /home/zeal/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src
+
+# function location
+# ~/.config/fish/functions
 
 # set colors
 set -lx TERM screen-256color-bce;
@@ -20,8 +27,8 @@ abbr -a n nvim
 abbr -a v vim
 abbr -a vv vim ~/vim
 abbr -a nn nvim ~/vim
-abbr -a neo nvim ~/.config/nvim/init.vim 
-abbr -a vr vim ~/.vimrc 
+abbr -a neo nvim ~/.config/nvim/init.vim
+abbr -a vr vim ~/.vimrc
 abbr -a sf source ~/.config/fish/config.fish
 abbr -a vf vim ~/.config/fish/config.fish
 abbr -a red redshift -O 2700K
@@ -38,12 +45,12 @@ abbr -a yn yarn generate
 
 abbr -a yx youtube-dl -x
 abbr -a yv youtube-dl
-abbr -a pl livereload 
+abbr -a pl livereload
 abbr -a ga git add -A
 abbr -a gc git commit -m ''
-abbr -a gp git push 
-abbr -a tf tslint --fix 
-abbr -a ef eslint --fix 
+abbr -a gp git push
+abbr -a tf tslint --fix
+abbr -a ef eslint --fix
 abbr -a cr cargo run --bin
 
 # dsel project
