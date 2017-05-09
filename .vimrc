@@ -14,6 +14,8 @@ Plug 'scrooloose/nerdtree'
 Plug 'sjl/gundo.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mileszs/ack.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 " syntax
 " Rust
@@ -116,12 +118,26 @@ nnoremap <leader>u :GundoToggle<CR>
 " let g:ctrlp_user_command = 'rg'
 
 " CtrlP with ripgrep
+" if executable('rg')
+" set grepprg=rg\ --color=never
+" let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
+" let g:ctrlp_use_caching = 0
+" endif
+
+" Use ripgrep with ack
 if executable('rg')
-  set grepprg=rg\ --color=never
-  let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
+  let g:ctrlp_user_command = 'rg --files %s'
   let g:ctrlp_use_caching = 0
+  let g:ctrlp_working_path_mode = 'ra'
+  let g:ctrlp_switch_buffer = 'et'
 endif
+let g:ackprg = 'rg --vimgrep --no-heading'
+
+" wild ignore
 set wildignore+=*/.git/*,*/tmp/*,*.swp
+
+"fzf rg find code
+command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
 
 " fish shell syntax options
 " Set up :make to use fish for syntax checking.
@@ -312,7 +328,7 @@ vmap < <gv
 vmap > >gv
 
 " esc removes highlighting
-" map <esc> :noh<cr>
+map <esc> :noh<cr>
 "}}}"
 
 " Themes, Commands, etc  ----------------------------------------------------{{{

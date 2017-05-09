@@ -1,3 +1,7 @@
+# run screenfetch
+# neofetch
+screenfetch
+
 # fish vi mode
 fish_vi_key_bindings
 
@@ -9,14 +13,18 @@ fish_vi_key_bindings
 set PATH $PATH /home/zeal/.cargo/bin
 set PATH $PATH /home/zeal/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src
 
+# set variables
+# -x export, -U universal across fish shells
+
+# variable for vim fzf interop
+set -xU FZF_DEFAULT_COMMAND 'rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+
 # function location
 # ~/.config/fish/functions
 
 # set colors
 set -lx TERM screen-256color-bce;
 
-# run screenfetch
-neofetch
 # swap escape with capslock
 setxkbmap -option caps:swapescape
 
@@ -62,7 +70,7 @@ alias cl="cd ~/p/dsel;and cargo run --bin show_posts"
 alias rsd="rsync -avz ~/.vimrc /media/zeal/Data/g/dotfiles;rsync -avz ~/.config/nvim/init.vim /media/zeal/Data/g/dotfiles;rsync -avz ~/.config/fish/config.fish /media/zeal/Data/g/dotfiles;rsync -avz ~/.tmux.conf.local /media/zeal/Data/g/dotfiles;cd /media/zeal/Data/g/dotfiles;git add -A"
 
 # rsync vim
-alias rsv="rsync -avz ~/vim /media/zeal/Data/g/vim;cd /media/zeal/Data/g/vim;git add -A"
+alias rsv="rsync -avz --exclude='.*' ~/vim /media/zeal/Data/g/vim;cd /media/zeal/Data/g/vim"
 
 # android emulator
 # alias emulator="$ANDROID_SDK/emulator/emulator -use-system-libs"
@@ -124,8 +132,8 @@ alias nin="cd ~/p/claud/res;nvim ."
 
 # commands
 function nc
-cd ~/inf/castle
-nvim .
+  cd ~/inf/castle
+  nvim .
 end
 
 # load direnv
