@@ -1,6 +1,6 @@
 # run screenfetch
-# neofetch
-screenfetch
+neofetch
+# screenfetch
 
 # fish vi mode
 fish_vi_key_bindings
@@ -17,7 +17,7 @@ set PATH $PATH /home/zeal/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib
 # -x export, -U universal across fish shells
 
 # variable for vim fzf interop
-set -xU FZF_DEFAULT_COMMAND 'rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+set -x FZF_DEFAULT_COMMAND 'rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 
 # function location
 # ~/.config/fish/functions
