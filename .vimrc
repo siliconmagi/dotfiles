@@ -419,6 +419,9 @@ endfunction
 
 " RIPGREP FZF FISH {{{
 
+" use rg for grepping
+set grepprg=rg\ --vimgrep
+
 " Use ripgrep with ack
 if executable('rg')
   let g:ctrlp_user_command = 'rg --files %s'
@@ -448,6 +451,12 @@ set hidden
 let g:racer_cmd = "/home/oak/.cargo/bin/racer"
 let g:racer_experimental_completer = 1
 
+" vim-racer enables C-x-C-o to search for completions and provides several <Plug> mappings for source code navigation
+au FileType rust nmap gd <Plug>(rust-def)
+au FileType rust nmap gs <Plug>(rust-def-split)
+au FileType rust nmap gx <Plug>(rust-def-vertical)
+au FileType rust nmap <leader>gd <Plug>(rust-doc)
+
 " YCM
 let g:ycm_server_python_interpreter = '/usr/bin/python'
 let g:ycm_rust_src_path = '/home/zeal/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
@@ -463,5 +472,26 @@ noremap <leader>f :Autoformat<CR>
 " init dictionary
 let g:lmap =  {}
 let g:lmap.f = { 'name' : 'Format file' }
+
+" airline
+let g:airline#extensions#tabline#enabled = 1
+set hidden
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#tabline#show_tab_nr = 1
+let g:airline#extensions#tabline#buffer_idx_mode = 1
+let g:airline_powerline_fonts = 1
+" let g:airline#extensions#neomake#error_symbol='✖ :'
+" let g:airline#extensions#neomake#warning_symbol='⚠ :'
+" let g:airline_theme='luna'
+cnoreabbrev <expr> x getcmdtype() == ":" && getcmdline() == 'x' ? 'Sayonara' : 'x'
+nmap <leader>1 <Plug>AirlineSelectTab1
+nmap <leader>2 <Plug>AirlineSelectTab2
+nmap <leader>3 <Plug>AirlineSelectTab3
+nmap <leader>4 <Plug>AirlineSelectTab4
+nmap <leader>5 <Plug>AirlineSelectTab5
+nmap <leader>6 <Plug>AirlineSelectTab6
+nmap <leader>7 <Plug>AirlineSelectTab7
+nmap <leader>8 <Plug>AirlineSelectTab8
+nmap <leader>9 <Plug>AirlineSelectTab9
 
 " }}}
