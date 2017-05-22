@@ -60,14 +60,21 @@ abbr -a gp git push
 abbr -a tf tslint --fix
 abbr -a ef eslint --fix
 abbr -a cr cargo run --bin
+abbr -a dp ~/p/palantir
 
 # alacritty
-abbr -a va vim $HOME/.config/alacritty/alacritty.yml
+# abbr -a va vim $HOME/.config/alacritty/alacritty.yml
+abbr -a vim vim
 
 # dsel project
 abbr -a ds ~/p/dsel
 alias vd="cd ~/p/dsel;vim ."
 alias vb="cd ~/p/dsel;and cargo run --bin show_posts"
+
+# dsel project
+abbr -a dl ~/p/palantir
+alias vl="cd ~/p/palantir;vim ."
+# alias vb="cd ~/p/palantir;and cargo run --bin show_posts"
 
 # rsync dotfiles
 alias rsd="rsync -avz ~/.vimrc /media/zeal/Data/g/dotfiles;rsync -avz ~/.config/nvim/init.vim /media/zeal/Data/g/dotfiles;rsync -avz ~/.config/fish/config.fish /media/zeal/Data/g/dotfiles;rsync -avz ~/.tmux.conf.local /media/zeal/Data/g/dotfiles;cd /media/zeal/Data/g/dotfiles;git add -A"

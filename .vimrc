@@ -99,6 +99,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-surround'
 Plug 'Chiel92/vim-autoformat'
+" Plug 'jalvesaq/Nvim-R'
 call plug#end()
 
 " }}}
@@ -193,10 +194,10 @@ set formatoptions+=t
 
 " Nicer defaults {{{
 " Split switching
-nnoremap <c-j> <c-w><c-j>
-nnoremap <c-k> <c-w><c-k>
-nnoremap <c-l> <c-w><c-j>
-nnoremap <c-h> <c-w><c-h>
+nmap <silent> <C-k> :wincmd k<CR>
+nmap <silent> <C-j> :wincmd j<CR>
+nmap <silent> <C-h> :wincmd h<CR>
+nmap <silent> <C-l> :wincmd l<CR>
 
 " jk escaping
 inoremap jk <esc>
@@ -208,8 +209,8 @@ nnoremap k gk
 " Move multiple lines with shift and ctrl
 noremap J 5j
 noremap K 5k
-noremap <C-k> 10k
-noremap <C-j> 10j
+noremap <C-j> :wincmd l
+noremap <C-k> :wincmd h
 
 " Align blocks of text and keep them selected
 vmap < <gv
@@ -254,10 +255,10 @@ nnoremap ! :!
 " Buffers & tabs {{{
 
 " Quit single buffer
-nnoremap <silent> <C-q> :wq<CR>
+nnoremap <silent> <C-q> :q<CR>
 
 " Quit all buffers
-nnoremap <silent> <C-w> :wqa<CR>
+nnoremap <silent> <C-w> :qa<CR>
 
 " Next tab
 nnoremap <silent> <tab> :tabn<CR>
