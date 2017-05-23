@@ -39,8 +39,10 @@ abbr -a neo nvim ~/.config/nvim/init.vim
 abbr -a vr vim ~/.vimrc
 abbr -a sf source ~/.config/fish/config.fish
 abbr -a vf vim ~/.config/fish/config.fish
+abbr -a vt vim ~/.tmux.conf.local
 abbr -a red redshift -O 2700K
 abbr -a ast /usr/local/bin/android-studio/bin/studio.sh
+abbr -a ls ls -lah
 
 abbr -a yp yarn prod
 abbr -a yd yarn dev
