@@ -94,7 +94,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-surround'
 Plug 'Chiel92/vim-autoformat'
-Plug 'jalvesaq/Nvim-R'
+" Plug 'jalvesaq/Nvim-R'
 call plug#end()
 
 " }}}
@@ -227,8 +227,9 @@ inoremap <c-e> <esc>A
 cnoremap <c-a> <home>
 cnoremap <c-e> <end>
 
+" Edit
 " Go to match
-nnoremap <tab> %
+" nnoremap <tab> %
 
 " Keep cursor position when '*'ing
 nnoremap * *<c-o>
@@ -257,10 +258,11 @@ nnoremap <silent> <C-q> :q<CR>
 nnoremap <silent> <C-w> :qa<CR>
 
 " Next tab
-nnoremap <silent> <tab> :tabn<CR>
+" nnoremap <silent> <tab> :tabn<CR>
 
+"Edit
 " Previous tab
-nnoremap <silent> <s-tab> :tabp<CR>
+" nnoremap <silent> <s-tab> :tabp<CR>
 
 " Quitting & writing
 nnoremap <leader>q :bp <bar> bd #<cr>
@@ -269,8 +271,8 @@ nnoremap <leader>w :w<cr>
 " Switching
 nnoremap <leader>l :bnext<cr>
 nnoremap <leader>h :bprevious<cr>
-nnoremap <leader><leader>l :tabnext<cr>
-nnoremap <leader><leader>h :tabprevious<cr>
+" nnoremap <leader><leader>l :tabnext<cr>
+" nnoremap <leader><leader>h :tabprevious<cr>
 
 "  }}}
 
@@ -295,6 +297,10 @@ nnoremap ,u :GundoToggle<cr>
 nnoremap <space> za
 nnoremap <leader><space> zMzO
 
+" nnoremap <A-s> za
+" nnoremap <A-s><space> zMzO
+
+
 " Remove search highlight
 " nnoremap <leader><cr> :nohlsearch<cr>
 
@@ -303,10 +309,10 @@ nnoremap <leader><space> zMzO
 " Editing {{{
 
 " Move lines around easily
-nnoremap <leader>k :m-2<cr>==
-nnoremap <leader>j :m+<cr>==
-xnoremap <leader>k :m-2<cr>gv=gv
-xnoremap <leader>j :m'>+<cr>gv=gv
+" nnoremap <leader>k :m-2<cr>==
+" nnoremap <leader>j :m+<cr>==
+" xnoremap <leader>k :m-2<cr>gv=gv
+" xnoremap <leader>j :m'>+<cr>gv=gv
 
 " Re-wrap paragraph
 nnoremap <silent> Q gqip
@@ -458,6 +464,15 @@ au FileType rust nmap <leader>gd <Plug>(rust-doc)
 let g:ycm_server_python_interpreter = '/usr/bin/python'
 let g:ycm_rust_src_path = '/home/zeal/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
 let g:ycm_min_num_of_chars_for_completion = 1
+let g:ycm_error_symbol = '>>'
+let g:ycm_warning_symbol = '>>'
+let g:ycm_enable_diagnostic_signs = 1
+let g:ycm_enable_diagnostic_highlighting = 1
+let g:ycm_echo_current_diagnostic = 1
+let g:ycm_always_populate_location_list = 0
+let g:ycm_complete_in_comments = 0
+inoremap <Tab> <NOP>
+let g:ycm_key_list_select_completion = ['<Tab>', '<Down>']
 
 " CTRL-e to toggle tree view with CTRL-t
 nmap <silent> <C-e> :NERDTreeToggle<CR>
@@ -515,16 +530,21 @@ let g:vimrplugin_map_r = 1
 " see R documentation in a Vim buffer
 let vimrplugin_vimpager = "no"
 "set expandtab
-set shiftwidth=4
-set tabstop=8
+" set shiftwidth=4
+" set tabstop=8
 " start R with F2 key
 map <F5> <Plug>RStart
 imap <F5> <Plug>RStart
 vmap <F5> <Plug>RStart
 " send selection to R with space bar
-vmap <leader>t <Plug>RDSendSelection
+" vmap <leader>t <Plug>RDSendSelection
 " send line to R with space bar
-nmap <leader>t <Plug>RDSendLine
+" nmap <leader>t <Plug>RDSendLine
+
+" send selection to R with space bar
+vmap <c-i> <Plug>RDSendSelection
+" send line to R with space bar
+nmap <c-i> <Plug>RDSendLine
 
 if v:progname =~? "evim"
     finish
@@ -536,20 +556,21 @@ if has("vms")
 else
     set backup   " keep a backup file
 endif
-set history=50   " keep 50 lines of command line history
-set showcmd    " display incomplete commands
-set incsearch    " do incremental searching
-set nowrap   " turns off text wrapping
-set nospell    " turns on spell check for all files
+"set history=50   " keep 50 lines of command line history
+"set showcmd    " display incomplete commands
+"set incsearch    " do incremental searching
+"set nowrap   " turns off text wrapping
+"set nospell    " turns on spell check for all files
 " autocmd BufNewFile,BufRead *.txt,*.html,README set spell "turns on
 " spell check only for specified files
-set paste    " turns on traditional pasting of text
+" set paste    " turns on traditional pasting of text *note* this disables ycm
+" tab completion
 " set number     " turns line numbering on
 " colorscheme hybrid  " sets color scheme
 set ruler    " show the cursor position all the time
 
 " Don't use Ex mode, use Q for formatting
-map Q gq
+"map Q gq
 
 
 " Switch syntax highlighting on, when the terminal has colors

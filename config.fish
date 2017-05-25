@@ -29,6 +29,7 @@ set -lx TERM screen-256color-bce;
 setxkbmap -option caps:swapescape
 
 # abbreviations
+#  system {{{
 abbr -a dd /media/zeal/Data
 abbr -a dm /media/zeal/Data/Music
 abbr -a n nvim
@@ -42,7 +43,16 @@ abbr -a vf vim ~/.config/fish/config.fish
 abbr -a vt vim ~/.tmux.conf.local
 abbr -a red redshift -O 2700K
 abbr -a ast /usr/local/bin/android-studio/bin/studio.sh
-abbr -a ls ls -lah
+abbr -a la ls -lah
+# }}}
+
+# Dir {{{
+
+abbr -a dr cd ~/p/r
+abbr -a vdr vim ~/p/r
+
+
+# }}}
 
 abbr -a yp yarn prod
 abbr -a yd yarn dev
