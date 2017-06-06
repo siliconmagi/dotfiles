@@ -46,6 +46,12 @@ let g:netrw_banner=0
 " Plugins {{{
 call plug#begin('~/.vim/plugged\')
 Plug 'Valloric/YouCompleteMe'
+Plug 'ternjs/tern_for_vim'
+Plug 'vim-scripts/indentpython.vim'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'scrooloose/syntastic'
+Plug 'nvie/vim-flake8'
+" Plug 'python-mode/python-mode'
 Plug 'scrooloose/nerdtree'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -154,9 +160,9 @@ colorscheme hybrid
 " GUI {{{
 
 if has("gui_running")
-    set guifont=Menlo:h13
-    set guioptions-=r
-    set guioptions-=L
+  set guifont=Menlo:h13
+  set guioptions-=r
+  set guioptions-=L
 endif
 
 " }}}
@@ -174,9 +180,9 @@ let g:NERDSpaceDelims = 1
 
 " Remember cursor position between vim sessions
 autocmd BufReadPost *
-            \ if line("'\"") > 0 && line ("'\"") <= line("$") |
-            \   exe "normal! g'\"" |
-            \ endif
+      \ if line("'\"") > 0 && line ("'\"") <= line("$") |
+      \   exe "normal! g'\"" |
+      \ endif
 " center buffer around cursor when opening files
 autocmd BufRead * normal zz
 set complete=.,w,b,u,t,k
@@ -375,22 +381,22 @@ iabbrev @@ siliconmagi@yandex.com
 " Augroup {{{
 
 augroup Vimrc
-    au!
-    " Set filetypes
-    au BufRead,BufNewFile *.{es6,es6.erb} setfiletype javascript
-    au BufRead,BufNewFile *.{jscs,jshint,eslint}rc setfiletype json
-    au BufRead,BufNewFile *.md setfiletype markdown
-    au BufRead,BufNewFile *.vue set filetype=html
+  au!
+  " Set filetypes
+  au BufRead,BufNewFile *.{es6,es6.erb} setfiletype javascript
+  au BufRead,BufNewFile *.{jscs,jshint,eslint}rc setfiletype json
+  au BufRead,BufNewFile *.md setfiletype markdown
+  au BufRead,BufNewFile *.vue set filetype=html
 
-    " Update splits when the window is resized
-    au VimResized * :wincmd *
+  " Update splits when the window is resized
+  au VimResized * :wincmd *
 
-    " Only show cursor line in current window and insert mode
-    au WinLeave,InsertEnter * set nocursorline
-    au WinEnter,InsertLeave * set cursorline
+  " Only show cursor line in current window and insert mode
+  au WinLeave,InsertEnter * set nocursorline
+  au WinEnter,InsertLeave * set cursorline
 
-    " Write everything when focus is lost
-    au FocusLost * :silent! wall
+  " Write everything when focus is lost
+  au FocusLost * :silent! wall
 augroup END
 
 " }}}
@@ -398,25 +404,25 @@ augroup END
 " Functions {{{
 
 function! ToggleProseOptions()
-    if g:is_in_prose_mode == 0
-        let g:is_in_prose_mode=1
-        Goyo
-        setlocal spell
-    else
-        let g:is_in_prose_mode=0
-        setlocal nospell
-        Goyo!
-    endif
+  if g:is_in_prose_mode == 0
+    let g:is_in_prose_mode=1
+    Goyo
+    setlocal spell
+  else
+    let g:is_in_prose_mode=0
+    setlocal nospell
+    Goyo!
+  endif
 endfunction
 
 function! SplitDirtyFiles()
-    only " Close all windows, unless they're modified
-    let status = system('git status -s | grep "^ \?\(M\|A\|UU\)" | sed "s/^.\{3\}//"')
-    let filenames = split(status, "\n")
-    exec "edit " . filenames[0]
-    for filename in filenames[1:]
-        exec "sp " . filename
-    endfor
+  only " Close all windows, unless they're modified
+  let status = system('git status -s | grep "^ \?\(M\|A\|UU\)" | sed "s/^.\{3\}//"')
+  let filenames = split(status, "\n")
+  exec "edit " . filenames[0]
+  for filename in filenames[1:]
+    exec "sp " . filename
+  endfor
 endfunction
 " }}}
 
@@ -427,10 +433,10 @@ set grepprg=rg\ --vimgrep
 
 " Use ripgrep with ack
 if executable('rg')
-    let g:ctrlp_user_command = 'rg --files %s'
-    let g:ctrlp_use_caching = 0
-    let g:ctrlp_working_path_mode = 'ra'
-    let g:ctrlp_switch_buffer = 'et'
+  let g:ctrlp_user_command = 'rg --files %s'
+  let g:ctrlp_use_caching = 0
+  let g:ctrlp_working_path_mode = 'ra'
+  let g:ctrlp_switch_buffer = 'et'
 endif
 let g:ackprg = 'rg --vimgrep --no-heading'
 
@@ -484,6 +490,15 @@ let NERDTreeShowHidden=1
 
 " ,f to format code, requires formatters: read the docs
 noremap <leader>f :Autoformat<CR>
+
+" autoformat verbose mode
+let g:autoformat_verbosemode=1
+
+" disable vim indent, retabbing, remove trailing whitespace
+let g:autoformat_autoindent = 0
+let g:autoformat_retab = 0
+let g:autoformat_remove_trailing_spaces = 0
+
 " init dictionary
 let g:lmap =  {}
 let g:lmap.f = { 'name' : 'Format file' }
@@ -542,19 +557,19 @@ vmap <F5> <Plug>RStart
 " nmap <leader>t <Plug>RDSendLine
 
 " send selection to R with space bar
-vmap <c-i> <Plug>RDSendSelection
+vmap <leader>x <Plug>RDSendSelection
 " send line to R with space bar
-nmap <c-i> <Plug>RDSendLine
+nmap <s-x> <Plug>RDSendLine
 
 if v:progname =~? "evim"
-    finish
+  finish
 endif
 
 "set autoindent   " always set autoindenting on
 if has("vms")
-    set nobackup   " do not keep a backup file, use versions instead
+  set nobackup   " do not keep a backup file, use versions instead
 else
-    set backup   " keep a backup file
+  set backup   " keep a backup file
 endif
 "set history=50   " keep 50 lines of command line history
 "set showcmd    " display incomplete commands
@@ -576,11 +591,64 @@ set ruler    " show the cursor position all the time
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
 if &t_Co > 2 || has("gui_running")
-    syntax on
-    set hlsearch
+  syntax on
+  set hlsearch
 endif
 
 
+
+" }}}
+
+" python {{{
+
+" au BufNewFile,BufRead *.py
+      " \ set tabstop=4
+      " \ set softtabstop=4
+      " \ set shiftwidth=4
+      " \ set textwidth=79
+      " \ set expandtab
+      " \ set autoindent
+      " \ set fileformat=unix
+
+" au BufNewFile,BufRead *.js, *.html, *.css
+      " \ set tabstop=2
+      " \ set softtabstop=2
+      " \ set shiftwidth=2
+
+" flag whitespace
+" au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+
+map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+"python with virtualenv support
+" py << EOF
+" import os
+" import sys
+" if 'VIRTUAL_ENV' in os.environ:
+  " project_base_dir = os.environ['VIRTUAL_ENV']
+  " activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+  " execfile(activate_this, dict(__file__=activate_this))
+" EOF
+
+let python_highlight_all=1
+
+" if has('gui_running')
+  " set background=dark
+    " colorscheme solarized
+  " else
+    " colorscheme zenburn
+" endif
+
+" call togglebg#map("<F6>")
+
+" python 3 mode
+let g:pymode_python = 'python3'
+
+" setup python path for formatters
+" let g:formatterpath = ['/home/zeal/.local/lib/python3.6/site-packages']
+" let g:formatdef_yapf = "'yapf --style=''{based_on_style:'.g:formatter_ya pf_style.',indent_width:'.&shiftwidth.'}'' -l '.a:firstline.'-'.a:lastline"
+" let g:formatter_yapf_style = 'pep8'
+" let g:formatdef_autopep8 = "'autopep8 - --range '.a:firstline.' '.a:lastline"
 
 " }}}
 

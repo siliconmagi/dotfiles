@@ -13,6 +13,10 @@ fish_vi_key_bindings
 set PATH $PATH /home/zeal/.cargo/bin
 set PATH $PATH /home/zeal/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src
 
+set PATH $PATH /home/zeal/.local/lib/python3.6/site-packages
+# set PATH $PATH /home/zeal/.local/lib/python2.7/site-package
+
+
 # set variables
 # -x export, -U universal across fish shells
 
@@ -39,17 +43,24 @@ abbr -a nn nvim ~/vim
 abbr -a neo nvim ~/.config/nvim/init.vim
 abbr -a vr vim ~/.vimrc
 abbr -a sf source ~/.config/fish/config.fish
+abbr -a sb source ~/.bashrc
 abbr -a vf vim ~/.config/fish/config.fish
 abbr -a vt vim ~/.tmux.conf.local
 abbr -a red redshift -O 2700K
 abbr -a ast /usr/local/bin/android-studio/bin/studio.sh
-abbr -a la ls -lah
+abbr -a ls ls
+abbr -a ad sudo apt update
+abbr -a ag sudo apt upgrade
+abbr -a p python3.6
+abbr -a pip python3.6 -m pip install
 # }}}
 
 # Dir {{{
 
 abbr -a dr cd ~/p/r
-abbr -a vdr vim ~/p/r
+abbr -a dp cd ~/p/python
+abbr -a vp vim ~/p/python
+abbr -a vdr vim ~/p/rr
 
 
 # }}}
@@ -72,7 +83,7 @@ abbr -a gp git push
 abbr -a tf tslint --fix
 abbr -a ef eslint --fix
 abbr -a cr cargo run --bin
-abbr -a dp ~/p/palantir
+# abbr -a dp ~/p/palantir
 
 # alacritty
 # abbr -a va vim $HOME/.config/alacritty/alacritty.yml
@@ -121,11 +132,11 @@ alias tg="cd ~/p/vue/taurus;and yarn generate"
 alias tp="cd ~/p/vue/taurus/dist;and netlify deploy -s car-park-attendant-jack-43088"
 
 # aries
-abbr -a ad ~/p/vue/aries
-alias an="cd ~/p/vue/aries;nvim ."
-alias al="cd ~/p/vue/aries;and yarn dev"
-alias agen="cd ~/p/vue/aries;and yarn generate"
-alias ap="cd ~/p/vue/aries/dist;and netlify deploy -s car-park-attendant-jack-43088"
+# abbr -a ad ~/p/vue/aries
+# alias an="cd ~/p/vue/aries;nvim ."
+# alias al="cd ~/p/vue/aries;and yarn dev"
+# alias agen="cd ~/p/vue/aries;and yarn generate"
+# alias ap="cd ~/p/vue/aries/dist;and netlify deploy -s car-park-attendant-jack-43088"
 
 # lavender
 abbr -a ld ~/p/vue/cloves
