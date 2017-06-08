@@ -12,8 +12,8 @@ fish_vi_key_bindings
 # set PATH $PATH /home/oak/Android/Sdk/tools
 set PATH $PATH /home/zeal/.cargo/bin
 set PATH $PATH /home/zeal/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src
-
-set PATH $PATH /home/zeal/.local/lib/python3.6/site-packages
+set PATH $PATH /home/zeal/anaconda3/bin
+# set PATH $PATH /home/zeal/.local/lib/python3.6/site-packages
 # set PATH $PATH /home/zeal/.local/lib/python2.7/site-package
 
 
@@ -51,8 +51,9 @@ abbr -a ast /usr/local/bin/android-studio/bin/studio.sh
 abbr -a ls ls
 abbr -a ad sudo apt update
 abbr -a ag sudo apt upgrade
-abbr -a p python3.6
-abbr -a pip python3.6 -m pip install
+# abbr -a p python3.6
+# abbr -a pip python3.6 -m pip install
+abbr -a ff cd ~/.config/fish/functions
 # }}}
 
 # Dir {{{

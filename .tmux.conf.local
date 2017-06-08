@@ -3,6 +3,7 @@
 
 # vim keys
 setw -g mode-keys vi
+set -g mouse on
 
 # remap prefix to Control + a
 unbind C-b

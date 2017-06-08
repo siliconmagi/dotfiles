@@ -100,7 +100,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-surround'
 Plug 'Chiel92/vim-autoformat'
-" Plug 'jalvesaq/Nvim-R'
+Plug 'jalvesaq/Nvim-R'
 call plug#end()
 
 " }}}
@@ -641,14 +641,17 @@ let python_highlight_all=1
 
 " call togglebg#map("<F6>")
 
-" python 3 mode
-let g:pymode_python = 'python3'
+
 
 " setup python path for formatters
 " let g:formatterpath = ['/home/zeal/.local/lib/python3.6/site-packages']
 " let g:formatdef_yapf = "'yapf --style=''{based_on_style:'.g:formatter_ya pf_style.',indent_width:'.&shiftwidth.'}'' -l '.a:firstline.'-'.a:lastline"
 " let g:formatter_yapf_style = 'pep8'
 " let g:formatdef_autopep8 = "'autopep8 - --range '.a:firstline.' '.a:lastline"
+
+" python 3 mode
+" let g:pymode_python = 'python3'
+" let g:pymode_doc_bind = "<C-S-k>"
 
 " }}}
 
