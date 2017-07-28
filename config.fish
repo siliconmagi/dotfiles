@@ -36,6 +36,7 @@ setxkbmap -option caps:swapescape
 #  system {{{
 abbr -a dd /media/zeal/Data
 abbr -a dm /media/zeal/Data/Music
+abbr -a dn ~/p/night
 abbr -a n nvim
 abbr -a v vim
 abbr -a vv vim ~/vim
@@ -52,8 +53,9 @@ abbr -a ls ls
 abbr -a ad sudo apt update
 abbr -a ag sudo apt upgrade
 # abbr -a p python3.6
-# abbr -a pip python3.6 -m pip install
+abbr -a pip pip
 abbr -a ff cd ~/.config/fish/functions
+abbr -a ip ipython
 # }}}
 
 # Dir {{{

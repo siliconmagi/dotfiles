@@ -46,8 +46,8 @@ let g:netrw_banner=0
 " Plugins {{{
 call plug#begin('~/.vim/plugged\')
 Plug 'Valloric/YouCompleteMe'
-Plug 'ternjs/tern_for_vim'
-Plug 'vim-scripts/indentpython.vim'
+" Plug 'ternjs/tern_for_vim'
+" Plug 'vim-scripts/indentpython.vim'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'scrooloose/syntastic'
 Plug 'nvie/vim-flake8'
@@ -652,6 +652,25 @@ let python_highlight_all=1
 " python 3 mode
 " let g:pymode_python = 'python3'
 " let g:pymode_doc_bind = "<C-S-k>"
+"
+" call flake8#Flake8UnplaceMarkers()
+let g:flake8_show_in_gutter=1  " show
+let g:flake8_show_in_file=1  " show
+let g:syntastic_python_checkers = ['flake8']
 
+let g:ycm_python_binary_path = '/usr/bin/python3.6'
+let g:ycm_server_python_interpreter = '/usr/bin/python3.6'
+
+" }}}
+
+" syntax {{{
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
 " }}}
 
