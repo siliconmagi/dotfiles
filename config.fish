@@ -48,11 +48,12 @@ abbr -a sb source ~/.bashrc
 abbr -a vf vim ~/.config/fish/config.fish
 abbr -a vt vim ~/.tmux.conf.local
 abbr -a red redshift -O 2700K
+abbr -a asp /usr/local/bin/asp/bin/studio.sh
 abbr -a ast /usr/local/bin/android-studio/bin/studio.sh
 abbr -a ls ls
 abbr -a ad sudo apt update
 abbr -a ag sudo apt upgrade
-# abbr -a p python3.6
+abbr -a p /home/zeal/anaconda3/bin/python3.6
 abbr -a pip pip
 abbr -a ff cd ~/.config/fish/functions
 abbr -a ip ipython
