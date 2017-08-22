@@ -57,6 +57,9 @@ abbr -a p /home/zeal/anaconda3/bin/python3.6
 abbr -a pip pip
 abbr -a ff cd ~/.config/fish/functions
 abbr -a ip ipython
+abbr -a gp /home/zeal/anaconda3/bin/python3.6 ~/p/python/gitPy.py
+abbr -a gd /home/zeal/anaconda3/bin/python3.6 ~/p/python/gitDot.py
+
 # }}}
 
 # Dir {{{
