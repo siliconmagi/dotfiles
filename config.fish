@@ -37,6 +37,7 @@ setxkbmap -option caps:swapescape
 abbr -a dd /media/zeal/Data
 abbr -a dm /media/zeal/Data/Music
 abbr -a dn ~/p/night
+abbr -a dp ~/p/python
 abbr -a n nvim
 abbr -a v vim
 abbr -a vv vim ~/vim
@@ -47,18 +48,20 @@ abbr -a sf source ~/.config/fish/config.fish
 abbr -a sb source ~/.bashrc
 abbr -a vf vim ~/.config/fish/config.fish
 abbr -a vt vim ~/.tmux.conf.local
-abbr -a red redshift -O 2700K
+abbr -a red redshift -O 1700K
 abbr -a asp /usr/local/bin/asp/bin/studio.sh
 abbr -a ast /usr/local/bin/android-studio/bin/studio.sh
 abbr -a ls ls
 abbr -a ad sudo apt update
 abbr -a ag sudo apt upgrade
-abbr -a p /home/zeal/anaconda3/bin/python3.6
+# abbr -a p /home/zeal/anaconda3/bin/python3.6
+abbr -a p python3
 abbr -a pip pip
 abbr -a ff cd ~/.config/fish/functions
 abbr -a ip ipython
-abbr -a gp /home/zeal/anaconda3/bin/python3.6 ~/p/python/gitPy.py
+abbr -a gy /home/zeal/anaconda3/bin/python3.6 ~/p/python/gitPy.py
 abbr -a gd /home/zeal/anaconda3/bin/python3.6 ~/p/python/gitDot.py
+abbr -a ng npm list -g --depth=0
 
 # }}}
 

@@ -383,10 +383,11 @@ iabbrev @@ siliconmagi@yandex.com
 augroup Vimrc
   au!
   " Set filetypes
-  au BufRead,BufNewFile *.{es6,es6.erb} setfiletype javascript
+  au BufRead,BufNewFile *.{vue,es6,es6.erb} setfiletype javascript
   au BufRead,BufNewFile *.{jscs,jshint,eslint}rc setfiletype json
   au BufRead,BufNewFile *.md setfiletype markdown
-  au BufRead,BufNewFile *.vue set filetype=html
+  " au BufRead,BufNewFile *.vue set filetype=html
+  " autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css
 
   " Update splits when the window is resized
   au VimResized * :wincmd *
@@ -663,14 +664,17 @@ let g:ycm_server_python_interpreter = '/usr/bin/python3.6'
 
 " }}}
 
-" syntax {{{
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
+" js syntax {{{
+autocmd FileType vue syntax sync fromstart
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 1
-" let g:syntastic_check_on_open = 1
-" let g:syntastic_check_on_wq = 0
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_exe = 'npm run lint --'
 " }}}
 
