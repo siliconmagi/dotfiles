@@ -38,6 +38,7 @@ abbr -a dd /media/zeal/Data
 abbr -a dm /media/zeal/Data/Music
 abbr -a dn ~/p/night
 abbr -a dp ~/p/python
+abbr -a ds ~/p/shell2
 abbr -a n nvim
 abbr -a v vim
 abbr -a vv vim ~/vim
@@ -59,8 +60,9 @@ abbr -a p python3
 abbr -a pip pip
 abbr -a ff cd ~/.config/fish/functions
 abbr -a ip ipython
-abbr -a gy /home/zeal/anaconda3/bin/python3.6 ~/p/python/gitPy.py
-abbr -a gd /home/zeal/anaconda3/bin/python3.6 ~/p/python/gitDot.py
+abbr -a gy python3 ~/p/python/gitPy.py
+abbr -a gd python3 ~/p/python/gitDot.py
+abbr -a gv python3 ~/p/python/gitVim.py
 abbr -a ng npm list -g --depth=0
 
 # }}}
@@ -100,7 +102,7 @@ abbr -a cr cargo run --bin
 abbr -a vim vim
 
 # dsel project
-abbr -a ds ~/p/dsel
+# abbr -a ds ~/p/dsel
 alias vd="cd ~/p/dsel;vim ."
 alias vb="cd ~/p/dsel;and cargo run --bin show_posts"
 
