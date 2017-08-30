@@ -165,7 +165,7 @@ if has("gui_running")
   set guioptions-=L
 endif
 
-" }}}
+" }}A8}
 
 " Mappings {{{
 let mapleader = ','
@@ -386,7 +386,7 @@ augroup Vimrc
   au BufRead,BufNewFile *.{vue,es6,es6.erb} setfiletype javascript
   au BufRead,BufNewFile *.{jscs,jshint,eslint}rc setfiletype json
   au BufRead,BufNewFile *.md setfiletype markdown
-  " au BufRead,BufNewFile *.vue set filetype=html
+  au BufRead,BufNewFile *.vue set filetype=html
   " autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css
 
   " Update splits when the window is resized
@@ -425,6 +425,7 @@ function! SplitDirtyFiles()
     exec "sp " . filename
   endfor
 endfunction
+" }}}
 " }}}
 
 " RIPGREP FZF FISH {{{
@@ -468,7 +469,7 @@ au FileType rust nmap gx <Plug>(rust-def-vertical)
 au FileType rust nmap <leader>gd <Plug>(rust-doc)
 
 " YCM
-let g:ycm_server_python_interpreter = '/usr/bin/python'
+let g:ycm_server_python_interpreter = '/usr/bin/python3'
 let g:ycm_rust_src_path = '/home/zeal/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
 let g:ycm_min_num_of_chars_for_completion = 1
 let g:ycm_error_symbol = '>>'
@@ -602,14 +603,14 @@ endif
 
 " python {{{
 
-" au BufNewFile,BufRead *.py
-      " \ set tabstop=4
-      " \ set softtabstop=4
-      " \ set shiftwidth=4
-      " \ set textwidth=79
-      " \ set expandtab
-      " \ set autoindent
-      " \ set fileformat=unix
+au BufNewFile,BufRead *.py
+      \ set tabstop=4
+      \ set softtabstop=4
+      \ set shiftwidth=4
+      \ set textwidth=79
+      \ set expandtab
+      \ set autoindent
+      \ set fileformat=unix
 
 " au BufNewFile,BufRead *.js, *.html, *.css
       " \ set tabstop=2
@@ -617,7 +618,7 @@ endif
       " \ set shiftwidth=2
 
 " flag whitespace
-" au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
@@ -665,17 +666,19 @@ let g:ycm_server_python_interpreter = '/usr/bin/python3.6'
 " }}}
 
 " js syntax {{{
-" autocmd FileType vue syntax sync fromstart
 nnoremap <silent> <esc> :noh<cr>
+" use eslint to check js
+let g:syntastic_javascript_checkers=['eslint']
+" use project specific eslint
+let g:syntastic_javascript_eslint_exe='$(npm bin)/eslint'
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 1
-" let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 1
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_javascript_eslint_exe = 'npm run lint --'
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
 " }}}
 
