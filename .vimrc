@@ -165,7 +165,7 @@ if has("gui_running")
   set guioptions-=L
 endif
 
-" }}A8}
+" }}}
 
 " Mappings {{{
 let mapleader = ','
@@ -426,7 +426,6 @@ function! SplitDirtyFiles()
   endfor
 endfunction
 " }}}
-" }}}
 
 " RIPGREP FZF FISH {{{
 
@@ -469,7 +468,7 @@ au FileType rust nmap gx <Plug>(rust-def-vertical)
 au FileType rust nmap <leader>gd <Plug>(rust-doc)
 
 " YCM
-let g:ycm_server_python_interpreter = '/usr/bin/python3'
+let g:ycm_server_python_interpreter = '/usr/bin/python3.6'
 let g:ycm_rust_src_path = '/home/zeal/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
 let g:ycm_min_num_of_chars_for_completion = 1
 let g:ycm_error_symbol = '>>'
@@ -603,14 +602,14 @@ endif
 
 " python {{{
 
-au BufNewFile,BufRead *.py
-      \ set tabstop=4
-      \ set softtabstop=4
-      \ set shiftwidth=4
-      \ set textwidth=79
-      \ set expandtab
-      \ set autoindent
-      \ set fileformat=unix
+" au BufNewFile,BufRead *.py
+      " \ set tabstop=4
+      " \ set softtabstop=4
+      " \ set shiftwidth=4
+      " \ set textwidth=79
+      " \ set expandtab
+      " \ set autoindent
+      " \ set fileformat=unix
 
 " au BufNewFile,BufRead *.js, *.html, *.css
       " \ set tabstop=2
@@ -618,7 +617,7 @@ au BufNewFile,BufRead *.py
       " \ set shiftwidth=2
 
 " flag whitespace
-au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+" au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
@@ -643,8 +642,6 @@ let python_highlight_all=1
 
 " call togglebg#map("<F6>")
 
-
-
 " setup python path for formatters
 " let g:formatterpath = ['/home/zeal/.local/lib/python3.6/site-packages']
 " let g:formatdef_yapf = "'yapf --style=''{based_on_style:'.g:formatter_ya pf_style.',indent_width:'.&shiftwidth.'}'' -l '.a:firstline.'-'.a:lastline"
@@ -660,13 +657,11 @@ let g:flake8_show_in_gutter=1  " show
 let g:flake8_show_in_file=1  " show
 let g:syntastic_python_checkers = ['flake8']
 
-let g:ycm_python_binary_path = '/usr/bin/python3.6'
-let g:ycm_server_python_interpreter = '/usr/bin/python3.6'
-
 " }}}
 
 " js syntax {{{
-nnoremap <silent> <esc> :noh<cr>
+" bug: opens vim in replace
+" nnoremap <silent> <esc> :noh<cr>
 " use eslint to check js
 let g:syntastic_javascript_checkers=['eslint']
 " use project specific eslint
@@ -681,4 +676,5 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 " }}}
+
 
