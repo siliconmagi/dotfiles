@@ -101,6 +101,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-surround'
 Plug 'Chiel92/vim-autoformat'
 Plug 'jalvesaq/Nvim-R'
+Plug 'flazz/vim-colorschemes'
 call plug#end()
 
 " }}}
@@ -153,7 +154,7 @@ set relativenumber
 set ruler
 set showtabline=0
 set t_Co=256
-colorscheme hybrid
+colorscheme antares
 
 " }}}
 
