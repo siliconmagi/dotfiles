@@ -1,4 +1,3 @@
-
 # run screenfetch
 neofetch
 # screenfetch
@@ -36,9 +35,9 @@ abbr -a dv cd /media/xeno/BAK/Videos
 abbr -a dn ~/p/night
 abbr -a dp ~/p/python
 abbr -a de ~/p/neo
-abbr -a gy python3 ~/p/python/gitPy.py
-abbr -a gd python3 ~/p/python/gitDot.py
-abbr -a gv python3 ~/p/python/gitVim.py
+abbr -a gy python3 ~/p/neo/gitPy.py
+abbr -a gd python3 ~/p/neo/gitDot.py
+abbr -a gv python3 ~/p/neo/gitVim.py
 abbr -a pe pipenv run python
 abbr -a pi pipenv install
 
