@@ -102,6 +102,7 @@ Plug 'tpope/vim-surround'
 Plug 'Chiel92/vim-autoformat'
 Plug 'jalvesaq/Nvim-R'
 Plug 'flazz/vim-colorschemes'
+Plug 'jiangmiao/auto-pairs'
 call plug#end()
 
 " }}}
