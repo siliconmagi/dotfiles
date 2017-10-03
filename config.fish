@@ -19,14 +19,14 @@ status --is-interactive; and . (pyenv virtualenv-init -|psub)
 # set /usr/local/bin to PATH
 set -g -x PATH /usr/local/bin $PATH
 
-abbr -a vr vim ~/.vimrc
-abbr -a v vim
-abbr -a vv vim ~/vim
-abbr -a va vim ~/.config/alacritty/alacritty.yml
-abbr -a vn vim ~/.config/nvim/init.vim
+abbr -a vr nvim ~/.vimrc
+abbr -a v nvim
+abbr -a vv nvim ~/vim
+abbr -a va nvim ~/.config/alacritty/alacritty.yml
+abbr -a vn nvim ~/.config/nvim/init.vim
 abbr -a sf source ~/.config/fish/config.fish
 abbr -a sb source ~/.bashrc
-abbr -a vf vim ~/.config/fish/config.fish
+abbr -a vf nvim ~/.config/fish/config.fish
 abbr -a red redshift -O 1700K
 abbr -a ad sudo apt update
 abbr -a ag sudo apt upgrade
