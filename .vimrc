@@ -72,12 +72,13 @@ Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
 Plug 'w0ng/vim-hybrid'
 Plug 'scrooloose/nerdcommenter'
+" leader + c: comment line
 Plug 'racer-rust/vim-racer'
 Plug 'rust-lang/rust.vim'
 Plug 'dag/vim-fish'
 Plug 'dNitro/vim-pug-complete'
 Plug 'digitaltoad/vim-pug'
-Plug 'posva/vim-vue'
+" Plug 'posva/vim-vue'
 Plug 'othree/html5.vim'
 Plug 'billyvg/tigris.nvim', { 'do': './install.sh' }
 Plug 'othree/yajs.vim', {'for': 'javascript'}
