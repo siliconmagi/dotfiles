@@ -157,6 +157,9 @@ set wildmode=full
 let g:netrw_localrmdir='rm -r'
 let g:netrw_banner=0
 
+" Copy / Paste to / from clipboard
+xnoremap <c-c> "+y
+nnoremap <c-p> "+p
 " }}}
 
 " Tabs, spaces & wrapping {{{
