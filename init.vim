@@ -109,8 +109,8 @@ filetype plugin indent on
 " }}}
 
 " setup python interpreter {{{
-let g:python_host_prog = '/home/xeno/.pyenv/versions/neovim2/bin/python'
-let g:python3_host_prog = '/home/xeno/.pyenv/versions/neovim3/bin/python'
+let g:python_host_prog = '/usr/bin/python'
+let g:python3_host_prog = '/usr/local/bin/python3'
 " }}}
 
 " Basics {{{
@@ -157,9 +157,6 @@ set wildmode=full
 let g:netrw_localrmdir='rm -r'
 let g:netrw_banner=0
 
-" Copy / Paste to / from clipboard
-xnoremap <c-c> "+y
-nnoremap <c-p> "+p
 " }}}
 
 " Tabs, spaces & wrapping {{{

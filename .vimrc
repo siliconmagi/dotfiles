@@ -1,7 +1,7 @@
 " silicon magi vimrc
 
 " Basics {{{
-
+set termguicolors
 set nocompatible
 filetype plugin indent on
 
@@ -104,6 +104,11 @@ Plug 'Chiel92/vim-autoformat'
 Plug 'jalvesaq/Nvim-R'
 Plug 'flazz/vim-colorschemes'
 Plug 'jiangmiao/auto-pairs'
+" reason plugs
+Plug 'reasonml-editor/vim-reason-plus'
+Plug 'roxma/vim-hug-neovim-rpc'
+Plug 'roxma/nvim-yarp'
+Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
 call plug#end()
 
 " }}}
@@ -471,8 +476,8 @@ au FileType rust nmap gx <Plug>(rust-def-vertical)
 au FileType rust nmap <leader>gd <Plug>(rust-doc)
 
 " YCM
-let g:ycm_server_python_interpreter = '/usr/bin/python3.6'
-let g:ycm_rust_src_path = '/home/zeal/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
+let g:ycm_server_python_interpreter = '/usr/bin/python'
+let g:ycm_rust_src_path = '/home/ice/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
 let g:ycm_min_num_of_chars_for_completion = 1
 let g:ycm_error_symbol = '>>'
 let g:ycm_warning_symbol = '>>'
@@ -680,4 +685,18 @@ let g:syntastic_check_on_wq = 0
 
 " }}}
 
+" ocaml {{{
+"
+let g:LanguageClient_serverCommands = {
+      \ 'reason': ['ocaml-language-server', '--stdio'],
+      \ 'ocaml': ['ocaml-language-server', '--stdio'],
+      \ }
 
+" Automatically start language servers.
+let g:LanguageClient_autoStart = 1
+
+" nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+" nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
+" nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
+" }}}
+"

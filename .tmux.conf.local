@@ -3,28 +3,6 @@
 #         without any warranty.
 #         Copyright 2012— Gregory Pakosz (@gpakosz).
 
-# vim keys
-setw -g mode-keys vi
-set -g mouse on
-
-# remap prefix to Control + a
-unbind C-b
-set -g prefix `
-bind-key ` send-prefix
-
-# Mouse support - set to on if you want to use the mouse
-# set -g mode-mouse on
-# set -g mouse-select-pane on
-# set -g mouse-resize-pane on
-# set -g mouse-select-window on
-
-# Set the default terminal mode to 256color mode
-set -g default-terminal "screen-256color"
-
-# Center the window list
-set -g status-justify centre
-
-
 
 # -- navigation ----------------------------------------------------------------
 
@@ -193,13 +171,13 @@ tmux_conf_theme_status_right_bg='#080808,#d70000,#e4e4e4' # dark gray, red, whit
 tmux_conf_theme_status_right_attr='none,none,bold'
 
 # pairing indicator
-tmux_conf_theme_pairing='👓'          # U+1F453
+tmux_conf_theme_pairing='👓 '          # U+1F453
 tmux_conf_theme_pairing_fg='none'
 tmux_conf_theme_pairing_bg='none'
 tmux_conf_theme_pairing_attr='none'
 
 # prefix indicator
-tmux_conf_theme_prefix='⌨'            # U+2328
+tmux_conf_theme_prefix='⌨ '            # U+2328
 tmux_conf_theme_prefix_fg='none'
 tmux_conf_theme_prefix_bg='none'
 tmux_conf_theme_prefix_attr='none'
