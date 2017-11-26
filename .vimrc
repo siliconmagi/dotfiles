@@ -105,10 +105,10 @@ Plug 'jalvesaq/Nvim-R'
 Plug 'flazz/vim-colorschemes'
 Plug 'jiangmiao/auto-pairs'
 " reason plugs
-Plug 'reasonml-editor/vim-reason-plus'
-Plug 'roxma/vim-hug-neovim-rpc'
-Plug 'roxma/nvim-yarp'
-Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'reasonml-editor/vim-reason-plus'
+" Plug 'roxma/vim-hug-neovim-rpc'
+" Plug 'roxma/nvim-yarp'
+" Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
 call plug#end()
 
 " }}}

@@ -6,7 +6,7 @@ set -q XDG_DATA_HOME
 # Load Oh My Fish configuration.
 source $OMF_PATH/init.fish
 # run screenfetch
-neofetch
+# neofetch
 
 # fish vi mode
 fish_vi_key_bindings
@@ -22,8 +22,12 @@ setxkbmap -option caps:swapescape
 # status --is-interactive; and . (pyenv init -|psub)
 # status --is-interactive; and . (pyenv virtualenv-init -|psub)
 
+# path pip3
+# set -gx PATH "/usr/local/bin"
+
 # set /usr/local/bin to PATH
-set -g -x PATH /usr/local/bin $PATH
+set -gx PATH /usr/local/bin /home/ice/.local/bin $PATH
+
 abbr -a vr vim ~/.vimrc
 abbr -a v vim
 abbr -a vv vim ~/p/vim
@@ -35,7 +39,7 @@ abbr -a vf vim ~/.config/fish/config.fish
 abbr -a red redshift -O 1700K
 abbr -a ad sudo apt update
 abbr -a ag sudo apt upgrade
-abbr -a p python3
+abbr -a p python3.6
 abbr -a yx youtube-dl -x
 abbr -a yv youtube-dl
 abbr -a pl livereload
@@ -49,9 +53,9 @@ abbr -a dn ~/p/night
 abbr -a dp ~/p/python
 abbr -a de ~/p/neo
 abbr -a dx ~/p/nuxt
-abbr -a gy python3 ~/p/neo/igp.py
-abbr -a gd python3 ~/p/neo/igd.py
-abbr -a gv python3 ~/p/neo/igv.py
+abbr -a gy python3.6 ~/p/neo/igp.py
+abbr -a gd python3.6 ~/p/neo/igd.py
+abbr -a gv python3.6 ~/p/neo/igv.py
 abbr -a pe pipenv run python
 abbr -a pi pipenv install
 abbr -a ppa vim /etc/apt/sources.list.d/

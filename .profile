@@ -16,10 +16,8 @@ if [ -n "$BASH_VERSION" ]; then
     fi
 fi
 
-# set PATH so it includes user's private bin directories
-PATH="$HOME/bin:$HOME/.local/bin:$PATH"
-
-export PATH="$HOME/.cargo/bin:$PATH"
-
-# OPAM configuration
-. /home/ice/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
+fi
+if [ -e /home/ice/.nix-profile/etc/profile.d/nix.sh ]; then . /home/ice/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
