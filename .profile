@@ -20,3 +20,6 @@ fi
 PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 
 export PATH="$HOME/.cargo/bin:$PATH"
+
+# OPAM configuration
+. /home/ice/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true

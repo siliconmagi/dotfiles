@@ -55,4 +55,5 @@ abbr -a gv python3 ~/p/neo/igv.py
 abbr -a pe pipenv run python
 abbr -a pi pipenv install
 abbr -a ppa vim /etc/apt/sources.list.d/
+abbr -a r ranger
 
