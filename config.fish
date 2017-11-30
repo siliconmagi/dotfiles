@@ -32,7 +32,7 @@ abbr -a vr vim ~/.vimrc
 abbr -a v vim
 abbr -a vv vim ~/p/vim
 abbr -a va vim ~/.config/alacritty/alacritty.yml
-abbr -a vn vim ~/.config/nvim/init.vim
+abbr -a vn vim ~/Documents
 abbr -a sf source ~/.config/fish/config.fish
 abbr -a sb source ~/.bashrc
 abbr -a vf vim ~/.config/fish/config.fish
@@ -60,4 +60,6 @@ abbr -a pe pipenv run python
 abbr -a pi pipenv install
 abbr -a ppa vim /etc/apt/sources.list.d/
 abbr -a r ranger
-
+abbr -a hr1 python ~/p/neo/hr1.py
+abbr -a hr2 python ~/p/neo/hr2.py
+abbr -a hr3 python ~/p/neo/hr3.py
