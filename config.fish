@@ -33,6 +33,7 @@ abbr -a v vim
 abbr -a vv vim ~/p/vim
 abbr -a va vim ~/.config/alacritty/alacritty.yml
 abbr -a vn vim ~/Documents
+abbr -a vy vim ~/p/neo
 abbr -a sf source ~/.config/fish/config.fish
 abbr -a sb source ~/.bashrc
 abbr -a vf vim ~/.config/fish/config.fish
@@ -51,7 +52,7 @@ abbr -a db cd /media/xeno/BAK
 abbr -a dv cd /media/xeno/BAK/Videos
 abbr -a dn ~/p/night
 abbr -a dp ~/p/python
-abbr -a de ~/p/neo
+abbr -a dy ~/p/neo
 abbr -a dx ~/p/nuxt
 abbr -a gy python3.6 ~/p/neo/igp.py
 abbr -a gd python3.6 ~/p/neo/igd.py
