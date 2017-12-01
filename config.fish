@@ -1,3 +1,4 @@
+neofetch
 # Path to Oh My Fish install.
 set -q XDG_DATA_HOME
   and set -gx OMF_PATH "$XDG_DATA_HOME/omf"
@@ -23,10 +24,10 @@ setxkbmap -option caps:swapescape
 # status --is-interactive; and . (pyenv virtualenv-init -|psub)
 
 # path pip3
-# set -gx PATH "/usr/local/bin"
+# set -gx PATH "/home/zeal/.cargo/bin"
 
-# set /usr/local/bin to PATH
-set -gx PATH /usr/local/bin /home/ice/.local/bin $PATH
+# add to path: cargo, pip
+set -gx PATH /home/zeal/.cargo/bin /home/zeal/.local/bin $PATH
 
 abbr -a vr vim ~/.vimrc
 abbr -a v vim
