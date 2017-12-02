@@ -104,6 +104,7 @@ Plug 'Chiel92/vim-autoformat'
 Plug 'jalvesaq/Nvim-R'
 Plug 'flazz/vim-colorschemes'
 Plug 'jiangmiao/auto-pairs'
+Plug 'slashmili/alchemist.vim'
 " reason plugs
 " Plug 'reasonml-editor/vim-reason-plus'
 " Plug 'roxma/vim-hug-neovim-rpc'

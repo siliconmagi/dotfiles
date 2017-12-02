@@ -39,8 +39,9 @@ abbr -a sf source ~/.config/fish/config.fish
 abbr -a sb source ~/.bashrc
 abbr -a vf vim ~/.config/fish/config.fish
 abbr -a red redshift -O 1700K
-abbr -a ad sudo apt update
-abbr -a ag sudo apt upgrade
+# abbr -a ad sudo apt update
+# abbr -a ag sudo apt upgrade
+abbr -a eu sudo eopkg up
 abbr -a p python3.6
 abbr -a yx youtube-dl -x
 abbr -a yv youtube-dl
@@ -51,7 +52,7 @@ abbr -a gp git push
 abbr -a ng npm list -g --depth=0
 abbr -a db cd /media/xeno/BAK
 abbr -a dv cd /media/xeno/BAK/Videos
-abbr -a dn ~/p/night
+abbr -a dn ~/p/neo
 abbr -a dp ~/p/python
 abbr -a dy ~/p/neo
 abbr -a dx ~/p/nuxt
@@ -65,3 +66,6 @@ abbr -a r ranger
 abbr -a hr1 python ~/p/neo/hr1.py
 abbr -a hr2 python ~/p/neo/hr2.py
 abbr -a hr3 python ~/p/neo/hr3.py
+abbr -a hm python mail.py
+abbr setclip "xclip -selection c"
+abbr getclip "xclip -selection c -o"
