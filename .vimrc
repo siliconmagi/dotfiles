@@ -162,7 +162,7 @@ set relativenumber
 set ruler
 set showtabline=0
 set t_Co=256
-colorscheme antares
+colorscheme Dark2
 
 " }}}
 
