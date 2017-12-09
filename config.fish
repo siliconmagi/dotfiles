@@ -67,5 +67,6 @@ abbr -a hr1 python ~/p/neo/hr1.py
 abbr -a hr2 python ~/p/neo/hr2.py
 abbr -a hr3 python ~/p/neo/hr3.py
 abbr -a hm python mail.py
+abbr -a pes pipenv shell
 abbr setclip "xclip -selection c"
 abbr getclip "xclip -selection c -o"
