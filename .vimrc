@@ -87,10 +87,10 @@ Plug 'othree/jsdoc-syntax.vim', {'for': 'javascript'}
 Plug 'moll/vim-node', {'for': 'javascript'}
 Plug 'elzr/vim-json', {'for': 'json'}
 Plug 'hail2u/vim-css3-syntax', {'for':['css','scss']}
+" dragons
 Plug 'ap/vim-css-color'
 Plug 'tpope/vim-markdown', {'for': 'markdown'}
 Plug 'dhruvasagar/vim-table-mode'
-Plug 'vimlab/mdown.vim', {'do': 'npm install'}
 Plug 'tyru/markdown-codehl-onthefly.vim'
 Plug 'stephpy/vim-yaml', {'for': 'yaml'}
 Plug 'Konfekt/FastFold'
@@ -105,6 +105,7 @@ Plug 'jalvesaq/Nvim-R'
 Plug 'flazz/vim-colorschemes'
 Plug 'jiangmiao/auto-pairs'
 Plug 'slashmili/alchemist.vim'
+Plug 'davidhalter/jedi-vim'
 " reason plugs
 " Plug 'reasonml-editor/vim-reason-plus'
 " Plug 'roxma/vim-hug-neovim-rpc'
