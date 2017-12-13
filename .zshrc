@@ -1,5 +1,6 @@
-alias bv='bindkey -v'
+alias kb='bindkey -v'
 alias v='vim'
+alias th='thunar .'
 alias vz='vim ~/.zshrc'
 alias vr='vim ~/.vimrc'
 alias vv='vim ~/p/vim'
@@ -8,10 +9,12 @@ alias p='python'
 alias yx='youtube-dl -x'
 alias yv='youtube-dl'
 alias dp='cd ~/p'
+alias dt='cd ~/.oh-my-zsh/custom/themes'
 alias ar='sudo apt remove'
 alias ai='sudo apt install'
 alias r3='redshift -O 3000K'
 alias r5='redshift -O 5000K'
+alias ng='npm list -g --depth=0'
 export PATH=/home/able/.cargo/bin:$PATH
 # sudo find / -name libGLdispatch.so.0
 export PATH=/home/able/.local/bin:$PATH
@@ -29,10 +32,13 @@ bindkey -v
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="muse"
+ZSH_THEME="spaceship"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 
 # Set list of themes to load
-# Setting this variable when ZSH_THEME=random
+# Setting this variable when ZSH_THEME="spaceship"
 # cause zsh load theme from this variable instead of
 # looking in ~/.oh-my-zsh/themes/
 # An empty array have no effect
@@ -114,3 +120,8 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+
+source "/home/able/.oh-my-zsh/custom/themes/spaceship.zsh-theme"

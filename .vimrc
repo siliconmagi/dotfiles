@@ -163,7 +163,8 @@ set relativenumber
 set ruler
 set showtabline=0
 set t_Co=256
-colorscheme badwolf
+" theme
+colorscheme chance-of-storm
 
 " }}}
 
@@ -257,8 +258,8 @@ nnoremap vv ^vg_
 vnoremap K k
 
 " Copy / Paste to / from clipboard
-xnoremap <c-c> "+y
-nnoremap <c-p> "+p
+xnoremap <c-c> "*y
+nnoremap <c-p> "*p
 
 " Start an external command with just !
 nnoremap ! :!
@@ -478,7 +479,7 @@ au FileType rust nmap gx <Plug>(rust-def-vertical)
 au FileType rust nmap <leader>gd <Plug>(rust-doc)
 
 " YCM
-let g:ycm_server_python_interpreter = '/usr/bin/python'
+let g:ycm_server_python_interpreter = '/usr/bin/python3'
 let g:ycm_rust_src_path = '/home/ice/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
 let g:ycm_min_num_of_chars_for_completion = 1
 let g:ycm_error_symbol = '>>'
