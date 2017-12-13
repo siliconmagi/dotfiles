@@ -163,7 +163,7 @@ set relativenumber
 set ruler
 set showtabline=0
 set t_Co=256
-colorscheme Dark2
+colorscheme badwolf
 
 " }}}
 

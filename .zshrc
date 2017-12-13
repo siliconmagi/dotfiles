@@ -1,46 +1,116 @@
+alias bv='bindkey -v'
+alias v='vim'
+alias vz='vim ~/.zshrc'
+alias vr='vim ~/.vimrc'
+alias vv='vim ~/p/vim'
+alias ss='source ~/.zshrc'
+alias p='python'
+alias yx='youtube-dl -x'
+alias yv='youtube-dl'
+alias dp='cd ~/p'
+alias ar='sudo apt remove'
+alias ai='sudo apt install'
+alias r3='redshift -O 3000K'
+alias r5='redshift -O 5000K'
+export PATH=/home/able/.cargo/bin:$PATH
+# sudo find / -name libGLdispatch.so.0
+export PATH=/home/able/.local/bin:$PATH
 # swap escape with capslock
 setxkbmap -option caps:swapescape
-
-# abbreviations
-abbr -a n nvim
-abbr -a nn nvim ~/vim
-abbr -a fs source ~/.config/fish/config.fish
-abbr -a fn nvim ~/.config/fish/config.fish
-abbr -a red redshift -O 1700K
-abbr -a yp yarn prod
-abbr -a yd yarn dev
-abbr -a yad yarn add -D
-abbr -a ya yarn add
-abbr -a yx youtube-dl -x
-abbr -a yv youtube-dl
-abbr -a neo nvim ~/.config/nvim/init.vim 
-abbr -a pl livereload 
-abbr -a ga git add -A
-abbr -a gc git commit -m ''
-abbr -a gp git push 
-abbr -a tf tslint --fix 
-
-# castle
-abbr -a dc ~/elm/cloves
-alias cn="cd ~/elm/cloves;nvim ."
-alias cl="cd ~/elm/cloves;and yarn dev"
-
-# violet
-abbr -a vid ~/proj/inf/violet
-alias vin="cd ~/proj/inf/violet;nvim ."
-alias vil="cd ~/proj/inf/violet;and yarn dev"
-
-# res
-abbr -a nid ~/proj/claud/res
-alias nhd="cd ~/proj/claud/res;and serverless deploy function -f home"
-alias nin="cd ~/proj/claud/res;nvim ."
+bindkey -v
 
 
-# commands
-function nc
-cd ~/inf/castle
-nvim .
-end
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# load direnv
-eval (direnv hook fish)
+# Path to your oh-my-zsh installation.
+  export ZSH=/home/able/.oh-my-zsh
+
+# Set name of the theme to load. Optionally, if you set this to "random"
+# it'll load a random theme each time that oh-my-zsh is loaded.
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+ZSH_THEME="muse"
+
+# Set list of themes to load
+# Setting this variable when ZSH_THEME=random
+# cause zsh load theme from this variable instead of
+# looking in ~/.oh-my-zsh/themes/
+# An empty array have no effect
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
+
+# Uncomment the following line to use hyphen-insensitive completion. Case
+# sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
+
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
+
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
+
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(
+  git
+)
+
+source $ZSH/oh-my-zsh.sh
+
+# User configuration
+
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# ssh
+# export SSH_KEY_PATH="~/.ssh/rsa_id"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
