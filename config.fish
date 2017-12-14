@@ -40,8 +40,9 @@ abbr -a sf source ~/.config/fish/config.fish
 abbr -a sb source ~/.bashrc
 abbr -a vf vim ~/.config/fish/config.fish
 abbr -a red redshift -O 1700K
-# abbr -a ad sudo apt update
-# abbr -a ag sudo apt upgrade
+abbr -a ff /opt/firefox/firefox
+abbr -a ad sudo apt update
+abbr -a ag sudo apt upgrade
 abbr -a eu sudo eopkg up
 abbr -a p python3.6
 abbr -a yx youtube-dl -x
