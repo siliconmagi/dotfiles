@@ -1,4 +1,3 @@
-neofetch
 # Path to Oh My Fish install.
 set -q XDG_DATA_HOME
   and set -gx OMF_PATH "$XDG_DATA_HOME/omf"
@@ -27,7 +26,8 @@ setxkbmap -option caps:swapescape
 # set -gx PATH "/home/zeal/.cargo/bin"
 
 # add to path: cargo, pip
-set -gx PATH /home/zeal/.cargo/bin /home/zeal/.local/bin $PATH
+# set -gx PATH /home/zeal/.cargo/bin /home/zeal/.local/bin $PATH
+set -gx PATH /home/zeal/.cargo/bin $PATH
 
 abbr -a vr vim ~/.vimrc
 abbr -a v vim
