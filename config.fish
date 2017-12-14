@@ -25,9 +25,10 @@ setxkbmap -option caps:swapescape
 # path pip3
 # set -gx PATH "/home/zeal/.cargo/bin"
 
-# add to path: cargo, pip
-# set -gx PATH /home/zeal/.cargo/bin /home/zeal/.local/bin $PATH
+# add to path: cargo
 set -gx PATH /home/zeal/.cargo/bin $PATH
+# add to path: pip
+set -gx PATH /home/zeal/.local/bin $PATH
 
 abbr -a vr vim ~/.vimrc
 abbr -a v vim
