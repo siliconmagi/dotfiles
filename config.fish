@@ -11,6 +11,7 @@ alias lts2="cd ~/p/sys;python3.6 -c 'from conn import lts2;lts2.root()'"
 alias smtp2="cd ~/p/sys;python3.6 -c 'from conn import smtp2;smtp2.root()'"
 alias ns1="cd ~/p/sys;python3.6 -c 'from conn import ns1;ns1.root()'"
 alias lock='xscreensaver-command -l'
+alias igd='python3.6 ~/p/neo/igd.py'
 
 # Path to Oh My Fish install.
 set -q XDG_DATA_HOME
