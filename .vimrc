@@ -164,7 +164,9 @@ set ruler
 set showtabline=0
 set t_Co=256
 " theme
-colorscheme chance-of-storm
+" colorscheme chance-of-storm
+colorscheme greenvision
+" colorscheme hhazure
 
 " }}}
 

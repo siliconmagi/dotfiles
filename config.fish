@@ -1,3 +1,17 @@
+# alias
+alias am5="cd ~/p/sys;python3.6 -c 'from conn import amo5;amo5.root()'"
+alias am7="cd ~/p/sys;python3.6 -c 'from conn import amo7;amo7.root()'"
+alias am8="cd ~/p/sys;python3.6 -c 'from conn import amo8;amo8.root()'"
+alias am9="cd ~/p/sys;python3.6 -c 'from conn import amo9;amo9.psp()'"
+alias am10="cd ~/p/sys;python3.6 -c 'from conn import amo10;amo10.psp()'"
+alias amp1="cd ~/p/sys;python3.6 -c 'from conn import amp1;amp1.root()'"
+alias amp2="cd ~/p/sys;python3.6 -c 'from conn import amp2;amp2.root()'"
+alias lts1="cd ~/p/sys;python3.6 -c 'from conn import lts1;lts1.root()'"
+alias lts2="cd ~/p/sys;python3.6 -c 'from conn import lts2;lts2.root()'"
+alias smtp2="cd ~/p/sys;python3.6 -c 'from conn import smtp2;smtp2.root()'"
+alias ns1="cd ~/p/sys;python3.6 -c 'from conn import ns1;ns1.root()'"
+alias lock='xscreensaver-command -l'
+
 # Path to Oh My Fish install.
 set -q XDG_DATA_HOME
   and set -gx OMF_PATH "$XDG_DATA_HOME/omf"
@@ -36,6 +50,8 @@ abbr -a vv vim ~/p/vim
 abbr -a va vim ~/.config/alacritty/alacritty.yml
 abbr -a vn vim ~/Documents
 abbr -a vy vim ~/p/neo
+abbr -a vs vim ~/p/sys
+abbr -a ds cd ~/p/sys
 abbr -a sf source ~/.config/fish/config.fish
 abbr -a sb source ~/.bashrc
 abbr -a vf vim ~/.config/fish/config.fish
