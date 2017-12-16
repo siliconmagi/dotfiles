@@ -1,17 +1,21 @@
 # alias
-alias am5="cd ~/p/sys;python3.6 -c 'from conn import amo5;amo5.root()'"
-alias am7="cd ~/p/sys;python3.6 -c 'from conn import amo7;amo7.root()'"
-alias am8="cd ~/p/sys;python3.6 -c 'from conn import amo8;amo8.root()'"
-alias am9="cd ~/p/sys;python3.6 -c 'from conn import amo9;amo9.psp()'"
-alias am10="cd ~/p/sys;python3.6 -c 'from conn import amo10;amo10.psp()'"
-alias amp1="cd ~/p/sys;python3.6 -c 'from conn import amp1;amp1.root()'"
-alias amp2="cd ~/p/sys;python3.6 -c 'from conn import amp2;amp2.root()'"
-alias lts1="cd ~/p/sys;python3.6 -c 'from conn import lts1;lts1.root()'"
-alias lts2="cd ~/p/sys;python3.6 -c 'from conn import lts2;lts2.root()'"
-alias smtp2="cd ~/p/sys;python3.6 -c 'from conn import smtp2;smtp2.root()'"
-alias ns1="cd ~/p/sys;python3.6 -c 'from conn import ns1;ns1.root()'"
+alias am5="cd ~/p/sys;python3.6 -c 'from ifpex import amo5;amo5.root()'"
+alias am7="cd ~/p/sys;python3.6 -c 'from ifpex import amo7;amo7.root()'"
+alias am8="cd ~/p/sys;python3.6 -c 'from ifpex import amo8;amo8.root()'"
+alias am9="cd ~/p/sys;python3.6 -c 'from ifpex import amo9;amo9.root()'"
+alias am10="cd ~/p/sys;python3.6 -c 'from ifpex import amo10;amo10.root()'"
+alias amp1="cd ~/p/sys;python3.6 -c 'from ifpex import amp1;amp1.root()'"
+alias amp2="cd ~/p/sys;python3.6 -c 'from ifpex import amp2;amp2.root()'"
+alias lts1="cd ~/p/sys;python3.6 -c 'from ifpex import lts1;lts1.root()'"
+alias lts2="cd ~/p/sys;python3.6 -c 'from ifpex import lts2;lts2.root()'"
+alias smtp2="cd ~/p/sys;python3.6 -c 'from ifpex import smtp2;smtp2.root()'"
+alias ns1="cd ~/p/sys;python3.6 -c 'from ifpex import ns1;ns1.root()'"
 alias lock='xscreensaver-command -l'
 alias igd='python3.6 ~/p/neo/igd.py'
+alias vm='vim ~/p/neo/mail.txt'
+alias td='synclient TouchpadOff=1'
+alias te='synclient TouchpadOff=0'
+alias dv='cd ~/Videos'
 
 # Path to Oh My Fish install.
 set -q XDG_DATA_HOME
@@ -70,12 +74,11 @@ abbr -a gc git commit -m ''
 abbr -a gp git push
 abbr -a ng npm list -g --depth=0
 abbr -a db cd /media/xeno/BAK
-abbr -a dv cd /media/xeno/BAK/Videos
 abbr -a dn ~/p/neo
 abbr -a dp ~/p/python
 abbr -a dy ~/p/neo
 abbr -a dx ~/p/nuxt
-abbr -a gy python3.6 ~/p/neo/igp.py
+abbr -a gy python3.6 ~/p/neo/igy.py
 abbr -a gd python3.6 ~/p/neo/igd.py
 abbr -a gv python3.6 ~/p/neo/igv.py
 abbr -a pe pipenv run python

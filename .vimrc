@@ -106,6 +106,7 @@ Plug 'flazz/vim-colorschemes'
 Plug 'jiangmiao/auto-pairs'
 Plug 'slashmili/alchemist.vim'
 Plug 'davidhalter/jedi-vim'
+Plug 'ntpeters/vim-better-whitespace'
 " reason plugs
 " Plug 'reasonml-editor/vim-reason-plus'
 " Plug 'roxma/vim-hug-neovim-rpc'
@@ -164,9 +165,26 @@ set ruler
 set showtabline=0
 set t_Co=256
 " theme
+colorscheme mushroom
 " colorscheme chance-of-storm
-colorscheme greenvision
+" colorscheme greenvision
 " colorscheme hhazure
+" colorscheme birds-of-paradise
+" colorscheme distinguished
+" colorscheme forneus
+" colorscheme kruby
+" colorscheme neverness
+" colorscheme nightshimmer
+" colorscheme northland
+" colorscheme nour
+" colorscheme obsidian
+" colorscheme pacific
+" colorscheme paintbox
+" colorscheme flatland
+" colorscheme flattened_dark
+" colorscheme flattr
+" colorscheme gemcolors
+" colorscheme industrial
 
 " }}}
 
