@@ -16,6 +16,12 @@ alias vm='vim ~/p/neo/mail.txt'
 alias td='synclient TouchpadOff=1'
 alias te='synclient TouchpadOff=0'
 alias dv='cd ~/Videos'
+alias dkr='docker run -d -P'
+alias dkl='docker images'
+alias dkp='docker ps'
+alias dkk='docker kill'
+alias dki='docker info | head -n 5'
+alias dkr='docker rm -f (docker ps -a -q)'
 
 # Path to Oh My Fish install.
 set -q XDG_DATA_HOME
