@@ -23,6 +23,8 @@ alias dkk='docker kill'
 alias dki='docker info | head -n 5'
 alias dka='docker rm -f (docker ps -a -q)'
 alias dkr='docker rmi'
+alias dkt='docker tag'
+alias dkb='docker run -it t1 bash'
 
 # Path to Oh My Fish install.
 set -q XDG_DATA_HOME
