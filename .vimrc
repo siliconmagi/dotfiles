@@ -107,6 +107,9 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'slashmili/alchemist.vim'
 Plug 'davidhalter/jedi-vim'
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'epeli/slimux'
+" Plug 'jpalardy/vim-slime'
+
 " reason plugs
 " Plug 'reasonml-editor/vim-reason-plus'
 " Plug 'roxma/vim-hug-neovim-rpc'
@@ -376,8 +379,8 @@ nnoremap <leader>a :Ack!<space>
 xnoremap <leader>a y:Ack! <c-r>=fnameescape(@")<cr><cr>
 
 " Sorting
-xnoremap <leader>s :sort i<cr>
-nnoremap <leader>S vi{:sort<space>i<cr><c-o>
+" xnoremap <leader>s :sort i<cr>
+" nnoremap <leader>S vi{:sort<space>i<cr><c-o>
 
 " }}}
 
@@ -723,4 +726,18 @@ let g:LanguageClient_autoStart = 1
 " nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
 " nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
 " }}}
-"
+
+" slimux {{{
+set shell=/bin/sh
+map <Leader>s :SlimuxREPLSendLine<CR>
+vmap <Leader>s :SlimuxREPLSendSelection<CR>
+" vnoremap <Leader>s :<C-w>SlimuxShellRun %cpaste<CR>:'<,'>SlimuxREPLSendSelection<CR>:SlimuxShellRun<CR>
+map <Leader>b :SlimuxREPLSendBuffer<CR>
+map <Leader>a :SlimuxShellLast<CR>
+map <Leader>k :SlimuxSendKeysLast<CR>
+
+" ONLY FOR vim-slime
+" let g:slime_target = "tmux"
+" let g:slime_paste_file = "$HOME/.slime_paste"
+
+" }}}
