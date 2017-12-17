@@ -1,3 +1,5 @@
+# fix screen
+xrandr --output HDMI-1 --left-of eDP-1
 # alias
 alias am5="cd ~/p/sys;python3.6 -c 'from ifpex import amo5;amo5.root()'"
 alias am7="cd ~/p/sys;python3.6 -c 'from ifpex import amo7;amo7.root()'"
@@ -13,6 +15,8 @@ alias ns1="cd ~/p/sys;python3.6 -c 'from ifpex import ns1;ns1.root()'"
 alias lock='xscreensaver-command -l'
 alias igd='python3.6 ~/p/neo/igd.py'
 alias vm='vim ~/p/neo/mail.txt'
+alias vd='vim ~/Documents/todo'
+alias vl='vim ~/Documents/login'
 alias td='synclient TouchpadOff=1'
 alias te='synclient TouchpadOff=0'
 alias dv='cd ~/Videos'
@@ -25,6 +29,7 @@ alias dka='docker rm -f (docker ps -a -q)'
 alias dkr='docker rmi'
 alias dkt='docker tag'
 alias dkb='docker run -it t1 bash'
+alias vt='vim .tmux.conf.local'
 
 # Path to Oh My Fish install.
 set -q XDG_DATA_HOME
