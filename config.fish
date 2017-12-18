@@ -37,6 +37,8 @@ alias dkt='docker tag'
 alias dkb='docker run -it t1 bash'
 alias vt='vim ~/.tmux.conf.local'
 alias pt='ptpython'
+alias el='exa -l'
+alias ea='exa -la'
 
 # Path to Oh My Fish install.
 set -q XDG_DATA_HOME
