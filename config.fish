@@ -37,7 +37,7 @@ alias dkr='docker rmi'
 alias dkt='docker tag'
 alias dkb='docker run -it t1 bash'
 alias vt='vim ~/.tmux.conf.local'
-alias pt='ptpython'
+alias pt='ptipython'
 alias el='exa -l'
 alias ea='exa -la'
 
@@ -104,7 +104,7 @@ abbr -a dn ~/p/neo
 abbr -a dp ~/p/python
 abbr -a dy ~/p/neo
 abbr -a dx ~/p/nuxt
-abbr -a gy python3.6 ~/p/neo/igy.py
+abbr -a gy python3.6 ~/p/neo/igp.py
 abbr -a gd python3.6 ~/p/neo/igd.py
 abbr -a gv python3.6 ~/p/neo/igv.py
 abbr -a pe pipenv run python

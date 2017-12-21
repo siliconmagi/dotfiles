@@ -170,7 +170,16 @@ set ruler
 set showtabline=0
 set t_Co=256
 " theme
-colorscheme mushroom
+colorscheme pw
+" colorscheme pw
+" colorscheme pt_black
+" colorscheme ps_color
+" colorscheme predawn
+" colorscheme phd
+" colorscheme peppers
+" colorscheme penultimate
+" colorscheme pencil
+" colorscheme mushroom
 " colorscheme chance-of-storm
 " colorscheme greenvision
 " colorscheme hhazure
