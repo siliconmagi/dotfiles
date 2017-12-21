@@ -45,6 +45,8 @@ let g:netrw_banner=0
 
 " Plugins {{{
 call plug#begin('~/.vim/plugged\')
+Plug 'Quramy/tsuquyomi'
+Plug 'leafgarland/typescript-vim'
 Plug 'Valloric/YouCompleteMe'
 " Plug 'ternjs/tern_for_vim'
 " Plug 'vim-scripts/indentpython.vim'
@@ -740,4 +742,10 @@ map <Leader>k :SlimuxSendKeysLast<CR>
 " let g:slime_target = "tmux"
 " let g:slime_paste_file = "$HOME/.slime_paste"
 
+" }}}
+
+" typescript {{{
+let g:tsuquyomi_disable_quickfix = 1
+let g:syntastic_typescript_checkers = ['tsuquyomi']
+autocmd FileType typescript setlocal completeopt+=menu,preview
 " }}}

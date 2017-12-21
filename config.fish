@@ -1,10 +1,11 @@
 # fix screen
 # xrandr --output HDMI-1 --left-of eDP-1
-xrandr --output eDP-1 --left-of HDMI-1
+# xrandr --output eDP-1 --left-of HDMI-1
 # disable trackpad
 synclient TouchpadOff=1
 
 # alias
+alias rep='vim /etc/apt/sources.list'
 alias am5="cd ~/p/sys;python3.6 -c 'from ifpex import amo5;amo5.root()'"
 alias am7="cd ~/p/sys;python3.6 -c 'from ifpex import amo7;amo7.root()'"
 alias am8="cd ~/p/sys;python3.6 -c 'from ifpex import amo8;amo8.root()'"
@@ -68,11 +69,11 @@ setxkbmap -option caps:swapescape
 # set -gx PATH "/home/zeal/.cargo/bin"
 
 # add to path: cargo
-set -gx PATH /home/zeal/.cargo/bin $PATH
+set -gx PATH ~/.cargo/bin $PATH
 # add to path: pip
-set -gx PATH /home/zeal/.local/bin $PATH
+set -gx PATH ~/.local/bin $PATH
 # add path to yarn global bin
-set -gx PATH /home/zeal/.yarn/bin $PATH
+set -gx PATH ~/.yarn/bin $PATH
 
 abbr -a vr vim ~/.vimrc
 abbr -a v vim

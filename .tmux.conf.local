@@ -2,6 +2,17 @@ unbind C-b
 set -g prefix `
 bind ` send-prefix
 set -g default-terminal "xterm"
+#set-window-option -g mode-mouse on
+set -g mouse on
+setw -g mode-keys vi
+# copy and paste
+# COPY MODE:  prefix + [
+# move vim keys, begin selection:space, copy:y
+# PASTE: prefix + ]
+bind P paste-buffer
+bind-key -t vi-copy 'v' begin-selection
+bind-key -t vi-copy 'y' copy-selection
+bind-key -t vi-copy 'r' rectangle-toggle
 
 # https://github.com/gpakosz/.tmux
 # (‑●‑●)> dual licensed under the WTFPL v2 license and the MIT license,
