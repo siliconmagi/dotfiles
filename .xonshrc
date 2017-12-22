@@ -1,0 +1,20 @@
+$XONSH_COLOR_STYLE = 'paraiso-dark'
+$PROJECT_DIRS = '~/p'
+$PATH.append('/home/zeal/.cargo/bin')
+$PATH.append('/home/zeal/.local/bin')
+$PATH.append('/home/zeal/.yarn/bin')
+aliases['vx'] = ['vim', '~/.xonshrc']
+aliases['vc'] = ['vim', '~/.config/xonsh/config.json']
+aliases['vn'] = ['vim', '~/Documents']
+aliases['vl'] = ['vim', '~/Documents/login']
+aliases['vs'] = ['vim', '~/p/sys']
+aliases['sx'] = ['source', '~/.xonshrc']
+aliases['vr'] = ['vim', '~/.vimrc']
+aliases['ds'] = ['cd', '~/p/sys']
+aliases['vf'] = ['vim', '~/.config/fish/config.fish']
+aliases['mq'] = ['python', '~/p/sys/getmq.py']
+aliases['p'] = ['python']
+aliases['v'] = ['vim']
+aliases['ls'] = ['exa']
+aliases['pt'] = ['ptipython']
+

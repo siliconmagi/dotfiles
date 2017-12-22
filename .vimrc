@@ -45,6 +45,8 @@ let g:netrw_banner=0
 
 " Plugins {{{
 call plug#begin('~/.vim/plugged\')
+Plug 'epeli/slimux'
+" Plug 'jpalardy/vim-slime'
 Plug 'Quramy/tsuquyomi'
 Plug 'leafgarland/typescript-vim'
 Plug 'Valloric/YouCompleteMe'
@@ -109,8 +111,6 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'slashmili/alchemist.vim'
 Plug 'davidhalter/jedi-vim'
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'epeli/slimux'
-" Plug 'jpalardy/vim-slime'
 
 " reason plugs
 " Plug 'reasonml-editor/vim-reason-plus'
@@ -170,7 +170,7 @@ set ruler
 set showtabline=0
 set t_Co=256
 " theme
-colorscheme pw
+" colorscheme pw
 " colorscheme pw
 " colorscheme pt_black
 " colorscheme ps_color
@@ -180,7 +180,7 @@ colorscheme pw
 " colorscheme penultimate
 " colorscheme pencil
 " colorscheme mushroom
-" colorscheme chance-of-storm
+colorscheme chance-of-storm
 " colorscheme greenvision
 " colorscheme hhazure
 " colorscheme birds-of-paradise
@@ -432,6 +432,7 @@ augroup Vimrc
   au BufRead,BufNewFile *.{jscs,jshint,eslint}rc setfiletype json
   au BufRead,BufNewFile *.md setfiletype markdown
   au BufRead,BufNewFile *.vue set filetype=html
+  au BufRead,BufNewFile *.xonshrc set filetype=python
   " autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css
 
   " Update splits when the window is resized
@@ -559,6 +560,7 @@ let g:airline_powerline_fonts = 1
 " let g:airline#extensions#neomake#error_symbol='✖ :'
 " let g:airline#extensions#neomake#warning_symbol='⚠ :'
 " let g:airline_theme='luna'
+let g:airline_theme='deus'
 cnoreabbrev <expr> x getcmdtype() == ":" && getcmdline() == 'x' ? 'Sayonara' : 'x'
 nmap <leader>1 <Plug>AirlineSelectTab1
 nmap <leader>2 <Plug>AirlineSelectTab2
@@ -739,7 +741,7 @@ let g:LanguageClient_autoStart = 1
 " }}}
 
 " slimux {{{
-set shell=/bin/sh
+set shell=/bin/bash
 map <Leader>s :SlimuxREPLSendLine<CR>
 vmap <Leader>s :SlimuxREPLSendSelection<CR>
 " vnoremap <Leader>s :<C-w>SlimuxShellRun %cpaste<CR>:'<,'>SlimuxREPLSendSelection<CR>:SlimuxShellRun<CR>

@@ -1,0 +1,22 @@
+{
+ "xontribs": [
+  "apt_tabcomplete",
+  "autoxsh",
+  "coreutils",
+  "distributed",
+  "docker_tabcomplete",
+  "jedi",
+  "mpl",
+  "prompt_ret_code",
+  "whole_word_jumping",
+  "scrapy_tabcomplete",
+  "vox",
+  "vox_tabcomplete",
+  "avox",
+  "z",
+  "prompt_vi_mode",
+  "click_tabcomplete",
+  "fzf-widgets",
+  "schedule"
+ ]
+}
