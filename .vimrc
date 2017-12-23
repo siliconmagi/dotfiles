@@ -180,19 +180,12 @@ set t_Co=256
 " colorscheme penultimate
 " colorscheme pencil
 " colorscheme mushroom
-colorscheme chance-of-storm
+" colorscheme chance-of-storm
 " colorscheme greenvision
 " colorscheme hhazure
 " colorscheme birds-of-paradise
-" colorscheme distinguished
-" colorscheme forneus
 " colorscheme kruby
-" colorscheme neverness
-" colorscheme nightshimmer
-" colorscheme northland
-" colorscheme nour
-" colorscheme obsidian
-" colorscheme pacific
+colorscheme obsidian
 " colorscheme paintbox
 " colorscheme flatland
 " colorscheme flattened_dark

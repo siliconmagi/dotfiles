@@ -1,4 +1,4 @@
-$XONSH_COLOR_STYLE = 'paraiso-dark'
+$XONSH_COLOR_STYLE = 'native'
 $PROJECT_DIRS = '~/p'
 $PATH.append('/home/zeal/.cargo/bin')
 $PATH.append('/home/zeal/.local/bin')
@@ -7,6 +7,8 @@ aliases['vx'] = ['vim', '~/.xonshrc']
 aliases['vc'] = ['vim', '~/.config/xonsh/config.json']
 aliases['vn'] = ['vim', '~/Documents']
 aliases['vl'] = ['vim', '~/Documents/login']
+aliases['vm'] = ['vim', '~/p/neo/mail.txt']
+aliases['vq'] = ['vim', '~/p/sys/getmq.py']
 aliases['vs'] = ['vim', '~/p/sys']
 aliases['sx'] = ['source', '~/.xonshrc']
 aliases['vr'] = ['vim', '~/.vimrc']
@@ -17,4 +19,10 @@ aliases['p'] = ['python']
 aliases['v'] = ['vim']
 aliases['ls'] = ['exa']
 aliases['pt'] = ['ptipython']
-
+aliases['vt'] = ['vim', '~/.tmux.conf.local']
+aliases['la'] = ['exa', '-lah']
+aliases['ll'] = ['exa', '-l']
+aliases['wttr'] = ['http', 'wttr.in/Seattle']
+aliases['yx'] = ['youtube-dl', '-x']
+aliases['yy'] = ['youtube-dl']
+aliases['vv'] = ['vim', '~/p/vim']
