@@ -1,8 +1,12 @@
 $XONSH_COLOR_STYLE = 'native'
 $PROJECT_DIRS = '~/p'
+$N_PREFIX = '~/n'
 $PATH.append('/home/zeal/.cargo/bin')
 $PATH.append('/home/zeal/.local/bin')
 $PATH.append('/home/zeal/.yarn/bin')
+$PATH.append('/home/zeal/n/bin')
+$PATH.append('/home/zeal/.fzf/bin')
+$FZF_DEFAULT_COMMAND = 'rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 aliases['vx'] = ['vim', '~/.xonshrc']
 aliases['vc'] = ['vim', '~/.config/xonsh/config.json']
 aliases['vn'] = ['vim', '~/Documents']
@@ -17,6 +21,7 @@ aliases['vf'] = ['vim', '~/.config/fish/config.fish']
 aliases['mq'] = ['python', '~/p/sys/getmq.py']
 aliases['p'] = ['python']
 aliases['v'] = ['vim']
+aliases['f'] = ['fzf']
 aliases['ls'] = ['exa']
 aliases['pt'] = ['ptipython']
 aliases['vt'] = ['vim', '~/.tmux.conf.local']
@@ -27,3 +32,8 @@ aliases['yx'] = ['youtube-dl', '-x']
 aliases['yy'] = ['youtube-dl']
 aliases['vv'] = ['vim', '~/p/vim']
 aliases['gg'] = ['python', '~/p/sys/gitgud.py']
+aliases['sd'] = ['sudo', 'apt', 'update']
+aliases['sg'] = ['sudo', 'apt', 'upgrade']
+aliases['hr1'] = ['python', '/home/zeal/p/neo/hr1.py']
+aliases['hr2'] = ['python', '/home/zeal/p/neo/hr2.py']
+aliases['hr3'] = ['python', '/home/zeal/p/neo/hr3.py']

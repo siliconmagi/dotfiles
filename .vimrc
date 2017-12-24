@@ -1,5 +1,6 @@
 " silicon magi vimrc
 
+
 " Basics {{{
 set termguicolors
 set nocompatible
@@ -45,7 +46,17 @@ let g:netrw_banner=0
 
 " Plugins {{{
 call plug#begin('~/.vim/plugged\')
+" Plug 'zefei/vim-wintabs'
+" Plug 'bling/vim-bufferline'
+Plug 'jeetsukumaran/vim-buffergator'
+" Plug 'vim-scripts/bufexplorer.zip'
+Plug 'michaeljsmith/vim-indent-object'
+Plug 'terryma/vim-expand-region'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'mileszs/ack.vim'
+Plug 'vim-scripts/mru.vim'
 Plug 'epeli/slimux'
+Plug 'tweekmonster/braceless.vim'
 " Plug 'jpalardy/vim-slime'
 Plug 'Quramy/tsuquyomi'
 Plug 'leafgarland/typescript-vim'
@@ -97,7 +108,7 @@ Plug 'tpope/vim-markdown', {'for': 'markdown'}
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'tyru/markdown-codehl-onthefly.vim'
 Plug 'stephpy/vim-yaml', {'for': 'yaml'}
-Plug 'Konfekt/FastFold'
+" Plug 'Konfekt/FastFold'
 Plug 'majutsushi/tagbar'
 Plug 'airblade/vim-gitgutter'
 Plug 'mhinz/vim-signify'
@@ -233,10 +244,10 @@ set formatoptions+=t
 
 " Nicer defaults {{{
 " Split switching
-nmap <silent> <C-k> :wincmd k<CR>
-nmap <silent> <C-j> :wincmd j<CR>
-nmap <silent> <C-h> :wincmd h<CR>
-nmap <silent> <C-l> :wincmd l<CR>
+" nmap <silent> <C-k> :wincmd k<CR>
+" nmap <silent> <C-j> :wincmd j<CR>
+" nmap <silent> <C-h> :wincmd h<CR>
+" nmap <silent> <C-l> :wincmd l<CR>
 
 " jk escaping
 inoremap jk <esc>
@@ -246,10 +257,10 @@ nnoremap j gj
 nnoremap k gk
 
 " Move multiple lines with shift and ctrl
-noremap J 5j
-noremap K 5k
-noremap <C-j> :wincmd l
-noremap <C-k> :wincmd h
+noremap J 10j
+noremap K 10k
+" noremap <C-j> :wincmd l
+" noremap <C-k> :wincmd h
 
 " Align blocks of text and keep them selected
 vmap < <gv
@@ -296,10 +307,10 @@ nnoremap ! :!
 " Buffers & tabs {{{
 
 " Quit single buffer
-nnoremap <silent> <C-q> :q<CR>
+" nnoremap <silent> <C-q> :q<CR>
 
 " Quit all buffers
-nnoremap <silent> <C-w> :qa<CR>
+" nnoremap <silent> <C-w> :qa<CR>
 
 " Next tab
 " nnoremap <silent> <tab> :tabn<CR>
@@ -309,12 +320,12 @@ nnoremap <silent> <C-w> :qa<CR>
 " nnoremap <silent> <s-tab> :tabp<CR>
 
 " Quitting & writing
-nnoremap <leader>q :bp <bar> bd #<cr>
-nnoremap <leader>w :w<cr>
+" nnoremap <leader>q :bp <bar> bd #<cr>
+" nnoremap <leader>w :w<cr>
 
 " Switching
-nnoremap <leader>l :bnext<cr>
-nnoremap <leader>h :bprevious<cr>
+" nnoremap <leader>l :bnext<cr>
+" nnoremap <leader>h :bprevious<cr>
 " nnoremap <leader><leader>l :tabnext<cr>
 " nnoremap <leader><leader>h :tabprevious<cr>
 
@@ -336,10 +347,6 @@ nnoremap ,u :GundoToggle<cr>
 
 " Display {{{
 
-" space open/closes folds
-" leader space closes all folds but the current one
-nnoremap <space> za
-nnoremap <leader><space> zMzO
 
 " nnoremap <A-s> za
 " nnoremap <A-s><space> zMzO
@@ -492,8 +499,6 @@ autocmd FileType fish compiler fish
 " Set this to have long lines wrap inside comments.
 autocmd FileType fish setlocal textwidth=79
 
-" Enable folding of block structures in fish.
-autocmd FileType fish setlocal foldmethod=expr
 
 " Rust
 set hidden
@@ -699,7 +704,7 @@ let g:syntastic_python_checkers = ['flake8']
 
 " }}}
 
-" js syntax {{{
+" " js syntax {{{
 " bug: opens vim in replace
 " nnoremap <silent> <esc> :noh<cr>
 " use eslint to check js
@@ -753,3 +758,49 @@ let g:tsuquyomi_disable_quickfix = 1
 let g:syntastic_typescript_checkers = ['tsuquyomi']
 autocmd FileType typescript setlocal completeopt+=menu,preview
 " }}}
+
+" folds {{{
+"" space open/closes folds
+" leader space closes all folds but the current one
+nnoremap <space> za
+nnoremap <leader><space> zR
+
+" Enable folding of block structures in fish.
+autocmd FileType fish setlocal foldmethod=expr
+
+autocmd FileType python BracelessEnable +indent +fold +highlight
+" }}}
+
+" macros {{{
+" No need for ex mode
+nnoremap Q <nop>
+" recording macros is not my thing
+map q <Nop>
+" }}}
+
+" ctrl-p {{{
+let g:ctrlp_working_path_mode = 0
+
+let g:ctrlp_map = '<c-f>'
+map <leader>j :CtrlP<cr>
+map <c-b> :CtrlPBuffer<cr>
+
+let g:ctrlp_max_height = 20
+let g:ctrlp_custom_ignore = 'node_modules\|^\.DS_Store\|^\.git\|^\.coffee'
+
+let MRU_Max_Entries = 400
+map <leader>f :MRU<CR>
+" }}}
+
+" ag {{{
+"
+" Use the the_silver_searcher if possible (much faster than Ack)
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep --smart-case'
+endif
+
+" cmd to use rg instead of fzf
+command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
+
+" }}}
+
