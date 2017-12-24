@@ -78,7 +78,7 @@ Plug 'godlygeek/tabular'
 Plug 'junegunn/goyo.vim'
 Plug 'mileszs/ack.vim'
 Plug 'nathanaelkane/vim-indent-guides'
-Plug 'sjl/gundo.vim'
+" Plug 'sjl/gundo.vim'
 Plug 'tmhedberg/matchit'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
@@ -196,10 +196,10 @@ set t_Co=256
 " colorscheme hhazure
 " colorscheme birds-of-paradise
 " colorscheme kruby
-colorscheme obsidian
+" colorscheme obsidian
 " colorscheme paintbox
 " colorscheme flatland
-" colorscheme flattened_dark
+colorscheme flattened_dark
 " colorscheme flattr
 " colorscheme gemcolors
 " colorscheme industrial
@@ -287,13 +287,14 @@ cnoremap <c-e> <end>
 " nnoremap <tab> %
 
 " Keep cursor position when '*'ing
+
 nnoremap * *<c-o>
 
 " Select the line sans indentation
 nnoremap vv ^vg_
 
 " Don't search man pages when I'm too slow to shift
-vnoremap K k
+" vnoremap K k
 
 " Copy / Paste to / from clipboard
 xnoremap <c-c> "*y
@@ -534,7 +535,7 @@ nmap <silent> <F2> :NERDTreeFind<CR>
 let NERDTreeShowHidden=1
 
 " ,f to format code, requires formatters: read the docs
-noremap <leader>f :Autoformat<CR>
+noremap <leader>m :Autoformat<CR>
 
 " autoformat verbose mode
 let g:autoformat_verbosemode=1
@@ -743,7 +744,7 @@ set shell=/bin/bash
 map <Leader>s :SlimuxREPLSendLine<CR>
 vmap <Leader>s :SlimuxREPLSendSelection<CR>
 " vnoremap <Leader>s :<C-w>SlimuxShellRun %cpaste<CR>:'<,'>SlimuxREPLSendSelection<CR>:SlimuxShellRun<CR>
-map <Leader>b :SlimuxREPLSendBuffer<CR>
+map <Leader>u :SlimuxREPLSendBuffer<CR>
 map <Leader>a :SlimuxShellLast<CR>
 map <Leader>k :SlimuxSendKeysLast<CR>
 
