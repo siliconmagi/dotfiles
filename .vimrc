@@ -182,12 +182,8 @@ set showtabline=0
 set t_Co=256
 " theme
 " colorscheme pw
-" colorscheme pw
 " colorscheme pt_black
 " colorscheme ps_color
-" colorscheme predawn
-" colorscheme phd
-" colorscheme peppers
 " colorscheme penultimate
 " colorscheme pencil
 " colorscheme mushroom
@@ -195,11 +191,11 @@ set t_Co=256
 " colorscheme greenvision
 " colorscheme hhazure
 " colorscheme birds-of-paradise
-" colorscheme kruby
+colorscheme kruby
 " colorscheme obsidian
 " colorscheme paintbox
 " colorscheme flatland
-colorscheme flattened_dark
+" colorscheme flattened_dark
 " colorscheme flattr
 " colorscheme gemcolors
 " colorscheme industrial
@@ -257,8 +253,9 @@ nnoremap j gj
 nnoremap k gk
 
 " Move multiple lines with shift and ctrl
-noremap J 10j
-noremap K 10k
+nnoremap <c-j> 10j
+nnoremap <c-k> 10k
+
 " noremap <C-j> :wincmd l
 " noremap <C-k> :wincmd h
 

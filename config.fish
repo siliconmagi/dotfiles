@@ -1,10 +1,11 @@
 # fix screen
-xrandr --output HDMI-1 --left-of eDP-1
+# xrandr --output HDMI-1 --left-of eDP-1
 # xrandr --output eDP-1 --left-of HDMI-1
 # disable trackpad
 synclient TouchpadOff=1
 
 # alias
+alias rep='vim /etc/apt/sources.list'
 alias am5="cd ~/p/sys;python3.6 -c 'from ifpex import amo5;amo5.root()'"
 alias am7="cd ~/p/sys;python3.6 -c 'from ifpex import amo7;amo7.root()'"
 alias am8="cd ~/p/sys;python3.6 -c 'from ifpex import amo8;amo8.root()'"
@@ -36,11 +37,9 @@ alias dkr='docker rmi'
 alias dkt='docker tag'
 alias dkb='docker run -it t1 bash'
 alias vt='vim ~/.tmux.conf.local'
-alias vp='vim ~/.ptpython/config.py'
-alias pt='ptpython'
+alias pt='ptipython'
 alias el='exa -l'
 alias ea='exa -la'
-alias x='xonsh'
 
 # Path to Oh My Fish install.
 set -q XDG_DATA_HOME
@@ -70,11 +69,11 @@ setxkbmap -option caps:swapescape
 # set -gx PATH "/home/zeal/.cargo/bin"
 
 # add to path: cargo
-set -gx PATH /home/ice/.cargo/bin $PATH
+set -gx PATH ~/.cargo/bin $PATH
 # add to path: pip
-set -gx PATH /home/ice/.local/bin $PATH
+set -gx PATH ~/.local/bin $PATH
 # add path to yarn global bin
-set -gx PATH /home/ice/.yarn/bin $PATH
+set -gx PATH ~/.yarn/bin $PATH
 
 abbr -a vr vim ~/.vimrc
 abbr -a v vim
@@ -105,16 +104,16 @@ abbr -a dn ~/p/neo
 abbr -a dp ~/p/python
 abbr -a dy ~/p/neo
 abbr -a dx ~/p/nuxt
-abbr -a gy python3.6 ~/p/neo/igy.py
+abbr -a gy python3.6 ~/p/neo/igp.py
 abbr -a gd python3.6 ~/p/neo/igd.py
 abbr -a gv python3.6 ~/p/neo/igv.py
 abbr -a pe pipenv run python
 abbr -a pi pipenv install
 abbr -a ppa vim /etc/apt/sources.list.d/
 abbr -a r ranger
-abbr -a hr1 python ~/m/neo/hr1.py
-abbr -a hr2 python ~/m/neo/hr2.py
-abbr -a hr3 python ~/m/neo/hr3.py
+abbr -a hr1 python ~/p/neo/hr1.py
+abbr -a hr2 python ~/p/neo/hr2.py
+abbr -a hr3 python ~/p/neo/hr3.py
 abbr -a hm python mail.py
 abbr -a pes pipenv shell
 abbr setclip "xclip -selection c"
