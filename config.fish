@@ -70,11 +70,11 @@ setxkbmap -option caps:swapescape
 # set -gx PATH "/home/zeal/.cargo/bin"
 
 # add to path: cargo
-set -gx PATH /home/zeal/.cargo/bin $PATH
+set -gx PATH /home/ice/.cargo/bin $PATH
 # add to path: pip
-set -gx PATH /home/zeal/.local/bin $PATH
+set -gx PATH /home/ice/.local/bin $PATH
 # add path to yarn global bin
-set -gx PATH /home/zeal/.yarn/bin $PATH
+set -gx PATH /home/ice/.yarn/bin $PATH
 
 abbr -a vr vim ~/.vimrc
 abbr -a v vim
@@ -112,9 +112,9 @@ abbr -a pe pipenv run python
 abbr -a pi pipenv install
 abbr -a ppa vim /etc/apt/sources.list.d/
 abbr -a r ranger
-abbr -a hr1 python ~/p/neo/hr1.py
-abbr -a hr2 python ~/p/neo/hr2.py
-abbr -a hr3 python ~/p/neo/hr3.py
+abbr -a hr1 python ~/m/neo/hr1.py
+abbr -a hr2 python ~/m/neo/hr2.py
+abbr -a hr3 python ~/m/neo/hr3.py
 abbr -a hm python mail.py
 abbr -a pes pipenv shell
 abbr setclip "xclip -selection c"

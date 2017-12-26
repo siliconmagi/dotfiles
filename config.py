@@ -1,6 +1,5 @@
 """
 Configuration example for ``ptpython``.
-
 Copy this file to ~/.ptpython/config.py
 """
 from __future__ import unicode_literals
@@ -19,7 +18,6 @@ __all__ = (
 def configure(repl):
     """
     Configuration method. This is called during the start-up of ptpython.
-
     :param repl: `PythonRepl` instance.
     """
     # Show function signature (bool).
@@ -68,7 +66,7 @@ def configure(repl):
     repl.paste_mode = True
 
     # Use the classic prompt. (Display '>>>' instead of 'In [1]'.)
-    repl.prompt_style = 'ipython'  # 'classic' or 'ipython'
+    repl.prompt_style = 'classic'  # 'classic' or 'ipython'
 
     # Don't insert a blank line after the output.
     repl.insert_blank_line_after_output = False
@@ -105,7 +103,7 @@ def configure(repl):
 
     # Enable 24bit True color. (Not all terminals support this. -- maybe check
     # $TERM before changing.)
-    repl.true_color = True
+    repl.true_color = False
 
     # Install custom colorscheme named 'my-colorscheme' and use it.
     """
@@ -127,6 +125,7 @@ def configure(repl):
         if b.accept_action.is_returnable:
             b.accept_action.validate_and_handle(event.cli, b)
 
+
     # Typing 'jj' in Vi Insert mode, should send escape. (Go back to navigation
     # mode.)
     @repl.add_key_binding('j', 'j', filter=ViInsertMode())
@@ -137,22 +136,19 @@ def configure(repl):
     """
     # Custom key binding for some simple autocorrection while typing.
     corrections = {
-        'impotr': 'import',
-        'pritn': 'print',
+    'impotr': 'import',
+    'pritn': 'print',
     }
-
     @repl.add_key_binding(' ')
     def _(event):
-        ' When a space is pressed. Check & correct word before cursor. '
-        b = event.cli.current_buffer
-        w = b.document.get_word_before_cursor()
-
-        if w is not None:
-            if w in corrections:
-                b.delete_before_cursor(count=len(w))
-                b.insert_text(corrections[w])
-
-        b.insert_text(' ')
+    ' When a space is pressed. Check & correct word before cursor. '
+    b = event.cli.current_buffer
+    w = b.document.get_word_before_cursor()
+    if w is not None:
+    if w in corrections:
+    b.delete_before_cursor(count=len(w))
+    b.insert_text(corrections[w])
+    b.insert_text(' ')
     """
 
 

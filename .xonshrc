@@ -1,39 +1,41 @@
 $XONSH_COLOR_STYLE = 'native'
-$PROJECT_DIRS = '~/p'
+$PROJECT_DIRS = '~/m'
 $N_PREFIX = '~/n'
-$PATH.append('/home/zeal/.cargo/bin')
-$PATH.append('/home/zeal/.local/bin')
-$PATH.append('/home/zeal/.yarn/bin')
-$PATH.append('/home/zeal/n/bin')
-$PATH.append('/home/zeal/.fzf/bin')
+$PATH.append('/home/ice/.cargo/bin')
+$PATH.append('/home/ice/.local/bin')
+$PATH.append('/home/ice/.yarn/bin')
+$PATH.append('/home/ice/n/bin')
+$PATH.append('/home/ice/.fzf/bin')
+$PATH.append('/home/ice/apps/thonny/bin/')
 $FZF_DEFAULT_COMMAND = 'rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 aliases['vx'] = ['vim', '~/.xonshrc']
 aliases['vc'] = ['vim', '~/.config/xonsh/config.json']
 aliases['vn'] = ['vim', '~/Documents']
 aliases['vl'] = ['vim', '~/Documents/login']
-aliases['vm'] = ['vim', '~/p/neo/mail.txt']
-aliases['vq'] = ['vim', '~/p/sys/getmq.py']
-aliases['vs'] = ['vim', '~/p/sys']
+aliases['vm'] = ['vim', '~/m/mail']
+aliases['vq'] = ['vim', '~/m/sys/getmq.py']
+aliases['vs'] = ['vim', '~/m/sys']
+aliases['vp'] = ['vim', '~/.ptpython/config.py']
 aliases['sx'] = ['source', '~/.xonshrc']
 aliases['vr'] = ['vim', '~/.vimrc']
-aliases['ds'] = ['cd', '~/p/sys']
+aliases['ds'] = ['cd', '~/m/sys']
 aliases['vf'] = ['vim', '~/.config/fish/config.fish']
-aliases['mq'] = ['python', '~/p/sys/getmq.py']
+aliases['mq'] = ['python', '~/m/sys/getmq.py']
 aliases['p'] = ['python']
 aliases['v'] = ['vim']
 aliases['f'] = ['fzf']
-aliases['ls'] = ['exa']
 aliases['pt'] = ['ptipython']
 aliases['vt'] = ['vim', '~/.tmux.conf.local']
 aliases['la'] = ['exa', '-lah']
-aliases['ll'] = ['exa', '-l']
-aliases['wttr'] = ['http', 'wttr.in/Seattle']
+aliases['l'] = ['exa', '-lh']
+aliases['wt'] = ['http', 'wttr.in/Seattle']
 aliases['yx'] = ['youtube-dl', '-x']
 aliases['yy'] = ['youtube-dl']
-aliases['vv'] = ['vim', '~/p/vim']
-aliases['gg'] = ['python', '~/p/sys/gitgud.py']
+aliases['vv'] = ['vim', '~/m/vim']
+aliases['gg'] = ['python', '~/m/sys/gitgud.py']
 aliases['sd'] = ['sudo', 'apt', 'update']
 aliases['sg'] = ['sudo', 'apt', 'upgrade']
-aliases['hr1'] = ['python', '/home/zeal/p/neo/hr1.py']
-aliases['hr2'] = ['python', '/home/zeal/p/neo/hr2.py']
-aliases['hr3'] = ['python', '/home/zeal/p/neo/hr3.py']
+aliases['hr1'] = ['python', '/home/ice/p/neo/hr1.py']
+aliases['hr2'] = ['python', '/home/ice/p/neo/hr2.py']
+aliases['hr3'] = ['python', '/home/ice/p/neo/hr3.py']
+aliases['ssh'] = ['ssh-add', '~/.ssh/id_rsa']
