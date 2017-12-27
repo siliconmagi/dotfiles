@@ -19,7 +19,7 @@ window:
   # Falls back to size specified by window manager if set to 0x0.
   # (changes require restart)
   dimensions:
-    columns: 125
+    columns: 135
     lines: 50
 
   # Adds this many blank pixels of padding around the window
@@ -86,7 +86,7 @@ font:
     # style: Italic
 
   # Point size of the font
-  size: 13.0
+  size: 12.0
 
   # fix?
   # use_thin_strokes: False

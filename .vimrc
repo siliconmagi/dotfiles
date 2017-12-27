@@ -181,6 +181,17 @@ set ruler
 set showtabline=0
 set t_Co=256
 " theme
+colorscheme base16-ateliercave
+" colorscheme antares
+" colorscheme abra
+" colorscheme VIvid
+" colorscheme Tomorrow-Night
+" colorscheme Tomorrow-Night-Eighties
+" colorscheme Spink
+" colorscheme Revolution
+" colorscheme Chasing_Logic
+" colorscheme ChocolatePapaya
+" colorscheme ChocolateLiquor
 " colorscheme pw
 " colorscheme pt_black
 " colorscheme ps_color
@@ -191,7 +202,7 @@ set t_Co=256
 " colorscheme greenvision
 " colorscheme hhazure
 " colorscheme birds-of-paradise
-colorscheme kruby
+" colorscheme kruby
 " colorscheme obsidian
 " colorscheme paintbox
 " colorscheme flatland
@@ -766,6 +777,7 @@ nnoremap <leader><space> zR
 " Enable folding of block structures in fish.
 autocmd FileType fish setlocal foldmethod=expr
 
+" braceless
 autocmd FileType python BracelessEnable +indent +fold +highlight
 " }}}
 
