@@ -19,7 +19,7 @@ window:
   # Falls back to size specified by window manager if set to 0x0.
   # (changes require restart)
   dimensions:
-    columns: 135
+    columns: 200
     lines: 50
 
   # Adds this many blank pixels of padding around the window

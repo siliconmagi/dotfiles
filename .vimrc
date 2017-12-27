@@ -21,6 +21,7 @@ set iskeyword-=_
 set lazyredraw
 " set matchpairs+=<1>
 set nobackup
+set nowb
 set noswapfile
 set nowritebackup
 set showbreak=>
@@ -814,3 +815,11 @@ command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-h
 
 " }}}
 
+" persist undo {{{
+" mkdir -p ~/.vim_runtime/temp_dirs/undodir
+try
+  set undodir=~/.vim_runtime/temp_dirs/undodir
+  set undofile
+catch
+endtry
+" }}}

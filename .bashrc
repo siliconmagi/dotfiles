@@ -1,3 +1,6 @@
+
+alias ltpop25="ssh -f -N -D9050 pspinc@216.230.243.216; proxychains rdesktop -u sysop -p 'XDC#\$567ftz' 10.1.250.115"
+alias ltpop26="ssh -f -N -D9050 pspinc@216.230.243.216; proxychains rdesktop -u sysop -p 'XDC#\$567ftz' 10.1.250.116"
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
@@ -113,3 +116,5 @@ if ! shopt -oq posix; then
 fi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).

@@ -1,14 +1,21 @@
+def _ice(*args, stdin=None):
+    cd ~/m/sys and python ice.py
+
 $XONSH_COLOR_STYLE = 'native'
 $PROJECT_DIRS = '~/m'
 $N_PREFIX = '~/n'
-$PATH.append('/home/able/.cargo/bin')
-$PATH.append('/home/able/.local/bin')
-$PATH.append('/home/able/.yarn/bin')
-$PATH.append('/home/able/n/bin')
-$PATH.append('/home/able/.fzf/bin')
-$PATH.append('/home/able/apps/thonny/bin/')
+$PATH.append('/home/ice/.cargo/bin')
+$PATH.append('/home/ice/.local/bin')
+$PATH.append('/home/ice/.yarn/bin')
+$PATH.append('/home/ice/n/bin')
+$PATH.append('/home/ice/.fzf/bin')
+$PATH.append('/home/ice/apps/thonny/bin/')
+$FZF_DEFAULT_COMMAND = 'rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+aliases['ice'] = _ice
+aliases['lock'] = ['xscreensaver-command', '-l']
 aliases['vx'] = ['vim', '~/.xonshrc']
-aliases['va'] = ['vim', '~/.alacritty.yml']
+aliases['vi'] = ['vim', '~/m/sys/ice.py']
+aliases['va'] = ['vim', '~/.config/alacritty/alacritty.yml']
 aliases['vc'] = ['vim', '~/.config/xonsh/config.json']
 aliases['vn'] = ['vim', '~/Documents']
 aliases['vl'] = ['vim', '~/Documents/login']
@@ -35,7 +42,7 @@ aliases['vv'] = ['vim', '~/m/vim']
 aliases['gg'] = ['python', '~/m/sys/gitgud.py']
 aliases['sd'] = ['sudo', 'apt', 'update']
 aliases['sg'] = ['sudo', 'apt', 'upgrade']
-aliases['hr1'] = ['python', '/home/able/p/neo/hr1.py']
-aliases['hr2'] = ['python', '/home/able/p/neo/hr2.py']
-aliases['hr3'] = ['python', '/home/able/p/neo/hr3.py']
+aliases['hr1'] = ['python', '/home/ice/p/neo/hr1.py']
+aliases['hr2'] = ['python', '/home/ice/p/neo/hr2.py']
+aliases['hr3'] = ['python', '/home/ice/p/neo/hr3.py']
 aliases['ssh'] = ['ssh-add', '~/.ssh/id_rsa']
