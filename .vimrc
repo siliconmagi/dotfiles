@@ -182,7 +182,7 @@ set ruler
 set showtabline=0
 set t_Co=256
 " theme
-colorscheme base16-ateliercave
+" colorscheme base16-ateliercave
 " colorscheme antares
 " colorscheme abra
 " colorscheme VIvid
@@ -197,7 +197,7 @@ colorscheme base16-ateliercave
 " colorscheme pt_black
 " colorscheme ps_color
 " colorscheme penultimate
-" colorscheme pencil
+colorscheme pencil
 " colorscheme mushroom
 " colorscheme chance-of-storm
 " colorscheme greenvision

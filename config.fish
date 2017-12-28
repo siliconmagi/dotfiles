@@ -19,7 +19,11 @@ alias ns1="cd ~/p/sys;python3.6 -c 'from ifpex import ns1;ns1.root()'"
 alias blog="cd ~/p/sys;python3.6 -c 'from ifpex import blog;blog.root()'"
 alias lock='xscreensaver-command -l'
 alias igd='python3.6 ~/p/neo/igd.py'
-alias vm='vim ~/p/neo/mail.txt'
+alias ice='cd ~/m/sys;python ice.py'
+alias sh='pipenv shell'
+alias vm='vim ~/m/mail'
+alias l='exa -lh'
+alias la='exa -lah'
 alias vd='vim ~/Documents/todo'
 alias vl='vim ~/Documents/login'
 alias vb='vim ~/.bashrc'
@@ -69,21 +73,26 @@ setxkbmap -option caps:swapescape
 # path pip3
 # set -gx PATH "/home/zeal/.cargo/bin"
 
-# add to path: cargo
+# add to path
 set -gx PATH /home/ice/.cargo/bin $PATH
-# add to path: pip
 set -gx PATH /home/ice/.local/bin $PATH
-# add path to yarn global bin
-set -gx PATH /home/ice/.yarn/bin $PATH
+set -gx PATH /home/ice/n/bin $PATH
+set -gx PATH /home/ice/.fzf/bin $PATH
+set -gx PATH /home/ice/apps/thonny/bin $PATH
 
+
+abbr -a gg python ~/m/sys/gitgud.py
 abbr -a vr vim ~/.vimrc
 abbr -a v vim
-abbr -a vv vim ~/p/vim
+abbr -a vv vim ~/m/vim
 abbr -a va vim ~/.config/alacritty/alacritty.yml
 abbr -a vn vim ~/Documents
-abbr -a vy vim ~/p/neo
-abbr -a vs vim ~/p/sys
-abbr -a ds cd ~/p/sys
+abbr -a vy vim ~/m/neo
+abbr -a vs vim ~/m/sys
+abbr -a vi vim ~/m/sys/ice.py
+abbr -a vp vim ~/.ptpython/config.py
+abbr -a ds cd ~/m/sys
+abbr -a dm cd ~/Music
 abbr -a sf source ~/.config/fish/config.fish
 abbr -a sb source ~/.bashrc
 abbr -a vf vim ~/.config/fish/config.fish
