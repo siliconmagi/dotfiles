@@ -1,10 +1,16 @@
+# add ssh-key to agent
+# ssh-add ~/.ssh/id_rsa
+
 # fix screen
-xrandr --output HDMI-1 --left-of eDP-1
-# xrandr --output eDP-1 --left-of HDMI-1
+# xrandr --output HDMI-1 --left-of eDP-1
+xrandr --output eDP-1 --left-of HDMI-1
+# xrandr --output eDP-1 --rotate right
+
 # disable trackpad
 synclient TouchpadOff=1
 
 # alias
+alias ssh='ssh-add ~/.ssh/id_rsa'
 alias am5="cd ~/p/sys;python3.6 -c 'from ifpex import amo5;amo5.root()'"
 alias am7="cd ~/p/sys;python3.6 -c 'from ifpex import amo7;amo7.root()'"
 alias am8="cd ~/p/sys;python3.6 -c 'from ifpex import amo8;amo8.root()'"
@@ -95,6 +101,7 @@ abbr -a ds cd ~/m/sys
 abbr -a dm cd ~/Music
 abbr -a sf source ~/.config/fish/config.fish
 abbr -a sb source ~/.bashrc
+abbr -a st source ~/.tmux.conf.local
 abbr -a vf vim ~/.config/fish/config.fish
 abbr -a red redshift -O 1700K
 abbr -a ff /opt/firefox/firefox

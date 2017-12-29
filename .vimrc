@@ -197,14 +197,14 @@ set t_Co=256
 " colorscheme pt_black
 " colorscheme ps_color
 " colorscheme penultimate
-colorscheme pencil
+" colorscheme pencil
 " colorscheme mushroom
 " colorscheme chance-of-storm
 " colorscheme greenvision
 " colorscheme hhazure
 " colorscheme birds-of-paradise
 " colorscheme kruby
-" colorscheme obsidian
+colorscheme obsidian
 " colorscheme paintbox
 " colorscheme flatland
 " colorscheme flattened_dark
