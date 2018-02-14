@@ -1,0 +1,66 @@
+# set vi mode
+set -o vi
+
+# fix screen
+# xrandr --output HDMI-1 --left-of eDP-1
+xrandr --output eDP-1 --left-of HDMI-1
+# xrandr --output eDP-1 --rotate right
+
+# disable trackpad
+synclient TouchpadOff=1
+
+# swap escape with capslock
+setxkbmap -option caps:swapescape
+
+# scripts, chmod 755
+# alias lg='~/.ion/log.ion'
+
+alias lg='p ~/m/lab/log/l3.py in'
+alias gp='git push'
+alias gc='git commit -m "'
+alias ga='git add -A'
+alias sec='vim ~/m/sys/secret.csv'
+alias all='p ~/m/sys/neon.py all'
+alias v='vim'
+alias ice='p ice.py'
+alias si='source ~/.config/ion/initrc'
+alias vd='vim ~/Documents/todo'
+alias vs='vim ~/m/lab/log/secret.csv'
+alias vi='vim ~/.config/ion/initrc'
+alias vv='vim ~/m/vim'
+alias vm='vim ~/Documents/mail'
+alias vn='vim ~/Documents'
+alias vr='vim ~/.vimrc'
+alias vt='vim ~/.tmux.conf.local'
+alias ds='cd ~/m/sys'
+alias dl='cd ~/m/lab/log'
+alias ff='/opt/firefox/firefox'
+alias va='vim ~/.config/alacritty/alacritty.yml'
+alias dn='cd ~/Documents'
+alias p='python'
+alias pt='ptipython'
+alias l='exa'
+alias la='exa -la'
+alias ri='rustup run nightly-2016-08-01 ~/.cargo/bin/rusti'
+alias ad='sudo apt update'
+alias ag='sudo apt upgrade'
+alias lock='xflock4'
+alias vf='vim ~/.config/fish/config.fish'
+alias ro='redshift -O 2700K'
+alias rd='redshift'
+alias rf='redshift -O 3700K'
+alias yx='youtube-dl -x'
+alias yv='youtube-dl'
+alias lr='livereload'
+
+# path
+# go config
+export GOROOT=/usr/local/go
+export GOPATH=$HOME/go
+# export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+# export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+# n config
+export N_PREFIX=$HOME/n
+export RUST_SRC_PATH='/home/ice/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
+# setup PATH
+export PATH=$PATH:~/.local/bin:$N_PREFIX/bin
